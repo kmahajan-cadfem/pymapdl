@@ -5,6 +5,7 @@ import weakref
 import pytest
 
 from ansys.mapdl import core as pymapdl
+from ansys.mapdl.core.errors import LicenseServerConnectionError
 from ansys.mapdl.core.launcher import (
     _validate_add_sw,
     _version_from_path,
@@ -41,6 +42,8 @@ versions = [
     "202",  # 2020R2
     "211",  # 2021R1
     "212",  # 2021R2
+    "221",  # 2022R1
+    "222",  # 2022R2
 ]
 
 valid_versions = []
@@ -58,10 +61,17 @@ paths = [
 ]
 
 
-@pytest.mark.skipif(
+skip_no_start_instance = pytest.mark.skipif(
     not get_start_instance(), reason="Skip when start instance is disabled"
 )
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+
+skip_mapdl_not_installed = pytest.mark.skipif(
+    not valid_versions, reason="Requires MAPDL installed."
+)
+
+
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.skipif(os.name != "nt", reason="Requires Windows")
 def test_validate_sw():
     # ensure that windows adds msmpi
@@ -71,29 +81,23 @@ def test_validate_sw():
     assert "msmpi" in add_sw
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.parametrize("path_data", paths)
 def test_version_from_path(path_data):
     exec_file, version = path_data
     assert _version_from_path(exec_file) == version
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 def test_catch_version_from_path():
     with pytest.raises(RuntimeError):
         _version_from_path("abc")
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.skipif(os.name != "posix", reason="Requires Linux")
 def test_find_ansys_linux():
     # assuming ansys is installed, should be able to find it on linux
@@ -103,20 +107,16 @@ def test_find_ansys_linux():
     assert isinstance(ver, float)
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 def test_invalid_mode():
     with pytest.raises(ValueError):
         exec_file = get_ansys_bin(valid_versions[0])
         pymapdl.launch_mapdl(exec_file, mode="notamode")
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.skipif(not os.path.isfile(V150_EXEC), reason="Requires v150")
 def test_old_version():
     exec_file = get_ansys_bin("150")
@@ -124,10 +124,8 @@ def test_old_version():
         pymapdl.launch_mapdl(exec_file, mode="corba")
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.skipif(not os.name == "nt", reason="Requires windows")
 @pytest.mark.console
 def test_failed_console():
@@ -136,10 +134,8 @@ def test_failed_console():
         pymapdl.launch_mapdl(exec_file, mode="console")
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.parametrize("version", valid_versions)
 @pytest.mark.console
 @pytest.mark.skipif(os.name != "posix", reason="Only supported on Linux")
@@ -149,10 +145,8 @@ def test_launch_console(version):
     assert mapdl.version == int(version) / 10
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 @pytest.mark.corba
 @pytest.mark.parametrize("version", valid_versions)
 def test_launch_corba(version):
@@ -166,10 +160,8 @@ def test_launch_corba(version):
     assert mapdl_ref() is None
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 def test_license_type_keyword():
     # This test might became a way to check available licenses, which is not the purpose.
 
@@ -193,10 +185,8 @@ def test_license_type_keyword():
     mapdl.exit()
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 def test_license_type_keyword_names():
     # This test might became a way to check available licenses, which is not the purpose.
 
@@ -214,10 +204,8 @@ def test_license_type_keyword_names():
     assert successful_check  # if at least one license is ok, this should be true.
 
 
-@pytest.mark.skipif(
-    not get_start_instance(), reason="Skip when start instance is disabled"
-)
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_no_start_instance
+@skip_mapdl_not_installed
 def test_license_type_additional_switch():
     # This test might became a way to check available licenses, which is not the purpose.
     successful_check = False
@@ -225,24 +213,23 @@ def test_license_type_additional_switch():
         mapdl = launch_mapdl(additional_switches=" -p" + license_name)
 
         # Using first line to ensure not picking up other stuff.
-        successful_check = (
-            license_description in mapdl.__str__().split("\n")[0] or successful_check
-        )
+        successful_check = license_description in mapdl.__str__().split("\n")[0]
         mapdl.exit()
+
+        if successful_check:
+            break
 
     assert successful_check  # if at least one license is ok, this should be true.
 
     dummy_license_name = "dummy"
-    # I had to scape the parenthesis because the match argument uses regex.
-    expected_warn = f"The additional switch product value \('-p {dummy_license_name}'\) is not a recognized license name or has been deprecated"
-    with pytest.warns(UserWarning, match=expected_warn):
+
+    with pytest.raises(LicenseServerConnectionError):
         mapdl = launch_mapdl(additional_switches=f" -p {dummy_license_name}")
-        # regardless the license specification, it should lunch.
-        assert mapdl.is_alive
+
     mapdl.exit()
 
 
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_mapdl_not_installed
 @pytest.mark.parametrize(
     "exe_loc",
     [
@@ -256,7 +243,7 @@ def test_save_ansys_path(exe_loc):
     assert os.path.exists(path_)
 
 
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_mapdl_not_installed
 @pytest.mark.parametrize(
     "file,result",
     [
@@ -276,7 +263,7 @@ def test_is_valid_executable_path(tmpdir, file, result):
     assert is_valid_executable_path(filename) == result
 
 
-@pytest.mark.skipif(not valid_versions, reason="Requires MAPDL installed.")
+@skip_mapdl_not_installed
 @pytest.mark.parametrize(
     "file_path,result",
     [
