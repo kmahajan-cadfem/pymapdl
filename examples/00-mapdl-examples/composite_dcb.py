@@ -428,14 +428,23 @@ plt.ylabel("Force [N]")
 plt.xlabel("Displacement [mm]")
 plt.show()
 
-###############################################################################
 # Animate results using PyDPF with .anmiate() method
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Use PyDPF method :func:`FieldsContainer.animate() <ansys.dpf.core.fields_container.FieldsContainer.animate>` to visualize the crack opening throughout the simulation as
 # an animation.
-disp = model.results.displacement.on_all_time_freqs.eval()
-camera_pos = disp.animate(
-    scale_factor=10.0, save_as="dcb_animate.gif", return_cpos=True, show_axes=True
+disp_op = model.results.displacement.on_all_time_freqs
+dmg_op = dpf.operators.result.nmisc(data_sources=data_src, item_index=70)
+dmg_op.inputs.time_scoping(range(1, 101))
+
+dmg_fc = dmg_op.eval()
+dmg_fc.animate(
+    deform_by=disp_op,
+    scale_factor=1.0,
+    save_as="dcb_animate.gif",
+    return_cpos=True,
+    show_axes=True,
+    opacity=0.9,
+    scalar_bar_args={"title": "Cohesive Damage"},
 )
 
 ###############################################################################
