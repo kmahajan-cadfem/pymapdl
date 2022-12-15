@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
@@ -56,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Initial setup and launch of MAPDL locally" href="launcher.html" />
-    <link rel="prev" title="PyAnsys libraries on a Windows Subsystem for Linux and Docker" href="../getting_started/wsl.html" />
+    <link rel="prev" title="Contributing" href="../getting_started/contribution.html" />
 <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
 
@@ -121,26 +122,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../examples/index.html">
   Examples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../learning/index.html">
-  Learning PyMAPDL
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../troubleshoot/index.html">
-  Troubleshooting
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../contribution_and_api/index.html">
-  Contributing and API
  </a>
 </li>
 
@@ -251,6 +240,10 @@ function checkPageExistsAndRedirect(event) {
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyansys/pymapdl/discussions" rel="noopener" target="_blank" title="Support"><span><i class="fa fa-comment fa-fw"></i></span>
             <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mapdl.docs.pyansys.com/release/dev/getting_started/contribution.html" rel="noopener" target="_blank" title="Contribute"><span><i class="fa fa-wrench"></i></span>
+            <label class="sr-only">Contribute</label></a>
         </li>
       </ul>
       </div>
@@ -381,6 +374,11 @@ function checkPageExistsAndRedirect(event) {
    Harmonic analysis using the Krylov method
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshoot.html">
+   Troubleshooting PyMAPDL
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -450,15 +448,15 @@ function checkPageExistsAndRedirect(event) {
 </div>
 <section id="pymapdl-overview">
 <h2>PyMAPDL overview<a class="headerlink" href="#pymapdl-overview" title="Permalink to this heading">#</a></h2>
-<p>The <a class="reference internal" href="../contribution_and_api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a> function
+<p>The <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a> function
 within the <code class="docutils literal notranslate"><span class="pre">ansys-mapdl-core</span></code> library creates an instance of the
-<a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class in the background and sends
+<a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class in the background and sends
 commands to that service. Errors and warnings are processed
 Pythonically, letting you develop a script in real time, without
 worrying about it functioning correctly when deployed in batch
 mode.</p>
 <p>MAPDL can be started from Python in gRPC mode using the
-<a class="reference internal" href="../contribution_and_api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a> method. This starts
+<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a> method. This starts
 MAPDL in a temporary directory by default. You can change this to
 your current directory with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -504,7 +502,7 @@ example, if you input an invalid command:</p>
 you can write your MAPDL scripts in Python, run them interactively, and
 then run them as a batch without worrying if the script would run correctly if
 you had instead outputted it to a script file.</p>
-<p>The <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class supports much more
+<p>The <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class supports much more
 than just sending text to MAPDL. It includes higher-level wrapping,
 allowing for better scripting and interaction with MAPDL. For an overview of the
 various advanced methods to visualize, script, and interact with MAPDL, see
@@ -512,7 +510,7 @@ various advanced methods to visualize, script, and interact with MAPDL, see
 <section id="calling-mapdl-pythonically">
 <h3>Calling MAPDL Pythonically<a class="headerlink" href="#calling-mapdl-pythonically" title="Permalink to this heading">#</a></h3>
 <p>MAPDL functions can be called directly from an instance of
-<a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> in a Pythonic manner. This is
+<a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> in a Pythonic manner. This is
 to simplify calling Ansys, especially when inputs are variables within
 Python. For example, the following two commands are equivalent:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -563,7 +561,7 @@ area creation example, you can instead run:</p>
 </pre></div>
 </div>
 <p>This approach has some obvious advantages, chiefly that it’s a bit
-easier to script as <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>
+easier to script as <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>
 takes care of the string formatting for you. For example, inputting
 points from a numpy array:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -615,7 +613,7 @@ with it. For example:</p>
 <span class="go">    recommended.</span>
 </pre></div>
 </div>
-<p>For stability considerations, see <a class="reference internal" href="../troubleshoot/troubleshoot.html#ref-pymapdl-stability"><span class="std std-ref">PyMAPDL stability</span></a>.</p>
+<p>For stability considerations, see <a class="reference internal" href="troubleshoot.html#ref-pymapdl-stability"><span class="std std-ref">PyMAPDL stability</span></a>.</p>
 </section>
 </section>
 </section>

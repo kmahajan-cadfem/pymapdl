@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/ansys_sphinx_theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
@@ -120,27 +121,15 @@
  </a>
 </li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api/index.html">
+  API reference
+ </a>
+</li>
+
 <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../../index.html">
   Examples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../learning/index.html">
-  Learning PyMAPDL
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../troubleshoot/index.html">
-  Troubleshooting
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../contribution_and_api/index.html">
-  Contributing and API
  </a>
 </li>
 
@@ -251,6 +240,10 @@ function checkPageExistsAndRedirect(event) {
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyansys/pymapdl/discussions" rel="noopener" target="_blank" title="Support"><span><i class="fa fa-comment fa-fw"></i></span>
             <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mapdl.docs.pyansys.com/release/dev/getting_started/contribution.html" rel="noopener" target="_blank" title="Contribute"><span><i class="fa fa-wrench"></i></span>
+            <label class="sr-only">Contribute</label></a>
         </li>
       </ul>
       </div>
@@ -848,16 +841,16 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     1754.791683493
-    2     9255.393153002
-    3     10975.87848934
-    4     11515.67539529
-    5     21840.50647024
-    6     26925.16430748
-    7     33190.75885989
-    8     34449.58555329
-    9     38317.00919854
-   10     56181.40815056
+    1     1754.791682608
+    2     9255.393083462
+    3     10975.87855174
+    4     11515.67513998
+    5     21840.50593155
+    6     26925.16402198
+    7     33190.75839429
+    8     34449.58538534
+    9     38317.00891675
+   10     56181.41344854
 
  GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS
 
@@ -896,16 +889,16 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     4016.683039090
-    2     4016.683047482
-    3     4064.737843745
-    4     4064.737847693
-    5     10313.66913380
-    6     10313.66920873
-    7     14213.07107607
-    8     14213.07125402
-    9     19293.02903601
-   10     19293.02904385
+    1     4016.683043767
+    2     4016.683048042
+    3     4064.737840023
+    4     4064.737847585
+    5     10313.66920000
+    6     10313.66923759
+    7     14213.07125922
+    8     14213.07136117
+    9     19293.02904479
+   10     19293.02905911
 
  GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS
 
@@ -945,11 +938,11 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
     1     1057.627660261
-    2     1057.627660280
+    2     1057.627660279
     3     3380.551787121
-    4     3380.551787123
+    4     3380.551787122
     5     6319.916392199
-    6     6319.916392208
+    6     6319.916392207
     7     10091.69582739
     8     10091.69582740
     9     18041.48697678
@@ -992,13 +985,13 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     1193.652629343
-    2     1193.652629353
-    3     3319.553821208
-    4     3319.553821213
-    5     7336.402568776
-    6     7336.402568785
-    7     9979.988874667
+    1     1193.652629340
+    2     1193.652629355
+    3     3319.553821209
+    4     3319.553821212
+    5     7336.402568777
+    6     7336.402568784
+    7     9979.988874666
     8     9979.988874670
     9     19188.49510780
    10     19188.49510780
@@ -1058,14 +1051,14 @@ harmonic index for each cumulative mode.</p>
   7        0
   8        0
   9        0
- 10        1
- 11       -1
+ 10       -1
+ 11        1
  12       -1
  13        1
- 14        1
- 15       -1
- 16        1
- 17       -1
+ 14       -1
+ 15        1
+ 16       -1
+ 17        1
  18        1
  19       -1
  20        2
@@ -1195,8 +1188,8 @@ the number of sectors.</p>
   7     -1
   8      1
   9     -1
- 10      1
- 11     -1
+ 10     -1
+ 11      1
  12      2
  13     -2
  14      2
@@ -1281,7 +1274,7 @@ for the 2nd nodal diameter of this example model.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../../_images/sphx_glr_cyclic_analysis_006.png" srcset="../../../_images/sphx_glr_cyclic_analysis_006.png" alt="cyclic analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  29.893 seconds)</p>
+<img src="../../../_images/sphx_glr_cyclic_analysis_006.png" srcset="../../../_images/sphx_glr_cyclic_analysis_006.png" alt="cyclic analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  30.085 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-cyclic-analysis-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/c35961b264b74402adb8421df2796884/cyclic_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">cyclic_analysis.py</span></code></a></p>

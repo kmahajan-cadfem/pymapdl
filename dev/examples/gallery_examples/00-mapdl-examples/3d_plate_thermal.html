@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/ansys_sphinx_theme.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
@@ -120,27 +121,15 @@
  </a>
 </li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api/index.html">
+  API reference
+ </a>
+</li>
+
 <li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../../index.html">
   Examples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../learning/index.html">
-  Learning PyMAPDL
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../troubleshoot/index.html">
-  Troubleshooting
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../contribution_and_api/index.html">
-  Contributing and API
  </a>
 </li>
 
@@ -251,6 +240,10 @@ function checkPageExistsAndRedirect(event) {
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyansys/pymapdl/discussions" rel="noopener" target="_blank" title="Support"><span><i class="fa fa-comment fa-fw"></i></span>
             <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mapdl.docs.pyansys.com/release/dev/getting_started/contribution.html" rel="noopener" target="_blank" title="Contribute"><span><i class="fa fa-wrench"></i></span>
+            <label class="sr-only">Contribute</label></a>
         </li>
       </ul>
       </div>
@@ -596,12 +589,12 @@ pyMAPDL.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>*****  MAPDL SOLVE    COMMAND  *****
 
- *** NOTE ***                            CP =      31.108   TIME= 15:47:44
+ *** NOTE ***                            CP =      30.554   TIME= 19:33:01
  There is no title defined for this analysis.
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  22.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     15:47:44  DEC 15, 2022 CP=     31.111
+ 00000000  VERSION=LINUX x64     19:33:01  DEC 15, 2022 CP=     30.557
 
 
 
@@ -614,11 +607,11 @@ pyMAPDL.</p>
    ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC
 
- *** NOTE ***                            CP =      31.112   TIME= 15:47:44
+ *** NOTE ***                            CP =      30.558   TIME= 19:33:01
  Present time 0 is less than or equal to the previous time.  Time will
  default to 1.
 
- *** NOTE ***                            CP =      31.112   TIME= 15:47:44
+ *** NOTE ***                            CP =      30.558   TIME= 19:33:01
  The conditions for direct assembly have been met.  No .emat or .erot
  files will be produced.
 
@@ -644,7 +637,7 @@ pyMAPDL.</p>
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
         1       450  SOLID90       0.033   0.000074
- Time at end of element matrix formulation CP = 31.1519623.
+ Time at end of element matrix formulation CP = 30.5982761.
 
  SPARSE MATRIX DIRECT SOLVER.
   Number of equations =        2606,    Maximum wavefront =     72
@@ -652,7 +645,7 @@ pyMAPDL.</p>
   Memory required for in-core solution     =     4.639 MB
   Memory required for out-of-core solution =     2.499 MB
 
- *** NOTE ***                            CP =      31.209   TIME= 15:47:44
+ *** NOTE ***                            CP =      30.656   TIME= 19:33:01
  The Sparse Matrix Solver is currently running in the in-core memory
  mode.  This memory mode uses the most amount of memory in order to
  avoid using the hard drive as much as possible, which most often
@@ -667,12 +660,12 @@ pyMAPDL.</p>
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       450  SOLID90       0.043   0.000096
+        1       450  SOLID90       0.022   0.000049
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       450  SOLID90       0.027   0.000060
+        1       450  SOLID90       0.017   0.000038
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
  *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
 
@@ -708,7 +701,7 @@ result file using pyansys</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.931 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.900 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-3d-plate-thermal-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/33700f9e9b39603dbcd78349aaf96b94/3d_plate_thermal.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">3d_plate_thermal.py</span></code></a></p>

@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
@@ -121,26 +122,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../examples/index.html">
   Examples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../learning/index.html">
-  Learning PyMAPDL
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../troubleshoot/index.html">
-  Troubleshooting
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../contribution_and_api/index.html">
-  Contributing and API
  </a>
 </li>
 
@@ -251,6 +240,10 @@ function checkPageExistsAndRedirect(event) {
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyansys/pymapdl/discussions" rel="noopener" target="_blank" title="Support"><span><i class="fa fa-comment fa-fw"></i></span>
             <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mapdl.docs.pyansys.com/release/dev/getting_started/contribution.html" rel="noopener" target="_blank" title="Contribute"><span><i class="fa fa-wrench"></i></span>
+            <label class="sr-only">Contribute</label></a>
         </li>
       </ul>
       </div>
@@ -382,6 +375,11 @@ function checkPageExistsAndRedirect(event) {
    Harmonic analysis using the Krylov method
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshoot.html">
+   Troubleshooting PyMAPDL
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -463,7 +461,7 @@ function checkPageExistsAndRedirect(event) {
 <h1>ANSYS APDL interactive control examples<a class="headerlink" href="#ansys-apdl-interactive-control-examples" title="Permalink to this heading">#</a></h1>
 <p>These examples demonstrate how to convert an existing
 ANSYS APDL script to a Python PyMAPDL script. You could also simply
-use the built-in <a class="reference internal" href="../contribution_and_api/_autosummary/ansys.mapdl.core.convert_script.html#ansys.mapdl.core.convert_script" title="ansys.mapdl.core.convert_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert_script()</span></code></a> function within
+use the built-in <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.convert_script.html#ansys.mapdl.core.convert_script" title="ansys.mapdl.core.convert_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert_script()</span></code></a> function within
 <a class="reference external" href="https://mapdl.docs.pyansys.com/">ansys-mapdl-core</a> to convert an existing
 input file.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl</span> <span class="kn">import</span> <span class="n">core</span> <span class="k">as</span> <span class="n">pymapdl</span>
@@ -494,7 +492,7 @@ PRESSURE = FORCE/(H_TIP*2*PI*RADIUS)
 </pre></div>
 </div>
 <p>Here is the corresponding PyMAPDL script, including the initialization of an
-instance of the <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class:</p>
+instance of the <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>

@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
@@ -121,26 +122,14 @@
 </li>
 
 <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../examples/index.html">
   Examples
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../learning/index.html">
-  Learning PyMAPDL
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../troubleshoot/index.html">
-  Troubleshooting
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../contribution_and_api/index.html">
-  Contributing and API
  </a>
 </li>
 
@@ -251,6 +240,10 @@ function checkPageExistsAndRedirect(event) {
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyansys/pymapdl/discussions" rel="noopener" target="_blank" title="Support"><span><i class="fa fa-comment fa-fw"></i></span>
             <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mapdl.docs.pyansys.com/release/dev/getting_started/contribution.html" rel="noopener" target="_blank" title="Contribute"><span><i class="fa fa-wrench"></i></span>
+            <label class="sr-only">Contribute</label></a>
         </li>
       </ul>
       </div>
@@ -382,6 +375,11 @@ function checkPageExistsAndRedirect(event) {
    Harmonic analysis using the Krylov method
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="troubleshoot.html">
+   Troubleshooting PyMAPDL
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -457,8 +455,8 @@ function checkPageExistsAndRedirect(event) {
   <section id="postprocessing">
 <h1>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this heading">#</a></h1>
 <p>In an active MAPDL session, you can postprocess using the
-<a class="reference internal" href="../contribution_and_api/_autosummary/ansys.mapdl.core.post.PostProcessing.html#ansys.mapdl.core.post.PostProcessing" title="ansys.mapdl.core.post.PostProcessing"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl.post_processing</span></code></a> class,
-an attribute of an instance of <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>.
+<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.html#ansys.mapdl.core.post.PostProcessing" title="ansys.mapdl.core.post.PostProcessing"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl.post_processing</span></code></a> class,
+an attribute of an instance of <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>.
 One advantage of this approach is that it integrates well with existing MAPDL
 scripting or automation. This approach can also be used on result files generated
 from other programs, including ANSYS Mechanical.</p>
@@ -477,9 +475,9 @@ but via a Python client.</p>
 </div>
 <section id="enriched-command-output">
 <h2>Enriched command output<a class="headerlink" href="#enriched-command-output" title="Permalink to this heading">#</a></h2>
-<p>All <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class commands output
+<p>All <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class commands output
 a string object that can be parsed to obtain specific data from it.</p>
-<p>In certain <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class commands
+<p>In certain <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> class commands
 the returned string contains some methods to process the output.
 These commands are listed in <a class="reference internal" href="#table-1">Table-1</a>.</p>
 <p id="table-1"><strong>Table 1. Commands with extra processing methods in the output</strong></p>
@@ -493,9 +491,9 @@ These commands are listed in <a class="reference internal" href="#table-1">Table
 <tbody>
 <tr class="row-even"><td><p><strong>Listing</strong></p></td>
 <td><ul class="simple">
-<li><p><a class="reference internal" href="../contribution_and_api/commands.html#ansys.mapdl.core.commands.CommandListingOutput" title="ansys.mapdl.core.commands.CommandListingOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.to_list()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../contribution_and_api/commands.html#ansys.mapdl.core.commands.CommandListingOutput" title="ansys.mapdl.core.commands.CommandListingOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.to_array()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../contribution_and_api/commands.html#ansys.mapdl.core.commands.CommandListingOutput" title="ansys.mapdl.core.commands.CommandListingOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.to_dataframe()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/commands.html#ansys.mapdl.core.commands.CommandListingOutput" title="ansys.mapdl.core.commands.CommandListingOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.to_list()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/commands.html#ansys.mapdl.core.commands.CommandListingOutput" title="ansys.mapdl.core.commands.CommandListingOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.to_array()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/commands.html#ansys.mapdl.core.commands.CommandListingOutput" title="ansys.mapdl.core.commands.CommandListingOutput"><code class="xref py py-class docutils literal notranslate"><span class="pre">cmd.to_dataframe()</span></code></a></p></li>
 </ul>
 </td>
 <td><p><strong>Results listing</strong></p>
@@ -531,8 +529,8 @@ These commands are listed in <a class="reference internal" href="#table-1">Table
 <strong>Conditions</strong>
 <strong>Listing</strong></p></td>
 <td><ul class="simple">
-<li><p><a class="reference internal" href="../contribution_and_api/commands.html#ansys.mapdl.core.commands.BoundaryConditionsListingOutput" title="ansys.mapdl.core.commands.BoundaryConditionsListingOutput"><code class="xref py py-func docutils literal notranslate"><span class="pre">cmd.to_list()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../contribution_and_api/commands.html#ansys.mapdl.core.commands.BoundaryConditionsListingOutput" title="ansys.mapdl.core.commands.BoundaryConditionsListingOutput"><code class="xref py py-func docutils literal notranslate"><span class="pre">cmd.to_dataframe()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/commands.html#ansys.mapdl.core.commands.BoundaryConditionsListingOutput" title="ansys.mapdl.core.commands.BoundaryConditionsListingOutput"><code class="xref py py-func docutils literal notranslate"><span class="pre">cmd.to_list()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/commands.html#ansys.mapdl.core.commands.BoundaryConditionsListingOutput" title="ansys.mapdl.core.commands.BoundaryConditionsListingOutput"><code class="xref py py-func docutils literal notranslate"><span class="pre">cmd.to_dataframe()</span></code></a></p></li>
 </ul>
 </td>
 <td><ul class="simple">
@@ -606,7 +604,7 @@ These commands are listed in <a class="reference internal" href="#table-1">Table
 <span class="n">MORE</span> <span class="p">(</span><span class="n">YES</span><span class="p">,</span><span class="n">NO</span> <span class="n">OR</span> <span class="n">CONTINUOUS</span><span class="p">)</span><span class="o">=</span>
 </pre></div>
 </div>
-<p>However, using an instance of the <a class="reference internal" href="../contribution_and_api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>
+<p>However, using an instance of the <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>
 class, you can instead request the nodal displacement:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">disp_x</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">nodal_displacement</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
@@ -630,8 +628,8 @@ class, you can instead request the nodal displacement:</p>
 <p>The MAPDL database processes some results independently if nodes or
 elements are selected. If you have subselected a certain component
 and want to also limit the result of a certain output
-(<a class="reference internal" href="../contribution_and_api/_autosummary/ansys.mapdl.core.post.PostProcessing.nodal_displacement.html#ansys.mapdl.core.post.PostProcessing.nodal_displacement" title="ansys.mapdl.core.post.PostProcessing.nodal_displacement"><code class="xref py py-func docutils literal notranslate"><span class="pre">nodal_displacement()</span></code></a>),
-use the <a class="reference internal" href="../contribution_and_api/_autosummary/ansys.mapdl.core.post.PostProcessing.selected_nodes.html#ansys.mapdl.core.post.PostProcessing.selected_nodes" title="ansys.mapdl.core.post.PostProcessing.selected_nodes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">selected_nodes</span></code></a> attribute to get
+(<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.nodal_displacement.html#ansys.mapdl.core.post.PostProcessing.nodal_displacement" title="ansys.mapdl.core.post.PostProcessing.nodal_displacement"><code class="xref py py-func docutils literal notranslate"><span class="pre">nodal_displacement()</span></code></a>),
+use the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.selected_nodes.html#ansys.mapdl.core.post.PostProcessing.selected_nodes" title="ansys.mapdl.core.post.PostProcessing.selected_nodes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">selected_nodes</span></code></a> attribute to get
 a mask of the currently selected nodes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;NODE&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;ELEM&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
@@ -641,7 +639,7 @@ a mask of the currently selected nodes:</p>
 <section id="postprocessing-object-methods">
 <h3>Postprocessing object methods<a class="headerlink" href="#postprocessing-object-methods" title="Permalink to this heading">#</a></h3>
 <p>For a full list of all available postprocessing methods, see
-<a class="reference internal" href="../contribution_and_api/post.html#post-processing-api"><span class="std std-ref">PostProcessing class</span></a>.</p>
+<a class="reference internal" href="../api/post.html#post-processing-api"><span class="std std-ref">PostProcessing class</span></a>.</p>
 </section>
 </section>
 </section>
