@@ -46,9 +46,9 @@ Procedure
 
 Additional Packages used
 ~~~~~~~~~~~~~~~~~~~~~~~~
-* `Numpy <https://numpy.org>`_ for using data as arrays
-* `Pandas <https://pandas.pydata.org>`_ to import csv file (to install use: **pip install pandas**)
-* `PyVista <https://docs.pyvista.org>`_ for performing Gauissian interpolation
+* `Numpy <numpy_org_>`_ for using data as arrays
+* `Pandas <pandas_org_>`_ to import csv file (to install use: **pip install pandas**)
+* `PyVista <pyvista_docs_>`_ for performing Gaussian interpolation
 
 Boundary Conditions
 ~~~~~~~~~~~~~~~~~~~
@@ -385,7 +385,7 @@ Exit MAPDL instance
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.752 seconds)
+   **Total running time of the script:** ( 0 minutes  20.806 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_00-mapdl-examples_exhaust_manifold_thermal_stress.py:

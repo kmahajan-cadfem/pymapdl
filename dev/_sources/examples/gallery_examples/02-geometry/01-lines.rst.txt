@@ -519,7 +519,7 @@ Return an array of the line IDs
 Line Geometry
 ~~~~~~~~~~~~~
 Get the VTK ``PolyData`` containing lines.  This VTK mesh can be
-saved or plotted.  For more details, visit https://docs.pyvista.org/
+saved or plotted.  For more details, visit `Pyvista documentation <pyvista_docs_>`_
 
 .. GENERATED FROM PYTHON SOURCE LINES 235-239
 
@@ -747,7 +747,7 @@ stop mapdl
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.605 seconds)
+   **Total running time of the script:** ( 0 minutes  4.235 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_02-geometry_01-lines.py:
