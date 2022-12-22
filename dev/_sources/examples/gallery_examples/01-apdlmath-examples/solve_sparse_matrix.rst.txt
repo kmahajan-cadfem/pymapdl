@@ -87,7 +87,7 @@ List the files in current directory
  .. code-block:: none
 
 
-    ['HexBeam.cdb', 'LatheCutter.anf', 'PRSMEMB.DSP', 'PRSMEMB.emat', 'PRSMEMB.esav', 'PRSMEMB.full', 'PRSMEMB.mntr', 'PRSMEMB.mode', 'PRSMEMB.rst', 'PRSMEMB000.jpg', 'PRSMEMB001.jpg', 'PRSMEMB002.jpg', 'PRSMEMB003.jpg', 'PRSMEMB004.jpg', 'PRSMEMB005.jpg', 'PRSMEMB006.jpg', 'PRSMEMB007.jpg', 'PRSMEMB008.jpg', 'PRSMEMB009.jpg', 'PRSMEMB010.jpg', 'PRSMEMB011.jpg', 'SCRATCH', 'SOLVIT.MAC', 'TABLE_1', 'TABLE_2', '__tmp_sys_out_aryffkfpat__', '__tmp_sys_out_bjrightbzx__', '__tmp_sys_out_deqbswobew__', '__tmp_sys_out_dvpapjviye__', '__tmp_sys_out_dwiapreiac__', '__tmp_sys_out_ejgkhnusbe__', '__tmp_sys_out_erucnzdarm__', '__tmp_sys_out_frzgkqkgbs__', '__tmp_sys_out_ghxyjbfssf__', '__tmp_sys_out_izmlodzsem__', '__tmp_sys_out_knalasivjy__', '__tmp_sys_out_nngktdztrq__', '__tmp_sys_out_ojvrcnksse__', '__tmp_sys_out_olrlcpxvem__', '__tmp_sys_out_oqiopjjjtp__', '__tmp_sys_out_phhematiyb__', '__tmp_sys_out_qalifpkvyw__', '__tmp_sys_out_qchaqfpuri__', '__tmp_sys_out_qcsexamsro__', '__tmp_sys_out_qwrxmhfrzu__', '__tmp_sys_out_rbvnbcnrrx__', '__tmp_sys_out_sacrfcidfp__', '__tmp_sys_out_sgsfappshc__', '__tmp_sys_out_treutsieki__', '__tmp_sys_out_tygbsxdszd__', '__tmp_sys_out_ulsxpqnukc__', '__tmp_sys_out_utzezeireh__', '__tmp_sys_out_vuodpizakd__', '__tmp_sys_out_wlqyognnsu__', '__tmp_sys_out_wygzncmdzz__', '__tmp_sys_out_ygpckuuqpu__', '__tmp_sys_out_zpkfkuuhpe__', '__tmp_sys_out_zqpvwkppbd__', '__tmp_sys_out_zxxnxxgnbb__', '_tmp.iges', 'anaconda-post.log', 'anstmp', 'ansys_inc', 'bin', 'bracket.iges', 'dev', 'etc', 'file.DSP', 'file.ans_log', 'file.emat', 'file.err', 'file.esav', 'file.full', 'file.ldhi', 'file.log', 'file.mlv', 'file.mntr', 'file.mode', 'file.page', 'file.r001', 'file.rdb', 'file.rsx', 'file.rth', 'file.stat', 'file000.jpg', 'file000.png', 'file001.png', 'fzmxtrvklr.txt', 'home', 'lib', 'lib64', 'manifold_geometry.anf', 'media', 'mnt', 'nehmjodqhm.txt', 'opt', 'proc', 'root', 'run', 'sbin', 'sector.cdb', 'srv', 'sys', 'tmp', 'tmp.cdb', 'tmp_bckwmunbys.inp', 'tmp_cdxsqfrlwa.inp', 'tmp_denewjqjwx.inp', 'tmp_jfjfdsujsh.inp', 'tmp_kzdduwnbrd.inp', 'tmp_lgncladwey.inp', 'tmp_mvwcrayajk.inp', 'tmp_ogbdngygaz.inp', 'tmp_okmszpafsq.inp', 'tmp_onttkpfbkg.inp', 'tmp_qenzcayucy.inp', 'tmp_svpklpuovn.inp', 'tmp_ubdjghqqfs.inp', 'tmp_vkpfobapiv.inp', 'tmp_wjhwnxbrdz.inp', 'tmp_xlidhtsfpq.inp', 'tmp_zpwyeyundr.inp', 'usr', 'var', 'vm1.dat', 'vm1.vrt', 'vm153.dat', 'vm153.vrt', 'vm5.dat', 'vm5.vrt', 'wing.dat', 'woudwhnhvg.txt']
+    ['HexBeam.cdb', 'LatheCutter.anf', 'PRSMEMB.DSP', 'PRSMEMB.emat', 'PRSMEMB.esav', 'PRSMEMB.full', 'PRSMEMB.mntr', 'PRSMEMB.mode', 'PRSMEMB.rst', 'PRSMEMB000.jpg', 'PRSMEMB001.jpg', 'PRSMEMB002.jpg', 'PRSMEMB003.jpg', 'PRSMEMB004.jpg', 'PRSMEMB005.jpg', 'PRSMEMB006.jpg', 'PRSMEMB007.jpg', 'PRSMEMB008.jpg', 'PRSMEMB009.jpg', 'PRSMEMB010.jpg', 'PRSMEMB011.jpg', 'SCRATCH', 'SOLVIT.MAC', 'TABLE_1', 'TABLE_2', '__tmp_sys_out_anpamiwgie__', '__tmp_sys_out_cacnpikgjc__', '__tmp_sys_out_cfsfeululc__', '__tmp_sys_out_cnndcikive__', '__tmp_sys_out_cwfplplinv__', '__tmp_sys_out_dsxqmeizvs__', '__tmp_sys_out_foupcrdahn__', '__tmp_sys_out_fviqtdjlhw__', '__tmp_sys_out_gpkcbltiwk__', '__tmp_sys_out_hjaqqubaxg__', '__tmp_sys_out_iqecpdvldq__', '__tmp_sys_out_lwawgtfczc__', '__tmp_sys_out_mbwbvawasx__', '__tmp_sys_out_mfdewmrjmm__', '__tmp_sys_out_mhzvzhxtue__', '__tmp_sys_out_mtfrbmkclt__', '__tmp_sys_out_nfdopictvy__', '__tmp_sys_out_nftqafvqrw__', '__tmp_sys_out_ngxrjvaxpw__', '__tmp_sys_out_orgnljmzhr__', '__tmp_sys_out_pseacgrpbk__', '__tmp_sys_out_ptianxckhj__', '__tmp_sys_out_ptjjiqlazv__', '__tmp_sys_out_qdroqqxlck__', '__tmp_sys_out_unmxyjqilg__', '__tmp_sys_out_vcuwpvcdul__', '__tmp_sys_out_vyhhtvjjjx__', '__tmp_sys_out_wtdvoewzzx__', '__tmp_sys_out_wuraqfqbfq__', '__tmp_sys_out_xmiwaqivvf__', '__tmp_sys_out_xtcifromoh__', '__tmp_sys_out_xttcbyrrmi__', '__tmp_sys_out_znnxdokiah__', '__tmp_sys_out_zxgmbpybpm__', '_tmp.iges', 'anaconda-post.log', 'anstmp', 'ansys_inc', 'bin', 'bracket.iges', 'dev', 'etc', 'file.DSP', 'file.ans_log', 'file.emat', 'file.err', 'file.esav', 'file.full', 'file.ldhi', 'file.log', 'file.mlv', 'file.mntr', 'file.mode', 'file.page', 'file.r001', 'file.rdb', 'file.rsx', 'file.rth', 'file.stat', 'file000.jpg', 'file000.png', 'file001.png', 'gnqkrkmxmg.txt', 'home', 'kzlreqwsyd.txt', 'lib', 'lib64', 'manifold_geometry.anf', 'media', 'mnt', 'opt', 'proc', 'root', 'run', 'sbin', 'sector.cdb', 'srv', 'sys', 'tmp', 'tmp.cdb', 'tmp_aevpwyoaay.inp', 'tmp_aqpsqktqhh.inp', 'tmp_bqfusbtvna.inp', 'tmp_cnebmergbp.inp', 'tmp_cnxhqdbcqn.inp', 'tmp_gwfivjilxs.inp', 'tmp_jwlchxuoyl.inp', 'tmp_kotzjeiofw.inp', 'tmp_otblxgvjup.inp', 'tmp_prthqyihbq.inp', 'tmp_qpmrjtheqg.inp', 'tmp_qujprmvfbl.inp', 'tmp_rwsqqmxhfr.inp', 'tmp_sgnfchjtte.inp', 'tmp_woyuskldgt.inp', 'tmp_ylyvgquifl.inp', 'tmp_zjaxaihwbq.inp', 'usr', 'var', 'vm1.dat', 'vm1.vrt', 'vm153.dat', 'vm153.vrt', 'vm5.dat', 'vm5.vrt', 'wing.dat', 'wtbibfuzhy.txt']
 
 
 
@@ -248,7 +248,7 @@ Print the **norm** of the solution vector
  .. code-block:: none
 
 
-    5.815928297030091e-08
+    5.815928297030118e-08
 
 
 
@@ -275,7 +275,7 @@ We check the accuracy of the solution, by verifying that
 
  .. code-block:: none
 
-    Residual error: 1.9421604937510595e-15
+    Residual error: 1.7723772533668238e-15
 
 
 
@@ -303,11 +303,11 @@ Summary of all allocated APDLMath Objects
 
       Name                   Type            Mem. (MB)       Dims            Workspace
 
-       CSXRDE                SMAT            0.011           [126:126]               1
-       CZDIPC                VEC             0.001           126             1
-       KTXIZM                VEC             0.001           126             1
-       WLTOUN                VEC             0.001           126             1
-       MRSCSX                LSENGINE        --              --              1
+       XQONJF                SMAT            0.011           [126:126]               1
+       COELQI                VEC             0.001           126             1
+       GVKIDO                VEC             0.001           126             1
+       TSNPWP                VEC             0.001           126             1
+       JDTTSX                LSENGINE        --              --              1
 
 
 
@@ -350,7 +350,7 @@ stop mapdl
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.870 seconds)
+   **Total running time of the script:** ( 0 minutes  0.939 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_01-apdlmath-examples_solve_sparse_matrix.py:
