@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../_static/ansys-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Docker containers" href="docker.html" />
+    <link rel="next" title="Windows Subsystem for Linux" href="wsl.html" />
     <link rel="prev" title="Versions and interfaces" href="versioning.html" />
 <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
 
@@ -321,11 +321,6 @@ function checkPageExistsAndRedirect(event) {
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="docker.html">
-   Docker containers
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="wsl.html">
    Windows Subsystem for Linux
   </a>
@@ -395,13 +390,6 @@ function checkPageExistsAndRedirect(event) {
   <a class="reference internal nav-link" href="#connect-to-a-grpc-mapdl-session">
    Connect to a gRPC MAPDL session
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#connect-to-a-dockerized-mapdl-session">
-     Connect to a dockerized MAPDL session
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -446,7 +434,7 @@ installer options can change, see the following figure for reference.</p>
 </figure>
 <p>If you want to avoid having to install MAPDL locally, you can use Docker.
 This is especially convenient if you are using a non-supported platform such
-as MacOS. For more information, see <a class="reference internal" href="docker.html#pymapdl-docker"><span class="std std-ref">Docker containers</span></a>.</p>
+as MacOS.</p>
 <p>You can also download and try <a class="reference external" href="https://www.ansys.com/academic/students">Ansys Student Versions</a>.
 A Student Version is valid during a calendar year with limited capabilities. For
 example, there is a limit on the number of nodes and elements.</p>
@@ -528,20 +516,6 @@ the mentioned IP address/hostname for this to work.</p>
 <p>If you have MAPDL installed on your local host, you
 can use the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a> method to both start and connect to MAPDL.</p>
 <p>If you have any problem launching PyMAPDL, see <a class="reference internal" href="../user_guide/troubleshoot.html#debugging-launch-mapdl"><span class="std std-ref">Launching issues</span></a>.</p>
-<section id="connect-to-a-dockerized-mapdl-session">
-<h3>Connect to a dockerized MAPDL session<a class="headerlink" href="#connect-to-a-dockerized-mapdl-session" title="Permalink to this heading">#</a></h3>
-<p>If you work with Docker, for example you use the
-<a class="reference external" href="https://github.com/pyansys/pymapdl/blob/main/docker/docker-compose.yml">docker-compose.yml</a> file provided in the
-directory <a class="reference external" href="https://github.com/pyansys/pymapdl/blob/main/docker">docker</a>, then you must connect to the
-MAPDL instance running on the Docker container as if it was a remote MAPDL
-instance. However, because the ports are exposed to the host via the <code class="docutils literal notranslate"><span class="pre">ports</span></code> field
-in the <a class="reference external" href="https://github.com/pyansys/pymapdl/blob/main/docker/docker-compose.yml">docker-compose.yml</a> file, you can connect
-to this MAPDL instance without specifying the IP address of the Docker container.</p>
-<p>If you are using the local configuration specified in the
-<a class="reference external" href="https://github.com/pyansys/pymapdl/blob/main/docker/docker-compose.local.yml">docker-compose.local.yml</a> file,
-after attaching your Visual Code instance, you can work with MAPDL as if it were local.
-This means that you can launch MAPDL instances using <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a>.</p>
-</section>
 </section>
 </section>
 
