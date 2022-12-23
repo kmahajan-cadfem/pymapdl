@@ -285,7 +285,7 @@ function checkPageExistsAndRedirect(event) {
     
 
           <li class="nav-item nav-item-1"><a href="../../index.html" >Examples</a> » </li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">PyMAPDL Math Examples</a> » </li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">PyMAPDL math examples</a> » </li>
         <li class="nav-item nav-item-this"><a href="">Compute Eigenvalues using MAPDL or SciPy</a></li> 
       </ul>
     </div>
@@ -309,12 +309,12 @@ function checkPageExistsAndRedirect(event) {
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../00-mapdl-examples/index.html">
-   Full Examples Using PyMAPDL
+   Full examples using PyMAPDL
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="index.html">
-   PyMAPDL Math Examples
+   PyMAPDL math examples
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -366,22 +366,29 @@ function checkPageExistsAndRedirect(event) {
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-geometry/index.html">
-   Geometry Examples
+   Geometry examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03-tips-n-tricks/index.html">
-   Miscellaneous Examples
+   Miscellaneous examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04-general-fea/index.html">
-   Academic Finite Element Examples
+   Academic finite element examples
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://examples.mapdl.docs.pyansys.com/verif-manual/index.html">
+   Verification Manual
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../06-verif-manual/index.html">
-   Verification Manual Examples
+  <a class="reference external" href="https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/index.html">
+   Technology Showcases
   </a>
  </li>
 </ul>
@@ -582,7 +589,7 @@ STOP SOLUTION AFTER FULL FILE HAS BEEN WRITTEN
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Elapsed time to solve this problem : &quot;</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mapdl_elapsed_time</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  0.5929780006408691
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  0.49732375144958496
 </pre></div>
 </div>
 <p>Print eigenfrequencies and accuracy.</p>
@@ -664,7 +671,7 @@ are memory inefficient.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Elapsed time to solve this problem : &quot;</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scipy_elapsed_time</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  3.2475414276123047
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  3.1148481369018555
 </pre></div>
 </div>
 <p>Convert Lambda values to Frequency values:
@@ -723,14 +730,14 @@ are memory inefficient.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mapdl is </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ratio</span></a><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2"> times faster&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mapdl is 5.48 times faster
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mapdl is 6.26 times faster
 </pre></div>
 </div>
 <p>stop mapdl</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.615 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.134 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-01-apdlmath-examples-mapdl-vs-scipy-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/8e3e8f7ff86d69bea9c0ba80fd9000cd/mapdl_vs_scipy.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mapdl_vs_scipy.py</span></code></a></p>

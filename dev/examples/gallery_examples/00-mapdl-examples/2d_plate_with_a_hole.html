@@ -58,7 +58,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="2D Pressure Vessel" href="2d_pressure_vessel.html" />
-    <link rel="prev" title="Full Examples Using PyMAPDL" href="index.html" />
+    <link rel="prev" title="Full examples using PyMAPDL" href="index.html" />
 <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
 
 
@@ -285,7 +285,7 @@ function checkPageExistsAndRedirect(event) {
     
 
           <li class="nav-item nav-item-1"><a href="../../index.html" >Examples</a> » </li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Full Examples Using PyMAPDL</a> » </li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Full examples using PyMAPDL</a> » </li>
         <li class="nav-item nav-item-this"><a href="">MAPDL 2D Plane Stress Concentration Analysis</a></li> 
       </ul>
     </div>
@@ -309,7 +309,7 @@ function checkPageExistsAndRedirect(event) {
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="index.html">
-   Full Examples Using PyMAPDL
+   Full examples using PyMAPDL
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -416,27 +416,34 @@ function checkPageExistsAndRedirect(event) {
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../01-apdlmath-examples/index.html">
-   PyMAPDL Math Examples
+   PyMAPDL math examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-geometry/index.html">
-   Geometry Examples
+   Geometry examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03-tips-n-tricks/index.html">
-   Miscellaneous Examples
+   Miscellaneous examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04-general-fea/index.html">
-   Academic Finite Element Examples
+   Academic finite element examples
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://examples.mapdl.docs.pyansys.com/verif-manual/index.html">
+   Verification Manual
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../06-verif-manual/index.html">
-   Verification Manual Examples
+  <a class="reference external" href="https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/index.html">
+   Technology Showcases
   </a>
  </li>
 </ul>
@@ -730,7 +737,7 @@ force of 1 kN in the positive X direction.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>*****  MAPDL SOLVE    COMMAND  *****
 
- *** NOTE ***                            CP =       1.300   TIME= 12:40:46
+ *** NOTE ***                            CP =       1.190   TIME= 11:12:35
  There is no title defined for this analysis.
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -743,7 +750,7 @@ force of 1 kN in the positive X direction.</p>
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  22.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     12:40:46  DEC 22, 2022 CP=      1.317
+ 00000000  VERSION=LINUX x64     11:12:35  DEC 23, 2022 CP=      1.206
 
 
 
@@ -756,11 +763,11 @@ force of 1 kN in the positive X direction.</p>
    ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC
 
- *** NOTE ***                            CP =       1.324   TIME= 12:40:46
+ *** NOTE ***                            CP =       1.213   TIME= 11:12:35
  Present time 0 is less than or equal to the previous time.  Time will
  default to 1.
 
- *** NOTE ***                            CP =       1.328   TIME= 12:40:46
+ *** NOTE ***                            CP =       1.217   TIME= 11:12:35
  The conditions for direct assembly have been met.  No .emat or .erot
  files will be produced.
 
@@ -809,8 +816,8 @@ force of 1 kN in the positive X direction.</p>
    *** ELEMENT MATRIX FORMULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       977  PLANE183      0.106   0.000109
- Time at end of element matrix formulation CP = 1.47492909.
+        1       977  PLANE183      0.092   0.000094
+ Time at end of element matrix formulation CP = 1.34452605.
 
  SPARSE MATRIX DIRECT SOLVER.
   Number of equations =        6124,    Maximum wavefront =     48
@@ -818,7 +825,7 @@ force of 1 kN in the positive X direction.</p>
   Memory required for in-core solution     =     8.134 MB
   Memory required for out-of-core solution =     4.318 MB
 
- *** NOTE ***                            CP =       1.593   TIME= 12:40:47
+ *** NOTE ***                            CP =       1.441   TIME= 11:12:35
  The Sparse Matrix Solver is currently running in the in-core memory
  mode.  This memory mode uses the most amount of memory in order to
  avoid using the hard drive as much as possible, which most often
@@ -833,12 +840,12 @@ force of 1 kN in the positive X direction.</p>
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       977  PLANE183      0.141   0.000144
+        1       977  PLANE183      0.116   0.000119
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       977  PLANE183      0.050   0.000052
+        1       977  PLANE183      0.042   0.000043
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
  *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
 
@@ -1095,7 +1102,7 @@ height and width of the plate.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.750 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.117 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-2d-plate-with-a-hole-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/bb8a19792fbc4311ff0d03d9f9c306c5/2d_plate_with_a_hole.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2d_plate_with_a_hole.py</span></code></a></p>

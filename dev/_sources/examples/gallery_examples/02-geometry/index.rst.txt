@@ -2,7 +2,7 @@
 
 .. _sphx_glr_examples_gallery_examples_02-geometry:
 
-Geometry Examples
+Geometry examples
 =================
 These examples demonstrate using PyMAPDL to create basic geometry.
 

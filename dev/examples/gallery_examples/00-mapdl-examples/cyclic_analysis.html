@@ -284,7 +284,7 @@ function checkPageExistsAndRedirect(event) {
     
 
           <li class="nav-item nav-item-1"><a href="../../index.html" >Examples</a> » </li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Full Examples Using PyMAPDL</a> » </li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Full examples using PyMAPDL</a> » </li>
         <li class="nav-item nav-item-this"><a href="">Cyclic Analysis</a></li> 
       </ul>
     </div>
@@ -308,7 +308,7 @@ function checkPageExistsAndRedirect(event) {
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="index.html">
-   Full Examples Using PyMAPDL
+   Full examples using PyMAPDL
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -415,27 +415,34 @@ function checkPageExistsAndRedirect(event) {
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../01-apdlmath-examples/index.html">
-   PyMAPDL Math Examples
+   PyMAPDL math examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-geometry/index.html">
-   Geometry Examples
+   Geometry examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03-tips-n-tricks/index.html">
-   Miscellaneous Examples
+   Miscellaneous examples
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../04-general-fea/index.html">
-   Academic Finite Element Examples
+   Academic finite element examples
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://examples.mapdl.docs.pyansys.com/verif-manual/index.html">
+   Verification Manual
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../06-verif-manual/index.html">
-   Verification Manual Examples
+  <a class="reference external" href="https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/index.html">
+   Technology Showcases
   </a>
  </li>
 </ul>
@@ -843,16 +850,16 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     1754.791683319
-    2     9255.393159785
-    3     10975.87843039
-    4     11515.67526302
-    5     21840.50574540
-    6     26925.16499928
-    7     33190.75857487
-    8     34449.58508751
-    9     38317.00727670
-   10     56181.39485190
+    1     1754.791683625
+    2     9255.393052281
+    3     10975.87815614
+    4     11515.67534062
+    5     21840.50628144
+    6     26925.16436958
+    7     33190.75929192
+    8     34449.58537932
+    9     38317.00951933
+   10     56181.41032684
 
  GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS
 
@@ -891,16 +898,16 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     4016.683048531
-    2     4016.683057387
-    3     4064.737839401
-    4     4064.737844018
-    5     10313.66920148
-    6     10313.66921505
-    7     14213.07125907
-    8     14213.07128936
-    9     19293.02903248
-   10     19293.02905101
+    1     4016.683036289
+    2     4016.683043223
+    3     4064.737838772
+    4     4064.737844678
+    5     10313.66921159
+    6     10313.66924180
+    7     14213.07125950
+    8     14213.07135646
+    9     19293.02904535
+   10     19293.02916761
 
  GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS
 
@@ -939,12 +946,12 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     1057.627660261
-    2     1057.627660282
-    3     3380.551787121
-    4     3380.551787123
+    1     1057.627660262
+    2     1057.627660278
+    3     3380.551787120
+    4     3380.551787124
     5     6319.916392199
-    6     6319.916392207
+    6     6319.916392208
     7     10091.69582739
     8     10091.69582740
     9     18041.48697678
@@ -987,13 +994,13 @@ USE EXISTING MODEL FOR CYCLIC SYMMETRY
 
    FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-    1     1193.652629340
-    2     1193.652629357
-    3     3319.553821209
-    4     3319.553821211
+    1     1193.652629345
+    2     1193.652629354
+    3     3319.553821208
+    4     3319.553821213
     5     7336.402568777
     6     7336.402568784
-    7     9979.988874666
+    7     9979.988874667
     8     9979.988874670
     9     19188.49510780
    10     19188.49510780
@@ -1053,12 +1060,12 @@ harmonic index for each cumulative mode.</p>
   7        0
   8        0
   9        0
- 10        1
- 11       -1
+ 10       -1
+ 11        1
  12        1
  13       -1
- 14        1
- 15       -1
+ 14       -1
+ 15        1
  16       -1
  17        1
  18       -1
@@ -1186,8 +1193,8 @@ the number of sectors.</p>
   3      0
   4      0
   5      0
-  6      1
-  7     -1
+  6     -1
+  7      1
   8      1
   9     -1
  10     -1
@@ -1276,7 +1283,7 @@ for the 2nd nodal diameter of this example model.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../../_images/sphx_glr_cyclic_analysis_006.png" srcset="../../../_images/sphx_glr_cyclic_analysis_006.png" alt="cyclic analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  37.838 seconds)</p>
+<img src="../../../_images/sphx_glr_cyclic_analysis_006.png" srcset="../../../_images/sphx_glr_cyclic_analysis_006.png" alt="cyclic analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  34.009 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-cyclic-analysis-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/c35961b264b74402adb8421df2796884/cyclic_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">cyclic_analysis.py</span></code></a></p>
