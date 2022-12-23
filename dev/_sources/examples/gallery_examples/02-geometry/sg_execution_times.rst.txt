@@ -5,16 +5,16 @@
 
 Computation times
 =================
-**00:29.307** total execution time for **examples_gallery_examples_02-geometry** files:
+**00:31.065** total execution time for **examples_gallery_examples_02-geometry** files:
 
 +-----------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_02-geometry_04-primitives.py` (``04-primitives.py``) | 00:12.639 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_02-geometry_04-primitives.py` (``04-primitives.py``) | 00:13.095 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_02-geometry_03-volumes.py` (``03-volumes.py``)       | 00:08.322 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_02-geometry_03-volumes.py` (``03-volumes.py``)       | 00:08.816 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_02-geometry_01-lines.py` (``01-lines.py``)           | 00:04.342 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_02-geometry_01-lines.py` (``01-lines.py``)           | 00:04.813 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_02-geometry_02-areas.py` (``02-areas.py``)           | 00:03.272 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_02-geometry_02-areas.py` (``02-areas.py``)           | 00:03.475 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_02-geometry_00-keypoints.py` (``00-keypoints.py``)   | 00:00.732 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_02-geometry_00-keypoints.py` (``00-keypoints.py``)   | 00:00.866 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------+-----------+--------+

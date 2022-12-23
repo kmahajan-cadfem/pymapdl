@@ -390,16 +390,16 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     1754.791683625    
-        2     9255.393052281    
-        3     10975.87815614    
-        4     11515.67534062    
-        5     21840.50628144    
-        6     26925.16436958    
-        7     33190.75929192    
-        8     34449.58537932    
-        9     38317.00951933    
-       10     56181.41032684    
+        1     1754.791681726    
+        2     9255.393062213    
+        3     10975.87828078    
+        4     11515.67520594    
+        5     21840.50565280    
+        6     26925.16490703    
+        7     33190.75846239    
+        8     34449.58508888    
+        9     38317.00832022    
+       10     56181.39841458    
 
      GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS 
 
@@ -438,16 +438,16 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     4016.683036289    
-        2     4016.683043223    
-        3     4064.737838772    
-        4     4064.737844678    
-        5     10313.66921159    
-        6     10313.66924180    
-        7     14213.07125950    
-        8     14213.07135646    
-        9     19293.02904535    
-       10     19293.02916761    
+        1     4016.683042104    
+        2     4016.683059737    
+        3     4064.737838480    
+        4     4064.737842038    
+        5     10313.66918653    
+        6     10313.66921978    
+        7     14213.07121954    
+        8     14213.07127395    
+        9     19293.02904170    
+       10     19293.02906755    
 
      GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS 
 
@@ -487,15 +487,15 @@ Let's get the first 10 modes. Note that this will actually compute
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
         1     1057.627660262    
-        2     1057.627660278    
-        3     3380.551787120    
-        4     3380.551787124    
-        5     6319.916392199    
+        2     1057.627660277    
+        3     3380.551787122    
+        4     3380.551787123    
+        5     6319.916392200    
         6     6319.916392208    
         7     10091.69582739    
         8     10091.69582740    
         9     18041.48697678    
-       10     18041.48697679    
+       10     18041.48697678    
 
      GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS 
 
@@ -534,13 +534,13 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     1193.652629345    
+        1     1193.652629340    
         2     1193.652629354    
-        3     3319.553821208    
-        4     3319.553821213    
+        3     3319.553821209    
+        4     3319.553821212    
         5     7336.402568777    
         6     7336.402568784    
-        7     9979.988874667    
+        7     9979.988874666    
         8     9979.988874670    
         9     19188.49510780    
        10     19188.49510780
@@ -637,16 +637,16 @@ harmonic index for each cumulative mode.
       7        0
       8        0
       9        0
-     10       -1
-     11        1
+     10        1
+     11       -1
      12        1
      13       -1
-     14       -1
-     15        1
-     16       -1
-     17        1
-     18       -1
-     19        1
+     14        1
+     15       -1
+     16        1
+     17       -1
+     18        1
+     19       -1
      20        2
      21       -2
      22        2
@@ -847,12 +847,12 @@ the number of sectors.
       3      0
       4      0
       5      0
-      6     -1
-      7      1
+      6      1
+      7     -1
       8      1
       9     -1
-     10     -1
-     11      1
+     10      1
+     11     -1
      12      2
      13     -2
      14      2
@@ -978,7 +978,7 @@ for the 2nd nodal diameter of this example model.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  34.009 seconds)
+   **Total running time of the script:** ( 0 minutes  33.259 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_00-mapdl-examples_cyclic_analysis.py:
