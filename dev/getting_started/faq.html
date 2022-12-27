@@ -389,6 +389,23 @@ function checkPageExistsAndRedirect(event) {
    How do you end a simulation and restart a script?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-pymapdl-results-are-different-than-the-ones-shown-in-the-mapdl-gui">
+   Why PyMAPDL results are different than the ones shown in the MAPDL GUI?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listing-results">
+     Listing results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-results">
+     Plotting results
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
 </nav>
@@ -479,8 +496,62 @@ data such as the mesh, you can use this code:</p>
 <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>However, a more efficient way is to clear MAPDL using the <code class="docutils literal notranslate"><span class="pre">mapdl.clear()</span></code> method. You
-can also exit and restart MAPDL.</p>
+<p>However, a more efficient way is to clear MAPDL using the
+<a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.clear.html#ansys.mapdl.core.Mapdl.clear" title="ansys.mapdl.core.Mapdl.clear"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear()</span></code></a>
+method. You can also exit and restart MAPDL.</p>
+</section>
+<section id="why-pymapdl-results-are-different-than-the-ones-shown-in-the-mapdl-gui">
+<h2>Why PyMAPDL results are different than the ones shown in the MAPDL GUI?<a class="headerlink" href="#why-pymapdl-results-are-different-than-the-ones-shown-in-the-mapdl-gui" title="Permalink to this heading">#</a></h2>
+<section id="listing-results">
+<h3>Listing results<a class="headerlink" href="#listing-results" title="Permalink to this heading">#</a></h3>
+<p>There might be several reasons why the results shown in the MAPDL GUI
+differ from the results obtained using PyMAPDL. The most common
+reason is that the MAPDL GUI is using a different graphics configuration
+than the one used by PyMAPDL.</p>
+<p>In the MAPDL GUI, the graphics configuration can change how the results are shown.
+Each graphics configuration realizes entity selection and averaging differently.
+By default, the graphics configuration is set to <code class="docutils literal notranslate"><span class="pre">Power</span> <span class="pre">Graphics</span></code>.
+However, PyMAPDL connects to an MAPDL instance running in batch mode, which by default
+uses the <code class="docutils literal notranslate"><span class="pre">Full</span> <span class="pre">Graphics</span></code> configuration. This difference in the graphics configuration can
+affect averaging as well.</p>
+<p>You can change the graphics configuration in PyMAPDL using this command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">graphics</span><span class="p">(</span><span class="s1">&#39;POWER&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, you can change the graphics configuration in the MAPDL GUI using the
+<code class="docutils literal notranslate"><span class="pre">POWRGRPH</span></code> button or this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/GRAPHICS,FULL
+</pre></div>
+</div>
+<p>How the results are averaged on the nodes can also affect the
+results. By default, MAPDL averages the results on the nodes except where
+material type discontinuities exists.
+For more information, see <a class="reference internal" href="../mapdl_commands/post1/_autosummary/ansys.mapdl.core.Mapdl.avres.html#ansys.mapdl.core.Mapdl.avres" title="ansys.mapdl.core.Mapdl.avres"><code class="xref py py-meth docutils literal notranslate"><span class="pre">avres()</span></code></a>.
+Additionally, the command <a class="reference internal" href="../mapdl_commands/post1/_autosummary/ansys.mapdl.core.Mapdl.efacet.html#ansys.mapdl.core.Mapdl.efacet" title="ansys.mapdl.core.Mapdl.efacet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">efacet()</span></code></a>
+can affect how the results are shown.</p>
+<p>You should make sure that the values of the commands
+<a class="reference internal" href="../mapdl_commands/post1/_autosummary/ansys.mapdl.core.Mapdl.avres.html#ansys.mapdl.core.Mapdl.avres" title="ansys.mapdl.core.Mapdl.avres"><code class="xref py py-meth docutils literal notranslate"><span class="pre">avres()</span></code></a> and
+<a class="reference internal" href="../mapdl_commands/post1/_autosummary/ansys.mapdl.core.Mapdl.efacet.html#ansys.mapdl.core.Mapdl.efacet" title="ansys.mapdl.core.Mapdl.efacet"><code class="xref py py-meth docutils literal notranslate"><span class="pre">efacet()</span></code></a> are the same in both
+the MAPDL GUI and PyMAPDL.</p>
+<p>Finally, depending on the results that you are trying to obtain, you
+might be using a different MAPDL command. For example, the command
+<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.element_displacement.html#ansys.mapdl.core.post.PostProcessing.element_displacement" title="ansys.mapdl.core.post.PostProcessing.element_displacement"><code class="xref py py-meth docutils literal notranslate"><span class="pre">post.element_displacement()</span></code></a>
+uses a combination of <code class="docutils literal notranslate"><span class="pre">PRETAB</span></code> and <code class="docutils literal notranslate"><span class="pre">ETAB</span></code> commands to obtain the results.
+This MAPDL command then might show different results than the ones obtained
+using the PyMAPDL <a class="reference internal" href="../mapdl_commands/post1/_autosummary/ansys.mapdl.core.Mapdl.presol.html#ansys.mapdl.core.Mapdl.presol" title="ansys.mapdl.core.Mapdl.presol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">presol()</span></code></a> method.
+To make sure you are using the correct command, you should compare the
+results obtained using both the MAPLD and PyMAPDL commands.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Further reading on <a class="reference external" href="https://github.com/pyansys/pymapdl-reader/issues/185">this discussion</a></p>
+</div>
+</section>
+<section id="plotting-results">
+<h3>Plotting results<a class="headerlink" href="#plotting-results" title="Permalink to this heading">#</a></h3>
+<p>Even in cases where PyMAPDL and MAPDL agree on the result values, there may still be
+display differences. For instance, interpolating scalar values at the nodes of a
+quadrilateral facet across the whole facet is not deterministic.</p>
+</section>
 </section>
 </section>
 

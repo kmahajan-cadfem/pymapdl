@@ -390,16 +390,16 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     1754.771705344    
-        2     9255.308042617    
-        3     10975.85399551    
-        4     11515.65912684    
-        5     21840.29443520    
-        6     26924.90130846    
-        7     33190.69096433    
-        8     34449.50233709    
-        9     38316.64244746    
-       10     56181.28254016    
+        1     1754.771705399    
+        2     9255.308473791    
+        3     10975.85386588    
+        4     11515.65951277    
+        5     21840.29426211    
+        6     26924.90022778    
+        7     33190.68561606    
+        8     34449.50330986    
+        9     38316.64074158    
+       10     56181.28539787    
 
      GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS 
 
@@ -438,16 +438,16 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     4016.678955565    
-        2     4016.678987670    
-        3     4064.701839883    
-        4     4064.701852028    
-        5     10313.63501312    
-        6     10313.63518320    
-        7     14213.05700856    
-        8     14213.05728895    
-        9     19292.87730341    
-       10     19292.87838982    
+        1     4016.678970585    
+        2     4016.678986486    
+        3     4064.701842286    
+        4     4064.701858986    
+        5     10313.63508373    
+        6     10313.63517477    
+        7     14213.05723265    
+        8     14213.05729811    
+        9     19292.87751932    
+       10     19292.87837787    
 
      GENERATE CYCLIC SYMMETRY CONSTRAINT EQUATIONS 
 
@@ -486,12 +486,12 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     1057.619328558    
-        2     1057.619328564    
-        3     3380.530621117    
+        1     1057.619328564    
+        2     1057.619328567    
+        3     3380.530621118    
         4     3380.530621121    
         5     6319.874142946    
-        6     6319.874142948    
+        6     6319.874142949    
         7     10091.65459692    
         8     10091.65459693    
         9     18041.41473794    
@@ -534,10 +534,10 @@ Let's get the first 10 modes. Note that this will actually compute
 
        FREQUENCY RANGE REQUESTED=   10 MODES ABOVE   1.00000     HERTZ
 
-        1     1193.646581148    
-        2     1193.646581166    
-        3     3319.531421340    
-        4     3319.531421342    
+        1     1193.646581153    
+        2     1193.646581173    
+        3     3319.531421341    
+        4     3319.531421341    
         5     7336.371613692    
         6     7336.371613693    
         7     9979.948398081    
@@ -637,8 +637,8 @@ harmonic index for each cumulative mode.
       7        0
       8        0
       9        0
-     10       -1
-     11        1
+     10        1
+     11       -1
      12       -1
      13        1
      14       -1
@@ -647,20 +647,20 @@ harmonic index for each cumulative mode.
      17        1
      18        1
      19       -1
-     20       -2
-     21        2
+     20        2
+     21       -2
      22        2
      23       -2
      24        2
      25       -2
-     26        2
-     27       -2
+     26       -2
+     27        2
      28        2
      29       -2
      30       -3
      31        3
-     32       -3
-     33        3
+     32        3
+     33       -3
      34       -3
      35        3
      36       -3
@@ -847,26 +847,26 @@ the number of sectors.
       3      0
       4      0
       5      0
-      6     -1
-      7      1
-      8      1
-      9     -1
+      6      1
+      7     -1
+      8     -1
+      9      1
      10     -1
      11      1
-     12      2
-     13     -2
+     12     -2
+     13      2
      14     -2
      15      2
-     16      2
-     17     -2
-     18      3
-     19     -3
+     16     -2
+     17      2
+     18     -3
+     19      3
      20     -3
      21      3
-     22      3
-     23     -3
-     24      4
-     25     -4
+     22     -3
+     23      3
+     24     -4
+     25      4
      26     -4
      27      4
      28      4
@@ -978,7 +978,7 @@ for the 2nd nodal diameter of this example model.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  47.360 seconds)
+   **Total running time of the script:** ( 0 minutes  44.406 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_00-mapdl-examples_cyclic_analysis.py:
