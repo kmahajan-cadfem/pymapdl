@@ -535,7 +535,7 @@ function checkPageExistsAndRedirect(event) {
 location when left at the default <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd>
 <dt><strong>run_location</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>MAPDL working directory.  Defaults to a temporary working
-directory.  If directory doesn’t exist, will create one.</p>
+directory.  If directory doesn’t exist, one is created.</p>
 </dd>
 <dt><strong>jobname</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>MAPDL jobname.  Defaults to <code class="docutils literal notranslate"><span class="pre">'file'</span></code>.</p>
 </dd>
@@ -556,14 +556,15 @@ mode is available from v17.0 and newer and is given legacy
 support.  This mode requires the additional
 <code class="docutils literal notranslate"><span class="pre">ansys_corba</span></code> module.  Finally, the <code class="docutils literal notranslate"><span class="pre">'console'</span></code> mode
 is for legacy use only Linux only prior to v17.0.  This console
-mode is pending depreciation.</p>
+mode is pending depreciation.
+Visit <a class="reference internal" href="../../getting_started/versioning.html#versions-and-interfaces"><span class="std std-ref">Versions and interfaces</span></a> for more information.</p>
 </dd>
-<dt><strong>override</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Attempts to delete the lock file at the run_location.
+<dt><strong>override</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Attempts to delete the lock file at the <code class="docutils literal notranslate"><span class="pre">run_location</span></code>.
 Useful when a prior MAPDL session has exited prematurely and
 the lock file has not been deleted.</p>
 </dd>
 <dt><strong>loglevel</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Sets which messages are printed to the console.  <code class="docutils literal notranslate"><span class="pre">'INFO'</span></code>
-prints out all ANSYS messages, <code class="docutils literal notranslate"><span class="pre">'WARNING`</span></code> prints only
+prints out all ANSYS messages, <code class="docutils literal notranslate"><span class="pre">'WARNING'</span></code> prints only
 messages containing ANSYS warnings, and <code class="docutils literal notranslate"><span class="pre">'ERROR'</span></code> logs only
 error messages.</p>
 </dd>
@@ -572,7 +573,7 @@ academic research license, would be added with:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">additional_switches=&quot;-aa_r&quot;</span></code></p></li>
 </ul>
-<p>Avoid adding switches like -i -o or -b as these are already
+<p>Avoid adding switches like <code class="docutils literal notranslate"><span class="pre">-i</span></code>, <code class="docutils literal notranslate"><span class="pre">-o</span></code> or <code class="docutils literal notranslate"><span class="pre">-b</span></code> as these are already
 included to start up the MAPDL server.  See the notes
 section for additional details.</p>
 </dd>
@@ -592,17 +593,18 @@ Linux, if <code class="docutils literal notranslate"><span class="pre">None</spa
 garbage collected.</p>
 </dd>
 <dt><strong>start_instance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>When False, connect to an existing MAPDL instance at <code class="docutils literal notranslate"><span class="pre">ip</span></code>
-and <code class="docutils literal notranslate"><span class="pre">port</span></code>, which default to <code class="docutils literal notranslate"><span class="pre">'127.0.0.1'</span></code> at 50052.
+and <code class="docutils literal notranslate"><span class="pre">port</span></code>, which default to ip <code class="docutils literal notranslate"><span class="pre">'127.0.0.1'</span></code> at port 50052.
 Otherwise, launch a local instance of MAPDL.  You can also
 override the default behavior of this keyword argument with
 the environment variable <code class="docutils literal notranslate"><span class="pre">PYMAPDL_START_INSTANCE=FALSE</span></code>.</p>
 </dd>
 <dt><strong>ip</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Used only when <code class="docutils literal notranslate"><span class="pre">start_instance</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>. If provided,
 it will force <code class="docutils literal notranslate"><span class="pre">start_instance</span></code> to be <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+Specify the IP address of the MAPDL instance to connect to.
 You can also provide a hostname as an alternative to an IP address.
 Defaults to <code class="docutils literal notranslate"><span class="pre">'127.0.0.1'</span></code>. You can also override the
 default behavior of this keyword argument with the
-environment variable “PYMAPDL_IP=FALSE”.</p>
+environment variable <code class="docutils literal notranslate"><span class="pre">PYMAPDL_IP=FALSE</span></code>.</p>
 </dd>
 <dt><strong>clear_on_connect</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>, giving you a fresh environment when
 connecting to MAPDL. When if <code class="docutils literal notranslate"><span class="pre">start_instance</span></code> is specified
@@ -611,10 +613,12 @@ it defaults to <code class="docutils literal notranslate"><span class="pre">Fals
 <dt><strong>log_apdl</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Enables logging every APDL command to the local disk.  This
 can be used to “record” all the commands that are sent to
 MAPDL via PyMAPDL so a script can be run within MAPDL without
-PyMAPDL. This string is the path of the output file (e.g.
+PyMAPDL. This argument is the path of the output file (e.g.
 <code class="docutils literal notranslate"><span class="pre">log_apdl='pymapdl_log.txt'</span></code>). By default this is disabled.</p>
 </dd>
-<dt><strong>remove_temp_files</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Deprecated option, please use <code class="docutils literal notranslate"><span class="pre">remove_temp_dir_on_exit</span></code>.</p>
+<dt><strong>remove_temp_files</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.64.0: </span>Use argument <code class="docutils literal notranslate"><span class="pre">remove_temp_dir_on_exit</span></code> instead.</p>
+</div>
 <p>When <code class="docutils literal notranslate"><span class="pre">run_location</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, this launcher creates a new MAPDL
 working directory within the user temporary directory, obtainable with
 <code class="docutils literal notranslate"><span class="pre">tempfile.gettempdir()</span></code>. When this parameter is

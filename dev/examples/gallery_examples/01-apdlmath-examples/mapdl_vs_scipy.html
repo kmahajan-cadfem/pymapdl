@@ -589,7 +589,7 @@ STOP SOLUTION AFTER FULL FILE HAS BEEN WRITTEN
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Elapsed time to solve this problem : &quot;</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mapdl_elapsed_time</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  0.7932682037353516
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  0.5262429714202881
 </pre></div>
 </div>
 <p>Print eigenfrequencies and accuracy.</p>
@@ -614,16 +614,16 @@ STOP SOLUTION AFTER FULL FILE HAS BEEN WRITTEN
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="si">}</span><span class="s2">] : Freq = </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">f</span></a><span class="si">:</span><span class="s2">8.2f</span><span class="si">}</span><span class="s2"> Hz</span><span class="se">\t</span><span class="s2"> Residual = </span><span class="si">{</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mapdl_acc</span></a><span class="p">[</span><a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">]</span><span class="si">:</span><span class="s2">.5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[0] : Freq =   352.39 Hz         Residual = 3.4723e-08
-[1] : Freq =   385.16 Hz         Residual = 8.1511e-09
-[2] : Freq =   656.78 Hz         Residual = 1.303e-08
-[3] : Freq =   764.72 Hz         Residual = 1.3847e-08
-[4] : Freq =   825.33 Hz         Residual = 1.1408e-08
-[5] : Freq =  1039.21 Hz         Residual = 4.2396e-09
-[6] : Freq =  1143.66 Hz         Residual = 1.1628e-08
-[7] : Freq =  1258.00 Hz         Residual = 5.3364e-08
-[8] : Freq =  1334.23 Hz         Residual = 5.1172e-08
-[9] : Freq =  1352.06 Hz         Residual = 3.7675e-08
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[0] : Freq =   352.39 Hz         Residual = 1.7923e-08
+[1] : Freq =   385.16 Hz         Residual = 5.5633e-09
+[2] : Freq =   656.78 Hz         Residual = 1.0513e-08
+[3] : Freq =   764.72 Hz         Residual = 6.3881e-09
+[4] : Freq =   825.33 Hz         Residual = 7.6773e-09
+[5] : Freq =  1039.21 Hz         Residual = 7.1577e-09
+[6] : Freq =  1143.66 Hz         Residual = 1.4146e-08
+[7] : Freq =  1258.00 Hz         Residual = 5.0859e-08
+[8] : Freq =  1334.23 Hz         Residual = 5.3598e-08
+[9] : Freq =  1352.06 Hz         Residual = 3.8644e-08
 </pre></div>
 </div>
 <section id="use-scipy-to-solve-the-same-eigenproblem">
@@ -671,7 +671,7 @@ are memory inefficient.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Elapsed time to solve this problem : &quot;</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scipy_elapsed_time</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  3.539058208465576
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  2.762380599975586
 </pre></div>
 </div>
 <p>Convert Lambda values to Frequency values:
@@ -707,7 +707,7 @@ are memory inefficient.</p>
 [5] : Freq =  1039.21 Hz         Residual = 0.00057628
 [6] : Freq =  1143.66 Hz         Residual = 0.0025916
 [7] : Freq =  1258.00 Hz         Residual = 0.00033872
-[8] : Freq =  1334.23 Hz         Residual = 0.00046633
+[8] : Freq =  1334.22 Hz         Residual = 0.00046633
 [9] : Freq =  1352.06 Hz         Residual = 0.0011262
 </pre></div>
 </div>
@@ -730,14 +730,14 @@ are memory inefficient.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mapdl is </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ratio</span></a><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2"> times faster&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mapdl is 4.46 times faster
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mapdl is 5.25 times faster
 </pre></div>
 </div>
 <p>stop mapdl</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.331 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.700 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-01-apdlmath-examples-mapdl-vs-scipy-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/8e3e8f7ff86d69bea9c0ba80fd9000cd/mapdl_vs_scipy.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mapdl_vs_scipy.py</span></code></a></p>
