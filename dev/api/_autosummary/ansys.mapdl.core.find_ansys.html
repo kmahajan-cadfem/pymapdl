@@ -389,6 +389,11 @@ function checkPageExistsAndRedirect(event) {
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../launcher.html">
+   Launcher
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../logging.html">
    Logging
   </a>
@@ -526,12 +531,18 @@ function checkPageExistsAndRedirect(event) {
 <h1>find_ansys<a class="headerlink" href="#find-ansys" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ansys.mapdl.core.find_ansys">
-<span class="sig-prename descclassname"><span class="pre">ansys.mapdl.core.</span></span><span class="sig-name descname"><span class="pre">find_ansys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ansys.mapdl.core.find_ansys" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ansys.mapdl.core.</span></span><span class="sig-name descname"><span class="pre">find_ansys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ansys.mapdl.core.find_ansys" title="Permalink to this definition">#</a></dt>
 <dd><p>Searches for ansys path within the standard install location
 and returns the path of the latest version.</p>
 <dl class="field-list">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
+<dt><strong>version</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Version of ANSYS to search for.  If <code class="docutils literal notranslate"><span class="pre">None</span></code>, use latest.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
 <dt><strong>ansys_path</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Full path to ANSYS executable.</p>
 </dd>
 <dt><strong>version</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>Version float.  For example, 21.1 corresponds to 2021R1.</p>
