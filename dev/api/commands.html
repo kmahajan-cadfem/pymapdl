@@ -486,7 +486,7 @@ function checkPageExistsAndRedirect(event) {
   <section id="commands-output">
 <span id="ref-commands-api"></span><h1>Commands output<a class="headerlink" href="#commands-output" title="Permalink to this heading">#</a></h1>
 <p>Various PyMAPDL classes and commands which helps in data post-processing.</p>
-<p>All these classes are subclasses of <code class="docutils literal notranslate"><span class="pre">str</span></code> class, hence they inherit all the
+<p>All these classes are subclasses of <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> class, hence they inherit all the
 methods and attributes of <code class="xref py py-class docutils literal notranslate"><span class="pre">string</span></code>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ansys.mapdl.core.commands.CommandListingOutput">
@@ -494,6 +494,14 @@ methods and attributes of <code class="xref py py-class docutils literal notrans
 <dd><p>Allow the conversion of command output to native Python types.</p>
 <p>Custom class for handling the commands whose output is sensible to be converted to
 a list of lists, a Numpy array or a Pandas DataFrame.</p>
+<p>This class is a subclass of python <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, hence it has all the methods of
+a string python object.</p>
+<p>Additionally it provides the following methods:</p>
+<ul class="simple">
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_list()</span></code></p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_array()</span></code></p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_dataframe()</span></code></p></li>
+</ul>
 </dd></dl>
 
 <table class="autosummary longtable table autosummary">
@@ -516,6 +524,13 @@ a list of lists, a Numpy array or a Pandas DataFrame.</p>
 <p>Custom class for handling the boundary condition listing commands
 whose output is sensible to be converted to a list of lists,
 or a Pandas DataFrame.</p>
+<p>This class is a subclass of python <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, hence it has all the methods of
+a string python object and it can be used as such.</p>
+<p>Additionally it provides the following methods:</p>
+<ul class="simple">
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_list()</span></code></p></li>
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">to_dataframe()</span></code></p></li>
+</ul>
 </dd></dl>
 
 <table class="autosummary longtable table autosummary">

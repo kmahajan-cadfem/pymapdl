@@ -124,7 +124,7 @@ Define the ``FLUID30`` and ``FLUID130`` element types.
                     1500.000
     *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  22.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     14:37:04  DEC 27, 2022 CP=     32.300
+     00000000  VERSION=LINUX x64     23:47:11  DEC 28, 2022 CP=     32.751
 
                                                                                
 
@@ -193,7 +193,7 @@ First select the material and elements.
 
     PRODUCE ALL TETRAHEDRAL ELEMENTS IN 3D.
 
-     *** WARNING ***                         CP =      32.851   TIME= 14:37:05
+     *** WARNING ***                         CP =      33.115   TIME= 23:47:12
      Structural elements without mid nodes usually produce much more         
      accurate results in quad or brick shape.
 
@@ -294,12 +294,12 @@ Using :func:`Mapdl.solve() <ansys.mapdl.core.Mapdl.solve>`
 
     *****  MAPDL SOLVE    COMMAND  *****
 
-     *** NOTE ***                            CP =      33.134   TIME= 14:37:05
+     *** NOTE ***                            CP =      33.377   TIME= 23:47:13
      There is no title defined for this analysis.                            
 
      *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  22.2     ***
      Ansys Mechanical Enterprise                       
-     00000000  VERSION=LINUX x64     14:37:05  DEC 27, 2022 CP=     33.139
+     00000000  VERSION=LINUX x64     23:47:13  DEC 28, 2022 CP=     33.380
 
                                                                                
 
@@ -314,19 +314,19 @@ Using :func:`Mapdl.solve() <ansys.mapdl.core.Mapdl.solve>`
        COMPLEX DISPLACEMENT PRINT OPTION . . . . . . .REAL AND IMAGINARY       
        GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
 
-     *** WARNING ***                         CP =      33.141   TIME= 14:37:05
+     *** WARNING ***                         CP =      33.381   TIME= 23:47:13
      No constraints have been defined using the D command.                   
 
-     *** WARNING ***                         CP =      33.142   TIME= 14:37:05
+     *** WARNING ***                         CP =      33.382   TIME= 23:47:13
      Load amplitudes will be ramped over the frequency range.  Use the KBC,1 
      command to use a step change.                                           
 
-     *** NOTE ***                            CP =      33.143   TIME= 14:37:05
+     *** NOTE ***                            CP =      33.383   TIME= 23:47:13
      The step data was checked and warning messages were found.              
       Please review output or errors file ( /file.err ) for these warning    
      messages.                                                               
 
-     *** NOTE ***                            CP =      33.143   TIME= 14:37:05
+     *** NOTE ***                            CP =      33.383   TIME= 23:47:13
      The Solution Control Option is only valid for single field structural,  
      single field thermal, single field diffusion, coupled                   
      thermal-diffusion analyses and coupled-field analyses with structural   
@@ -380,8 +380,8 @@ Using :func:`Mapdl.solve() <ansys.mapdl.core.Mapdl.solve>`
        *** ELEMENT MATRIX FORMULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-            1      1606  FLUID30       0.213   0.000133
-     Time at end of element matrix formulation CP = 33.325325.               
+            1      1606  FLUID30       0.204   0.000127
+     Time at end of element matrix formulation CP = 33.5568275.              
  
  
  
@@ -391,7 +391,7 @@ Using :func:`Mapdl.solve() <ansys.mapdl.core.Mapdl.solve>`
        *** ELEMENT RESULT CALCULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-            1      1606  FLUID30       0.158   0.000098
+            1      1606  FLUID30       0.157   0.000098
 
        *** NODAL LOAD CALCULATION TIMES
          TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
@@ -624,7 +624,7 @@ Stop MAPDL
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  5.685 seconds)
+   **Total running time of the script:** ( 0 minutes  5.556 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_00-mapdl-examples_acoustic_analysis.py:

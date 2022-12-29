@@ -413,6 +413,13 @@ function checkPageExistsAndRedirect(event) {
   <a class="reference internal nav-link" href="#examples">
    Examples
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-entities">
+     Selecting entities
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#selected-nodes">
@@ -453,7 +460,7 @@ function checkPageExistsAndRedirect(event) {
               <article class="bd-article" role="main">
                 
   <section id="postprocessing">
-<h1>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this heading">#</a></h1>
+<span id="user-guide-postprocessing"></span><h1>Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this heading">#</a></h1>
 <p>In an active MAPDL session, you can postprocess using the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.html#ansys.mapdl.core.post.PostProcessing" title="ansys.mapdl.core.post.PostProcessing"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl.post_processing</span></code></a> class,
 an attribute of an instance of <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>.
@@ -555,18 +562,18 @@ These commands are listed in <a class="reference internal" href="#table-1">Table
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">post1</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">prnsol</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
 
-<span class="go">Output as a list.</span>
+<span class="go"># Output as a list.</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 <span class="go">[[&#39;1&#39;, &#39;0.0000&#39;], [&#39;2&#39;, &#39;0.0000&#39;]]</span>
 
-<span class="go">Output as array.</span>
+<span class="go"># Output as array.</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
 <span class="go">array([[1., 0.],</span>
 <span class="go">       [2., 0.]])</span>
 
-<span class="go">Output as dataframe.</span>
+<span class="go"># Output as dataframe.</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
 <span class="go">NODE   UX</span>
@@ -622,6 +629,28 @@ class, you can instead request the nodal displacement:</p>
 <p><span class="caption-text">Normalized Displacement of a Cylinder from MAPDL</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<section id="selecting-entities">
+<h3>Selecting entities<a class="headerlink" href="#selecting-entities" title="Permalink to this heading">#</a></h3>
+<p>You can select entities such as nodes, or lines using the following methods:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.nsel.html#ansys.mapdl.core.Mapdl.nsel" title="ansys.mapdl.core.Mapdl.nsel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.nsel()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.esel.html#ansys.mapdl.core.Mapdl.esel" title="ansys.mapdl.core.Mapdl.esel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.esel()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.ksel.html#ansys.mapdl.core.Mapdl.ksel" title="ansys.mapdl.core.Mapdl.ksel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.ksel()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.lsel.html#ansys.mapdl.core.Mapdl.lsel" title="ansys.mapdl.core.Mapdl.lsel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.lsel()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.asel.html#ansys.mapdl.core.Mapdl.asel" title="ansys.mapdl.core.Mapdl.asel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.asel()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.vsel.html#ansys.mapdl.core.Mapdl.vsel" title="ansys.mapdl.core.Mapdl.vsel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.vsel()</span></code></a></p></li>
+</ul>
+<p>These methods returns the ids of the selected entities. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">selected_nodes</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;NODE&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selected_nodes</span><span class="p">)</span>
+<span class="go">array([   1    2    3 ... 1998 1999 2000])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ksel</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="go">array([1, 2, 3, ..., 1998, 1999, 2000])</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="selected-nodes">
 <h2>Selected nodes<a class="headerlink" href="#selected-nodes" title="Permalink to this heading">#</a></h2>
