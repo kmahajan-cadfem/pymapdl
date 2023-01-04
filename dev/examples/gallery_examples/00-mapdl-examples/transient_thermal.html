@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>Example Thermal Transient Analysis &#8212; PyMAPDL</title>
     
 <script>
@@ -1779,7 +1788,7 @@ python accessible variable, rather than storing it to a MAPDL value.</p>
 <span class="c1"># See the MAPDL reference for all the items you can obtain using *GET</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>251.05408986663696
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>251.05408986663673
 </pre></div>
 </div>
 <p>Here, we extract the temperature of the node across for each solution</p>
@@ -1793,7 +1802,7 @@ python accessible variable, rather than storing it to a MAPDL value.</p>
 <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">node_temp</span></a><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[76.27707675716556, 76.81799224351983, 77.42151540097551, 79.0483883556124, 81.19108300049334, 83.5670900701617, 85.35125295387651, 86.23266429275358, 86.97754017604876, 88.3127558988445]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[76.27707675716556, 76.81799224351983, 77.42151540097551, 79.04838835561242, 81.1910830004933, 83.56709007016165, 85.3512529538765, 86.2326642927535, 86.97754017604863, 88.31275589884443]
 </pre></div>
 </div>
 <p>Alternatively, you can simply grab the data for the node from the
@@ -1812,7 +1821,7 @@ sent back for each result.</p>
 <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">node_temp_from_post</span></a><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[76.27707675716556, 76.81799224351983, 77.42151540097551, 79.0483883556124, 81.19108300049334, 83.5670900701617, 85.35125295387651, 86.23266429275358, 86.97754017604876, 88.3127558988445]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[76.27707675716556, 76.81799224351983, 77.42151540097551, 79.04838835561242, 81.1910830004933, 83.56709007016165, 85.3512529538765, 86.2326642927535, 86.97754017604863, 88.31275589884443]
 </pre></div>
 </div>
 <p>Plot the temperature as a function of time</p>
@@ -1829,7 +1838,7 @@ sent back for each result.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.648 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.582 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-transient-thermal-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/5ea8304e8eee080ba9decd82a6d7994e/transient_thermal.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">transient_thermal.py</span></code></a></p>
@@ -1861,7 +1870,7 @@ sent back for each result.</p>
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

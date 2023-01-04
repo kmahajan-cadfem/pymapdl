@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>Building an example &#8212; PyMAPDL</title>
     
 <script>
@@ -494,12 +503,12 @@ function checkPageExistsAndRedirect(event) {
 <span id="ref-building-example"></span><h1>Building an example<a class="headerlink" href="#building-an-example" title="Permalink to this heading">#</a></h1>
 <p>To run the documentation, you need to have the correct versions of each tool. To do so, execute the
 following instruction.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements/requirements_docs.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/requirements_docs.txt
 </pre></div>
 </div>
 <p>The Sphinx configuration is in the file <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> in <code class="docutils literal notranslate"><span class="pre">doc/source</span></code>.</p>
 <p>To run the sphinx tool:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doc<span class="se">\m</span>ake.bat html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doc<span class="se">\m</span>ake.bat<span class="w"> </span>html
 </pre></div>
 </div>
 <p>There are three types of examples: dynamic, static, and semi-static.</p>
@@ -526,7 +535,7 @@ the document.</p>
 <section id="semi-dynamic-examples">
 <h2>Semi-dynamic examples<a class="headerlink" href="#semi-dynamic-examples" title="Permalink to this heading">#</a></h2>
 <p>Semi-dynamic examples are RST files that execute Python code using this RST directive:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.. jupyter-execute::
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>..<span class="w"> </span>jupyter-execute::
 :hide-code:
 </pre></div>
 </div>
@@ -560,7 +569,7 @@ To get around the problem of execution time, feel free to use static or semi-sta
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

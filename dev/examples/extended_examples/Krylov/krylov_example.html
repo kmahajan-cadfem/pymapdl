@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>Harmonic analysis using the frequency-sweep Krylov method &#8212; PyMAPDL</title>
     
 <script>
@@ -745,7 +754,7 @@ from 0 Hz to 1000 Hz with ramped loading.</p>
 <span class="n">substep_index</span> <span class="o">=</span> <span class="mi">99</span>
 
 <span class="k">def</span> <span class="nf">get_pressure_at</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get pressure at a given node at a given step (by default first step)&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get pressure at a given node at a given step (by default first step)&quot;&quot;&quot;</span>
     <span class="n">index_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">step</span><span class="p">][</span><span class="s1">&#39;node&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">node</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span><span class="p">[</span><span class="n">step</span><span class="p">][</span><span class="n">index_num</span><span class="p">]</span>
 
@@ -853,7 +862,7 @@ over a range of frequencies, such as 0 to 1000 Hz.</p>
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

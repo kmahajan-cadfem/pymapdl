@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>Performing Sparse Factorization and Solve Operations &#8212; PyMAPDL</title>
     
 <script>
@@ -503,7 +512,7 @@ matrix, mass matrix, and the load vector.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">list_files</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;HexBeam.cdb&#39;, &#39;LatheCutter.anf&#39;, &#39;PRSMEMB.DSP&#39;, &#39;PRSMEMB.emat&#39;, &#39;PRSMEMB.esav&#39;, &#39;PRSMEMB.full&#39;, &#39;PRSMEMB.mntr&#39;, &#39;PRSMEMB.mode&#39;, &#39;PRSMEMB.rst&#39;, &#39;PRSMEMB000.jpg&#39;, &#39;PRSMEMB001.jpg&#39;, &#39;PRSMEMB002.jpg&#39;, &#39;PRSMEMB003.jpg&#39;, &#39;PRSMEMB004.jpg&#39;, &#39;PRSMEMB005.jpg&#39;, &#39;PRSMEMB006.jpg&#39;, &#39;PRSMEMB007.jpg&#39;, &#39;PRSMEMB008.jpg&#39;, &#39;PRSMEMB009.jpg&#39;, &#39;PRSMEMB010.jpg&#39;, &#39;PRSMEMB011.jpg&#39;, &#39;SCRATCH&#39;, &#39;SOLVIT.MAC&#39;, &#39;TABLE_1&#39;, &#39;TABLE_2&#39;, &#39;__tmp_sys_out_alddvqdbmo__&#39;, &#39;__tmp_sys_out_bqnsqilewq__&#39;, &#39;__tmp_sys_out_byouuadwzh__&#39;, &#39;__tmp_sys_out_chdmzmrldb__&#39;, &#39;__tmp_sys_out_eozeeiszit__&#39;, &#39;__tmp_sys_out_ewgiwnkpll__&#39;, &#39;__tmp_sys_out_hddchkapvt__&#39;, &#39;__tmp_sys_out_hmigicfucu__&#39;, &#39;__tmp_sys_out_iqjeelabgn__&#39;, &#39;__tmp_sys_out_jhdlybaooa__&#39;, &#39;__tmp_sys_out_kdkbbdbfhg__&#39;, &#39;__tmp_sys_out_ltjbsbctxu__&#39;, &#39;__tmp_sys_out_lwcznzoykm__&#39;, &#39;__tmp_sys_out_mklroxlkxv__&#39;, &#39;__tmp_sys_out_mzzhrpjyxa__&#39;, &#39;__tmp_sys_out_ncnlwlvoot__&#39;, &#39;__tmp_sys_out_nikqdzbnmg__&#39;, &#39;__tmp_sys_out_nlblabbqew__&#39;, &#39;__tmp_sys_out_ntssoqtgfc__&#39;, &#39;__tmp_sys_out_obkurmivqv__&#39;, &#39;__tmp_sys_out_ocqosrpctp__&#39;, &#39;__tmp_sys_out_ogpbvoqnpm__&#39;, &#39;__tmp_sys_out_ozbboydbjd__&#39;, &#39;__tmp_sys_out_pvvwcjztpx__&#39;, &#39;__tmp_sys_out_pwjhljmoxw__&#39;, &#39;__tmp_sys_out_rapxrpkkfl__&#39;, &#39;__tmp_sys_out_umpsddbbrt__&#39;, &#39;__tmp_sys_out_uncgcernax__&#39;, &#39;__tmp_sys_out_wyfaikzvla__&#39;, &#39;__tmp_sys_out_wzpcncljug__&#39;, &#39;__tmp_sys_out_xbivxkrigz__&#39;, &#39;__tmp_sys_out_xgnswzxebe__&#39;, &#39;__tmp_sys_out_ybktcsrkik__&#39;, &#39;__tmp_sys_out_yitgzdtsyp__&#39;, &#39;_tmp.iges&#39;, &#39;anaconda-post.log&#39;, &#39;anstmp&#39;, &#39;ansys_inc&#39;, &#39;bin&#39;, &#39;bracket.iges&#39;, &#39;dev&#39;, &#39;etc&#39;, &#39;file.DSP&#39;, &#39;file.ans_log&#39;, &#39;file.emat&#39;, &#39;file.err&#39;, &#39;file.esav&#39;, &#39;file.full&#39;, &#39;file.ldhi&#39;, &#39;file.log&#39;, &#39;file.mlv&#39;, &#39;file.mntr&#39;, &#39;file.mode&#39;, &#39;file.page&#39;, &#39;file.r001&#39;, &#39;file.rdb&#39;, &#39;file.rsx&#39;, &#39;file.rth&#39;, &#39;file.stat&#39;, &#39;file000.jpg&#39;, &#39;file000.png&#39;, &#39;file001.png&#39;, &#39;gzciuhawab.txt&#39;, &#39;home&#39;, &#39;lib&#39;, &#39;lib64&#39;, &#39;manifold_geometry.anf&#39;, &#39;media&#39;, &#39;mnt&#39;, &#39;opt&#39;, &#39;proc&#39;, &#39;pwwgkgwtnx.txt&#39;, &#39;root&#39;, &#39;run&#39;, &#39;sbin&#39;, &#39;sector.cdb&#39;, &#39;srv&#39;, &#39;sys&#39;, &#39;tmp&#39;, &#39;tmp.cdb&#39;, &#39;tmp_bkeouipihy.inp&#39;, &#39;tmp_ecfqnsaosu.inp&#39;, &#39;tmp_fvukmwnuhu.inp&#39;, &#39;tmp_kjadcefedh.inp&#39;, &#39;tmp_kxvdlfyonv.inp&#39;, &#39;tmp_lkwexqplmv.inp&#39;, &#39;tmp_lyzxxeatcx.inp&#39;, &#39;tmp_nubcmvtndv.inp&#39;, &#39;tmp_oqwwrkqhbd.inp&#39;, &#39;tmp_phygcwgudz.inp&#39;, &#39;tmp_pjtkrbbnds.inp&#39;, &#39;tmp_qphjnzdhmp.inp&#39;, &#39;tmp_ryjausbgtt.inp&#39;, &#39;tmp_tpkpfqxbfr.inp&#39;, &#39;tmp_uyepcdptpv.inp&#39;, &#39;tmp_xbdqraqqar.inp&#39;, &#39;tmp_xhdigfecnc.inp&#39;, &#39;usr&#39;, &#39;uwcwwbgvsi.txt&#39;, &#39;var&#39;, &#39;vm1.dat&#39;, &#39;vm1.vrt&#39;, &#39;vm153.dat&#39;, &#39;vm153.vrt&#39;, &#39;vm5.dat&#39;, &#39;vm5.vrt&#39;, &#39;wing.dat&#39;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;HexBeam.cdb&#39;, &#39;LatheCutter.anf&#39;, &#39;PRSMEMB.DSP&#39;, &#39;PRSMEMB.emat&#39;, &#39;PRSMEMB.esav&#39;, &#39;PRSMEMB.full&#39;, &#39;PRSMEMB.mntr&#39;, &#39;PRSMEMB.mode&#39;, &#39;PRSMEMB.rst&#39;, &#39;PRSMEMB000.jpg&#39;, &#39;PRSMEMB001.jpg&#39;, &#39;PRSMEMB002.jpg&#39;, &#39;PRSMEMB003.jpg&#39;, &#39;PRSMEMB004.jpg&#39;, &#39;PRSMEMB005.jpg&#39;, &#39;PRSMEMB006.jpg&#39;, &#39;PRSMEMB007.jpg&#39;, &#39;PRSMEMB008.jpg&#39;, &#39;PRSMEMB009.jpg&#39;, &#39;PRSMEMB010.jpg&#39;, &#39;PRSMEMB011.jpg&#39;, &#39;SCRATCH&#39;, &#39;SOLVIT.MAC&#39;, &#39;TABLE_1&#39;, &#39;TABLE_2&#39;, &#39;__tmp_sys_out_ddrmexpzcw__&#39;, &#39;__tmp_sys_out_dxbupplylo__&#39;, &#39;__tmp_sys_out_fdyiammdhv__&#39;, &#39;__tmp_sys_out_fxcwxecuqm__&#39;, &#39;__tmp_sys_out_goomaojnpt__&#39;, &#39;__tmp_sys_out_hqjfekofgv__&#39;, &#39;__tmp_sys_out_hzpstoezpk__&#39;, &#39;__tmp_sys_out_jgiehjjssy__&#39;, &#39;__tmp_sys_out_jiuyuciejb__&#39;, &#39;__tmp_sys_out_jqrygzgalx__&#39;, &#39;__tmp_sys_out_jsskoevvif__&#39;, &#39;__tmp_sys_out_lkxioyknzg__&#39;, &#39;__tmp_sys_out_lrkhcpigej__&#39;, &#39;__tmp_sys_out_miwxkjigvb__&#39;, &#39;__tmp_sys_out_mxwmrlxlio__&#39;, &#39;__tmp_sys_out_nctshihtkz__&#39;, &#39;__tmp_sys_out_nebwgyhpzv__&#39;, &#39;__tmp_sys_out_nmieqlzbge__&#39;, &#39;__tmp_sys_out_qbfwblrndb__&#39;, &#39;__tmp_sys_out_qiydmteshp__&#39;, &#39;__tmp_sys_out_rlibhbruhs__&#39;, &#39;__tmp_sys_out_sawtqxpfca__&#39;, &#39;__tmp_sys_out_sbbyvsecjb__&#39;, &#39;__tmp_sys_out_sjesyhlobt__&#39;, &#39;__tmp_sys_out_szublazqxj__&#39;, &#39;__tmp_sys_out_tofnbbyxgl__&#39;, &#39;__tmp_sys_out_vfnzvvirih__&#39;, &#39;__tmp_sys_out_vpkusqantc__&#39;, &#39;__tmp_sys_out_wdbmijsnht__&#39;, &#39;__tmp_sys_out_wkkjbhchun__&#39;, &#39;__tmp_sys_out_wnhnwvbdoz__&#39;, &#39;__tmp_sys_out_xoilvdetsf__&#39;, &#39;__tmp_sys_out_yrzybyyvtd__&#39;, &#39;__tmp_sys_out_zeayotvjjs__&#39;, &#39;_tmp.iges&#39;, &#39;anaconda-post.log&#39;, &#39;anstmp&#39;, &#39;ansys_inc&#39;, &#39;bin&#39;, &#39;bracket.iges&#39;, &#39;czixxqjrrm.txt&#39;, &#39;dev&#39;, &#39;dpblzdzdnd.txt&#39;, &#39;etc&#39;, &#39;file.DSP&#39;, &#39;file.ans_log&#39;, &#39;file.emat&#39;, &#39;file.err&#39;, &#39;file.esav&#39;, &#39;file.full&#39;, &#39;file.ldhi&#39;, &#39;file.log&#39;, &#39;file.mlv&#39;, &#39;file.mntr&#39;, &#39;file.mode&#39;, &#39;file.page&#39;, &#39;file.r001&#39;, &#39;file.rdb&#39;, &#39;file.rsx&#39;, &#39;file.rth&#39;, &#39;file.stat&#39;, &#39;file000.jpg&#39;, &#39;file000.png&#39;, &#39;file001.png&#39;, &#39;home&#39;, &#39;lib&#39;, &#39;lib64&#39;, &#39;manifold_geometry.anf&#39;, &#39;media&#39;, &#39;mnt&#39;, &#39;opt&#39;, &#39;proc&#39;, &#39;root&#39;, &#39;run&#39;, &#39;sbin&#39;, &#39;sector.cdb&#39;, &#39;srv&#39;, &#39;sys&#39;, &#39;tmp&#39;, &#39;tmp.cdb&#39;, &#39;tmp_bazypyeteo.inp&#39;, &#39;tmp_bnclniting.inp&#39;, &#39;tmp_clzgrzrvtz.inp&#39;, &#39;tmp_eiiyheuxwe.inp&#39;, &#39;tmp_fzqpdppnrf.inp&#39;, &#39;tmp_gzwjlgveyl.inp&#39;, &#39;tmp_izndxtdncz.inp&#39;, &#39;tmp_jtuffgvdkg.inp&#39;, &#39;tmp_jwqpjuirbi.inp&#39;, &#39;tmp_lhyispcktz.inp&#39;, &#39;tmp_ojnvhpokgc.inp&#39;, &#39;tmp_ufigxwthwu.inp&#39;, &#39;tmp_umhnyhplmx.inp&#39;, &#39;tmp_uzhurvglqg.inp&#39;, &#39;tmp_yffzznvoqr.inp&#39;, &#39;tmp_ziwxqfdmek.inp&#39;, &#39;tmp_zvpmkodqfh.inp&#39;, &#39;tnfqxmfcfv.txt&#39;, &#39;usr&#39;, &#39;var&#39;, &#39;vm1.dat&#39;, &#39;vm1.vrt&#39;, &#39;vm153.dat&#39;, &#39;vm153.vrt&#39;, &#39;vm5.dat&#39;, &#39;vm5.vrt&#39;, &#39;wing.dat&#39;]
 </pre></div>
 </div>
 <p>Extract the Stiffness matrix from the <code class="docutils literal notranslate"><span class="pre">FULL</span></code> file, in a sparse
@@ -572,11 +581,11 @@ matrix format.</p>
 
   Name                   Type            Mem. (MB)       Dims            Workspace
 
-   TCPLLW                SMAT            0.011           [126:126]               1
-   FDJJWF                VEC             0.001           126             1
-   UPQTBC                VEC             0.001           126             1
-   WXDLCI                VEC             0.001           126             1
-   JLVUJR                LSENGINE        --              --              1
+   SPIVIT                SMAT            0.011           [126:126]               1
+   RPDTVW                VEC             0.001           126             1
+   XTRVDK                VEC             0.001           126             1
+   YDEPBF                VEC             0.001           126             1
+   EQLKSB                LSENGINE        --              --              1
 </pre></div>
 </div>
 <p>Delete all APDLMath Objects</p>
@@ -587,7 +596,7 @@ matrix format.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.837 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.865 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-01-apdlmath-examples-solve-sparse-matrix-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/b535d56f0d83809d8b2924158195ccf5/solve_sparse_matrix.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">solve_sparse_matrix.py</span></code></a></p>
@@ -619,7 +628,7 @@ matrix format.</p>
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

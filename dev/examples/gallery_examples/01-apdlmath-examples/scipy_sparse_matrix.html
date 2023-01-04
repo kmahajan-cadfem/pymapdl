@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>APDLMath Sparse Matrices and SciPy Sparse Matrices &#8212; PyMAPDL</title>
     
 <script>
@@ -512,7 +521,7 @@ graph of the sparse matrix</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pk</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../../_images/sphx_glr_scipy_sparse_matrix_001.png" srcset="../../../_images/sphx_glr_scipy_sparse_matrix_001.png" alt="scipy sparse matrix" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D object at 0x7f77214e0b50&gt;
+<img src="../../../_images/sphx_glr_scipy_sparse_matrix_001.png" srcset="../../../_images/sphx_glr_scipy_sparse_matrix_001.png" alt="scipy sparse matrix" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D object at 0x7f4bdc902190&gt;
 </pre></div>
 </div>
 <p>You can access the 3 vectors that describe this sparse matrix with.</p>
@@ -571,8 +580,8 @@ We compute the norm of the difference, should be zero</p>
 
   Name                   Type            Mem. (MB)       Dims            Workspace
 
-   GHZIRG                SMAT            0.011           [126:126]               1
-   HRAFEH                SMAT            0.011           [126:126]               1
+   DMPPKJ                SMAT            0.011           [126:126]               1
+   HFMVAT                SMAT            0.011           [126:126]               1
    MY_MAT                SMAT            0.000           [126:126]               1
    MY_MAT_DATA           VEC             0.006           738             1
    MY_MAT_IND            VEC             0.001           127             1
@@ -589,16 +598,16 @@ access the id property of the Python object.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name(msub)=&quot;</span> <span class="o">+</span> <a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msub</span><span class="o">.</span><span class="n">id</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>name(k)=HRAFEH
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>name(k)=HFMVAT
 name(my_mat)=my_mat
-name(msub)=GHZIRG
+name(msub)=DMPPKJ
 </pre></div>
 </div>
 <p>stop mapdl</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.798 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.745 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-01-apdlmath-examples-scipy-sparse-matrix-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/cca37b9778ec7e909dbc04a38ce66e95/scipy_sparse_matrix.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">scipy_sparse_matrix.py</span></code></a></p>
@@ -630,7 +639,7 @@ name(msub)=GHZIRG
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

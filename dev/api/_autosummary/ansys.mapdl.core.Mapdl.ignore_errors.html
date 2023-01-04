@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>ignore_errors &#8212; PyMAPDL</title>
     
 <script>
@@ -369,11 +378,6 @@ function checkPageExistsAndRedirect(event) {
    <li class="toctree-l2">
     <a class="reference internal" href="ansys.mapdl.core.Mapdl.add_file_handler.html">
      add_file_handler
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ansys.mapdl.core.Mapdl.allow_ignore.html">
-     allow_ignore
     </a>
    </li>
    <li class="toctree-l2">
@@ -757,10 +761,29 @@ function checkPageExistsAndRedirect(event) {
 <dl class="py property">
 <dt class="sig sig-object py" id="ansys.mapdl.core.Mapdl.ignore_errors">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Mapdl.</span></span><span class="sig-name descname"><span class="pre">ignore_errors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/dev/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></em><a class="headerlink" href="#ansys.mapdl.core.Mapdl.ignore_errors" title="Permalink to this definition">#</a></dt>
-<dd><p>Flag to ignore MAPDL errors.</p>
+<dd><p>Invalid commands will be ignored rather than exceptions</p>
 <p>Normally, any string containing “<strong>* ERROR *</strong>” from MAPDL
 will trigger a <code class="docutils literal notranslate"><span class="pre">MapdlRuntimeError</span></code>.  Set this to <code class="docutils literal notranslate"><span class="pre">True</span></code> to
 ignore these errors.</p>
+<p>For example, a command executed in the wrong processor will
+raise an exception when <code class="docutils literal notranslate"><span class="pre">ignore_errors=False</span></code>.
+This is the default behavior.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">post1</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">Exception:  K is not a recognized POST1 command, abbreviation, or macro.</span>
+</pre></div>
+</div>
+<p>Ignore these messages by setting ignore_errors=True</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ignore_errors</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="go">2020-06-08 21:39:58,094 [INFO] : K is not a</span>
+<span class="go">recognized POST1 command, abbreviation, or macro.  This</span>
+<span class="go">command will be ignored.</span>
+</pre></div>
+</div>
+<p><strong>* WARNING *</strong> CP = 0.372 TIME= 21:39:58
+K is not a recognized POST1 command, abbreviation, or macro.
+This command will be ignored.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../../mapdl_commands/prep7/_autosummary/ansys.mapdl.core.Mapdl.bool.html#ansys.mapdl.core.Mapdl.bool" title="ansys.mapdl.core.Mapdl.bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -789,7 +812,7 @@ ignore these errors.</p>
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

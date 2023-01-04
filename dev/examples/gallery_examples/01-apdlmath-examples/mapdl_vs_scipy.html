@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>Compute Eigenvalues using MAPDL or SciPy &#8212; PyMAPDL</title>
     
 <script>
@@ -589,7 +598,7 @@ STOP SOLUTION AFTER FULL FILE HAS BEEN WRITTEN
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Elapsed time to solve this problem : &quot;</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mapdl_elapsed_time</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  0.5297913551330566
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  0.5050704479217529
 </pre></div>
 </div>
 <p>Print eigenfrequencies and accuracy.</p>
@@ -671,7 +680,7 @@ are memory inefficient.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Elapsed time to solve this problem : &quot;</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scipy_elapsed_time</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  2.727668285369873
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Elapsed time to solve this problem :  2.731546401977539
 </pre></div>
 </div>
 <p>Convert Lambda values to Frequency values:
@@ -730,14 +739,14 @@ are memory inefficient.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mapdl is </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ratio</span></a><span class="si">:</span><span class="s2">.3</span><span class="si">}</span><span class="s2"> times faster&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mapdl is 5.15 times faster
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mapdl is 5.41 times faster
 </pre></div>
 </div>
 <p>stop mapdl</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.573 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.549 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-01-apdlmath-examples-mapdl-vs-scipy-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/8e3e8f7ff86d69bea9c0ba80fd9000cd/mapdl_vs_scipy.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mapdl_vs_scipy.py</span></code></a></p>
@@ -769,7 +778,7 @@ are memory inefficient.</p>
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

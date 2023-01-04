@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>2D Pressure Vessel &#8212; PyMAPDL</title>
     
 <script>
@@ -609,7 +618,7 @@ is negligible and therefore we model this system as 2D plane strain.</p>
 <p>We use a function here so we can rebuild the pipe using parameters rather than
 calling a script several times.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pipe_plane_strain</span><span class="p">(</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">e</span></a><span class="p">,</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nu</span></a><span class="p">,</span> <span class="n">inn_radius</span><span class="p">,</span> <span class="n">out_radius</span><span class="p">,</span> <span class="n">press</span><span class="p">,</span> <span class="n">aesize</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Create 2D cross section modeling a pipe.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create 2D cross section modeling a pipe.&quot;&quot;&quot;</span>
 
     <span class="c1"># reset mapdl</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -769,7 +778,7 @@ DOF:  8216   Stress: 748.40 MPa
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.692 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.161 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-2d-pressure-vessel-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/b96b83a60a849fa6c1fbc40959ff0629/2d_pressure_vessel.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2d_pressure_vessel.py</span></code></a></p>
@@ -801,7 +810,7 @@ DOF:  8216   Stress: 748.40 MPa
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>MAPDL 2D Plane Stress Concentration Analysis &#8212; PyMAPDL</title>
     
 <script>
@@ -737,7 +746,7 @@ force of 1 kN in the positive X direction.</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>*****  MAPDL SOLVE    COMMAND  *****
 
- *** NOTE ***                            CP =       1.202   TIME= 11:01:41
+ *** NOTE ***                            CP =       1.190   TIME= 16:34:02
  There is no title defined for this analysis.
 
  *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
@@ -750,7 +759,7 @@ force of 1 kN in the positive X direction.</p>
 
  *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE                  22.2     ***
  Ansys Mechanical Enterprise
- 00000000  VERSION=LINUX x64     11:01:41  DEC 29, 2022 CP=      1.217
+ 00000000  VERSION=LINUX x64     16:34:02  JAN 03, 2023 CP=      1.203
 
 
 
@@ -763,11 +772,11 @@ force of 1 kN in the positive X direction.</p>
    ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
    GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC
 
- *** NOTE ***                            CP =       1.223   TIME= 11:01:41
+ *** NOTE ***                            CP =       1.208   TIME= 16:34:02
  Present time 0 is less than or equal to the previous time.  Time will
  default to 1.
 
- *** NOTE ***                            CP =       1.227   TIME= 11:01:41
+ *** NOTE ***                            CP =       1.212   TIME= 16:34:02
  The conditions for direct assembly have been met.  No .emat or .erot
  files will be produced.
 
@@ -816,8 +825,8 @@ force of 1 kN in the positive X direction.</p>
    *** ELEMENT MATRIX FORMULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       977  PLANE183      0.084   0.000086
- Time at end of element matrix formulation CP = 1.33901191.
+        1       977  PLANE183      0.114   0.000116
+ Time at end of element matrix formulation CP = 1.34487104.
 
  SPARSE MATRIX DIRECT SOLVER.
   Number of equations =        6124,    Maximum wavefront =     48
@@ -825,7 +834,7 @@ force of 1 kN in the positive X direction.</p>
   Memory required for in-core solution     =     8.134 MB
   Memory required for out-of-core solution =     4.318 MB
 
- *** NOTE ***                            CP =       1.435   TIME= 11:01:41
+ *** NOTE ***                            CP =       1.444   TIME= 16:34:02
  The Sparse Matrix Solver is currently running in the in-core memory
  mode.  This memory mode uses the most amount of memory in order to
  avoid using the hard drive as much as possible, which most often
@@ -840,12 +849,12 @@ force of 1 kN in the positive X direction.</p>
    *** ELEMENT RESULT CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       977  PLANE183      0.109   0.000112
+        1       977  PLANE183      0.102   0.000104
 
    *** NODAL LOAD CALCULATION TIMES
      TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
 
-        1       977  PLANE183      0.036   0.000036
+        1       977  PLANE183      0.035   0.000036
  *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
  *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
 
@@ -936,7 +945,7 @@ width over the modified cross section width.</p>
 stress concentration for a variety of hole diameters.  For each
 batch, MAPDL is reset and the geometry is generated from scratch.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_stress_con</span><span class="p">(</span><a href="https://numpy.org/devdocs/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">ratio</span></a><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compute the stress concentration for plate with a hole loaded</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the stress concentration for plate with a hole loaded</span>
 <span class="sd">    with a uniaxial force.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="s2">&quot;NOSTART&quot;</span><span class="p">)</span>
@@ -1102,7 +1111,7 @@ height and width of the plate.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.566 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.142 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-gallery-examples-00-mapdl-examples-2d-plate-with-a-hole-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/bb8a19792fbc4311ff0d03d9f9c306c5/2d_plate_with_a_hole.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">2d_plate_with_a_hole.py</span></code></a></p>
@@ -1134,7 +1143,7 @@ height and width of the plate.</p>
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   

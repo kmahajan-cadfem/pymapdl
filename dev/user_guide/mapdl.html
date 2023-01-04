@@ -6,6 +6,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQJKPV6ZVB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JQJKPV6ZVB');
+    </script>
+    
     <title>PyMAPDL language and usage &#8212; PyMAPDL</title>
     
 <script>
@@ -799,9 +808,9 @@ running a command in the wrong session raises an error:</p>
 </div>
 <p>You can change this behavior so ignored commands can be logged as
 warnings and not raised as exceptions by using the
-<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.allow_ignore.html#ansys.mapdl.core.Mapdl.allow_ignore" title="ansys.mapdl.core.Mapdl.allow_ignore"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.allow_ignore()</span></code></a> function. For
+<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.ignore_errors.html#ansys.mapdl.core.Mapdl.ignore_errors" title="ansys.mapdl.core.Mapdl.ignore_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.ignore_errors()</span></code></a> function. For
 example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">allow_ignore</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ignore_errors</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">()</span>  <span class="c1"># warning silently ignored</span>
 </pre></div>
 </div>
@@ -902,7 +911,7 @@ with torsional loading.</p>
 <span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 
 <span class="k">def</span> <span class="nf">cylinder_batch</span><span class="p">(</span><span class="n">elemsize</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Report the maximum von Mises stress of a Cantilever supported cylinder&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Report the maximum von Mises stress of a Cantilever supported cylinder&quot;&quot;&quot;</span>
 
     <span class="c1"># clear</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
@@ -1534,7 +1543,7 @@ in combination with <code class="docutils literal notranslate"><span class="pre"
   
   <div class="footer-item">
     <p class="copyright">
-    &copy; Copyright (c) 2022 ANSYS, Inc. All rights reserved.<br>
+    &copy; Copyright (c) 2023 ANSYS, Inc. All rights reserved.<br>
 </p>
   </div>
   
