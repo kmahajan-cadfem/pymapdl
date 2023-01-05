@@ -5,44 +5,44 @@
 
 Computation times
 =================
-**04:37.651** total execution time for **examples_gallery_examples_00-mapdl-examples** files:
+**05:09.696** total execution time for **examples_gallery_examples_00-mapdl-examples** files:
 
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_composite_dcb.py` (``composite_dcb.py``)                                     | 01:42.953 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_composite_dcb.py` (``composite_dcb.py``)                                     | 01:48.180 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_cyclic_analysis.py` (``cyclic_analysis.py``)                                 | 00:41.866 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_cyclic_analysis.py` (``cyclic_analysis.py``)                                 | 00:46.663 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_exhaust_manifold_thermal_stress.py` (``exhaust_manifold_thermal_stress.py``) | 00:28.376 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_exhaust_manifold_thermal_stress.py` (``exhaust_manifold_thermal_stress.py``) | 00:36.220 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_2d_plate_with_a_hole.py` (``2d_plate_with_a_hole.py``)                       | 00:18.846 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_2d_plate_with_a_hole.py` (``2d_plate_with_a_hole.py``)                       | 00:18.779 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_pyvista_mesh.py` (``pyvista_mesh.py``)                                       | 00:11.006 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_pyvista_mesh.py` (``pyvista_mesh.py``)                                       | 00:11.847 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_transient_thermal.py` (``transient_thermal.py``)                             | 00:10.745 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_transient_thermal.py` (``transient_thermal.py``)                             | 00:11.835 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_2d_pressure_vessel.py` (``2d_pressure_vessel.py``)                           | 00:09.430 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_acoustic_analysis.py` (``acoustic_analysis.py``)                             | 00:11.749 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_geometry.py` (``geometry.py``)                                               | 00:09.404 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_2d_pressure_vessel.py` (``2d_pressure_vessel.py``)                           | 00:11.240 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_pressure_vessel.py` (``pressure_vessel.py``)                                 | 00:08.033 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_pressure_vessel.py` (``pressure_vessel.py``)                                 | 00:09.742 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_acoustic_analysis.py` (``acoustic_analysis.py``)                             | 00:07.970 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_path_operations.py` (``path_operations.py``)                                 | 00:09.605 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_lathe_cutter.py` (``lathe_cutter.py``)                                       | 00:07.888 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_geometry.py` (``geometry.py``)                                               | 00:09.308 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_3d_notch.py` (``3d_notch.py``)                                               | 00:06.829 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_lathe_cutter.py` (``lathe_cutter.py``)                                       | 00:08.766 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_path_operations.py` (``path_operations.py``)                                 | 00:05.448 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_3d_notch.py` (``3d_notch.py``)                                               | 00:07.268 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_basic_dpf_example.py` (``basic_dpf_example.py``)                             | 00:01.883 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_basic_dpf_example.py` (``basic_dpf_example.py``)                             | 00:02.001 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_contact_elements.py` (``contact_elements.py``)                               | 00:01.877 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_contact_elements.py` (``contact_elements.py``)                               | 00:01.818 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_mapdl_3d_beam.py` (``mapdl_3d_beam.py``)                                     | 00:01.671 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_mapdl_3d_beam.py` (``mapdl_3d_beam.py``)                                     | 00:01.537 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_cyclic_static.py` (``cyclic_static.py``)                                     | 00:01.500 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_cyclic_static.py` (``cyclic_static.py``)                                     | 00:01.255 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_3d_plate_thermal.py` (``3d_plate_thermal.py``)                               | 00:01.278 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_3d_plate_thermal.py` (``3d_plate_thermal.py``)                               | 00:01.224 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_mapdl_beam.py` (``mapdl_beam.py``)                                           | 00:00.649 | 0.0 MB |
+| :ref:`sphx_glr_examples_gallery_examples_00-mapdl-examples_mapdl_beam.py` (``mapdl_beam.py``)                                           | 00:00.659 | 0.0 MB |
 +-----------------------------------------------------------------------------------------------------------------------------------------+-----------+--------+

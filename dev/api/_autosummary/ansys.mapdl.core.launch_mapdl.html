@@ -695,6 +695,25 @@ To retrieve the available installed versions, use the function
 </div>
 </div>
 </dd>
+<dt><strong>kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>These keyword arguments are interface specific or for
+development purposes. See Notes for more details.</p>
+<dl>
+<dt>set_no_abort<span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/functions.html#bool" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p><em>(Development use only)</em>
+Sets MAPDL to not abort at the first error within /BATCH mode.
+Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt>force_intel<span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/functions.html#bool" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p><em>(Development use only)</em>
+Forces the use of Intel message pass interface (MPI) in versions between
+Ansys 2021R0 and 2022R2, where because of VPNs issues this MPI is deactivated
+by default. See <a class="reference internal" href="../../user_guide/troubleshoot.html#vpn-issues-troubleshooting"><span class="std std-ref">Virtual private network (VPN) issues</span></a> for more information.
+Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt>log_broadcast<span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/functions.html#bool" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></dt><dd><p><em>(Only for CORBA mode)</em>
+Enables a logger to record broadcasted commands.
+Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+</dl>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -705,8 +724,10 @@ To retrieve the available installed versions, use the function
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<p><strong>Ansys Student Version</strong></p>
 <p>If an Ansys Student version is detected, PyMAPDL will launch MAPDL in
 shared-memory parallelism (SMP) mode unless another option is specified.</p>
+<p><strong>Additional switches</strong></p>
 <p>These are the MAPDL switch options as of 2020R2 applicable for
 running MAPDL as a service via gRPC.  Excluded switches such as
 <code class="docutils literal notranslate"><span class="pre">&quot;-j&quot;</span></code> either not applicable or are set via keyword arguments.</p>
