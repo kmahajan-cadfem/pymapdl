@@ -460,39 +460,39 @@ would list the nodes within MAPDL using the <code class="xref py py-func docutil
 Array access requires either cumbersome MAPDL GET commands or that the
 nodes be written to an archive file and then read in with other
 software:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">NLIST</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">NLIST</span>
 
-<span class="n">LIST</span> <span class="n">ALL</span> <span class="n">SELECTED</span> <span class="n">NODES</span><span class="o">.</span>   <span class="n">DSYS</span><span class="o">=</span>      <span class="mi">0</span>
+<span class="go">LIST ALL SELECTED NODES.   DSYS=      0</span>
 
-   <span class="n">NODE</span>        <span class="n">X</span>             <span class="n">Y</span>             <span class="n">Z</span>           <span class="n">THXY</span>     <span class="n">THYZ</span>     <span class="n">THZX</span>
-       <span class="mi">1</span>   <span class="mf">0.0000</span>        <span class="mf">0.0000</span>        <span class="mf">0.0000</span>          <span class="mf">0.00</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>
-       <span class="mi">2</span>   <span class="mf">1.0000</span>        <span class="mf">0.0000</span>        <span class="mf">0.0000</span>          <span class="mf">0.00</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>
-       <span class="mi">3</span>   <span class="mf">0.2500</span>        <span class="mf">0.0000</span>        <span class="mf">0.0000</span>          <span class="mf">0.00</span>     <span class="mf">0.00</span>     <span class="mf">0.00</span>
+<span class="go">NODE        X             Y             Z           THXY     THYZ     THZX</span>
+<span class="go">    1   0.0000        0.0000        0.0000          0.00     0.00     0.00</span>
+<span class="go">    2   1.0000        0.0000        0.0000          0.00     0.00     0.00</span>
+<span class="go">    3   0.2500        0.0000        0.0000          0.00     0.00     0.00</span>
 </pre></div>
 </div>
 <p>However, with the <code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl.mesh</span></code> class,
-you can interface with a current instance of the <code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code> class and access the current nodes coordinates
+you can interface with a current instance of the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code> class and access the current nodes coordinates
 with this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">nodes</span>
-<span class="go">[[0.   0.   0.  ]</span>
-<span class="go"> [1.   0.   0.  ]</span>
-<span class="go"> [0.25 0.   0.  ]</span>
-<span class="go"> ...,</span>
-<span class="go"> [0.75 0.5  3.5 ]</span>
-<span class="go"> [0.75 0.5  4.  ]</span>
-<span class="go"> [0.75 0.5  4.5 ]]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">nodes</span>
+<span class="go">[[0.0, 0.0, 0.0],</span>
+<span class="go">  [1.0, 0.0, 0.0],</span>
+<span class="go">  [0.25, 0.0, 0.0],</span>
+<span class="go">  [0.75, 0.5, 3.5],</span>
+<span class="go">  [0.75, 0.5, 4.0],</span>
+<span class="go">  [0.75, 0.5, 4.5]]</span>
 </pre></div>
 </div>
-<p>Both the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.geometry</span> <span class="pre">&lt;ansys.mapdl.core.Mapdl.geometry</span></code> and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.mesh</span> <span class="pre">&lt;ansys.mapdl.core.Mapdl.mesh</span></code> attributes support
+<p>Both the <a class="reference internal" href="../mapdl_commands/prep7/_autosummary/ansys.mapdl.core.Mapdl.geometry.html#ansys.mapdl.core.Mapdl.geometry" title="ansys.mapdl.core.Mapdl.geometry"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.geometry</span></code></a> and
+<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.mesh.html#ansys.mapdl.core.Mapdl.mesh" title="ansys.mapdl.core.Mapdl.mesh"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.mesh</span></code></a> attributes support
 additional, lower-level access to MAPDL data. You can use this code
 to access them:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mesh</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mesh</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">geometry</span>
 </pre></div>
 </div>
 <p>To view the current mesh status, you can use this code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mesh</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mesh</span>
 <span class="go"> ANSYS Mesh</span>
 <span class="go">   Number of Nodes:              7217</span>
 <span class="go">   Number of Elements:           2080</span>

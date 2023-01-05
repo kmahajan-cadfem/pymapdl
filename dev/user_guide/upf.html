@@ -561,29 +561,33 @@ object (for inputs), and the response object (for outputs). If an argument is bo
 and output of the subroutine, it is part of both objects.</p>
 <p>The description of the request object and the response object can be found in the
 <code class="docutils literal notranslate"><span class="pre">MapdlUser.proto</span></code> file stored in this installation directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ansys</span> <span class="n">Inc</span>\<span class="n">v212</span>\<span class="n">ansys</span>\<span class="n">syslib</span>\<span class="n">ansGRPC</span>\<span class="n">User</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">Ansys Inc\vXXX\ansys\syslib\ansGRPC\User</span>
 </pre></div>
 </div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">XXX</span></code> is the version of Mechanical APDL you are using.
+For example <code class="docutils literal notranslate"><span class="pre">222</span></code> for Mechanical APDL 2022R2.</p>
 <p>First, create a Python file starting from this template:</p>
 <p><strong>my_upf.py</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">grpc</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">mapdl</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">class</span> <span class="nc">MapdlUserService</span><span class="p">(</span> <span class="n">MapdlUser_pb2_grpc</span><span class="o">.</span><span class="n">MapdlUserServiceServicer</span> <span class="p">):</span>
 
-<span class="c1">#   #################################################################</span>
-    <span class="k">def</span> <span class="nf">UAnBeg</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MapdlUserService</span><span class="p">(</span><span class="n">MapdlUser_pb2_grpc</span><span class="o">.</span><span class="n">MapdlUserServiceServicer</span><span class="p">):</span>
 
-        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot; ======================================= &quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot; &gt;&gt; Inside the PYTHON UAnBeg routine  &lt;&lt; &quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot; ======================================= </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1">#   #################################################################</span>
+    <span class="k">def</span> <span class="nf">UAnBeg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; ======================================= &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &gt;&gt; Inside the PYTHON UAnBeg routine  &lt;&lt; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; ======================================= </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
         <span class="n">response</span> <span class="o">=</span> <span class="n">google_dot_protobuf_dot_empty__pb2</span><span class="o">.</span><span class="n">_EMPTY</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">response</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">upf</span><span class="o">.</span><span class="n">launch</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">upf</span><span class="o">.</span><span class="n">launch</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Note that Mechanical APDL automatically installs a Mechanical APDL Python package (a
@@ -596,11 +600,11 @@ environment. Each Python UPF must be imported:</p>
 customized banner. This file must be in the same directory as the input file.</p>
 <p>To use this Python UPF, you must add the Mechanical APDL <code class="docutils literal notranslate"><span class="pre">/UPF</span></code> command to your
 input file (<code class="docutils literal notranslate"><span class="pre">my\_inp.dat</span></code>).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/UPF,my_upf.py
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nv">UPF</span><span class="p">,</span><span class="s1">&#39;my_upf.py&#39;</span>
 
-! The UAnBeg UPF must be activated by using the USRCAL APDL command
+<span class="c">! The UAnBeg UPF must be activated by using the USRCAL APDL command</span>
 
-USRCAL,UANBEG
+<span class="k">USRCAL</span><span class="p">,</span><span class="nv">UANBEG</span>
 </pre></div>
 </div>
 <p>This command is trapped by the Mechanical APDL Launcher so that a Python gRPC server is up
@@ -608,36 +612,36 @@ and running when the Mechanical APDL process starts.</p>
 <p>When launching Mechanical APDL using this input file, you see the following printout to
 indicate Mechanical APDL detected the Python UPF instructions and has launched a Python
 server:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Processing</span> <span class="s2">&quot;/upf&quot;</span> <span class="n">found</span> <span class="ow">in</span> <span class="nb">input</span> <span class="n">file</span> <span class="s2">&quot;my_inp.dat&quot;</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">Processing &quot;/upf&quot; found in input file &quot;my_inp.dat&quot;</span>
 
-<span class="n">Python</span> <span class="n">UPF</span> <span class="n">Detected</span>
+<span class="go">Python UPF Detected</span>
 
-<span class="n">PYTHON</span> <span class="n">VERSION</span> <span class="p">:</span> <span class="mf">3.6</span>
-<span class="o">&gt;&gt;</span>
-<span class="o">&gt;&gt;</span> <span class="n">START</span> <span class="n">PYTHON</span> <span class="n">GRPC</span> <span class="n">SERVER</span>
-<span class="o">&gt;&gt;</span>
-<span class="o">&gt;&gt;</span> <span class="n">User</span> <span class="n">Functions</span> <span class="n">Python</span> <span class="n">File</span> <span class="p">:</span>  <span class="n">my_upf</span><span class="o">.</span><span class="n">py</span>
-<span class="o">&gt;&gt;</span>
-<span class="o">&gt;&gt;</span> <span class="n">Server</span> <span class="n">started</span> <span class="n">on</span> <span class="n">port</span> <span class="p">[</span><span class="mi">50054</span><span class="p">]</span>
+<span class="go">PYTHON VERSION : 3.6</span>
+<span class="go">&gt;&gt;</span>
+<span class="go">&gt;&gt; START PYTHON GRPC SERVER</span>
+<span class="go">&gt;&gt;</span>
+<span class="go">&gt;&gt; User Functions Python File :  my_upf.py</span>
+<span class="go">&gt;&gt;</span>
+<span class="go">&gt;&gt; Server started on port [50054]</span>
 </pre></div>
 </div>
 <p>During the Mechanical APDL process, you see this Python printout:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RUN</span> <span class="n">SETUP</span> <span class="n">PROCEDURE</span> <span class="n">FROM</span> <span class="n">FILE</span><span class="o">=</span> <span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v212</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="n">apdl</span><span class="o">/</span><span class="n">start</span><span class="o">.</span><span class="n">ans</span>
-<span class="o">=======================================</span>
-<span class="o">&gt;&gt;</span> <span class="n">Inside</span> <span class="n">the</span> <span class="n">PYTHON</span> <span class="n">UAnBeg</span> <span class="n">routine</span>  <span class="o">&lt;&lt;</span>
-<span class="o">=======================================</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">RUN SETUP PROCEDURE FROM FILE= /ansys_inc/v212/ansys/apdl/start.ans</span>
+<span class="go">=======================================</span>
+<span class="go">&gt;&gt; Inside the PYTHON UAnBeg routine  &lt;&lt;</span>
+<span class="go">=======================================</span>
 </pre></div>
 </div>
 <p>At the very end of the process, the Python server is automatically shut
 down:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|-----------------------------------------------------------------|</span>
-<span class="o">|</span>                                                                 <span class="o">|</span>
-<span class="o">|</span>   <span class="n">CP</span> <span class="n">Time</span>      <span class="p">(</span><span class="n">sec</span><span class="p">)</span> <span class="o">=</span>          <span class="mf">0.326</span>       <span class="n">Time</span>  <span class="o">=</span>  <span class="mi">10</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="mi">24</span>   <span class="o">|</span>
-<span class="o">|</span>   <span class="n">Elapsed</span> <span class="n">Time</span> <span class="p">(</span><span class="n">sec</span><span class="p">)</span> <span class="o">=</span>          <span class="mf">2.000</span>       <span class="n">Date</span>  <span class="o">=</span>  <span class="mi">03</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">2021</span> <span class="o">|</span>
-<span class="o">|</span>                                                                 <span class="o">|</span>
-<span class="o">*-----------------------------------------------------------------*</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">|-----------------------------------------------------------------|</span>
+<span class="go">|                                                                 |</span>
+<span class="go">|   CP Time      (sec) =          0.326       Time  =  10:40:24   |</span>
+<span class="go">|   Elapsed Time (sec) =          2.000       Date  =  03/11/2021 |</span>
+<span class="go">|                                                                 |</span>
+<span class="go">*-----------------------------------------------------------------*</span>
 
-<span class="o">&gt;&gt;</span> <span class="n">We</span> <span class="n">shutdown</span> <span class="n">Python</span> <span class="n">Server</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&gt;&gt; We shutdown Python Server(s)</span>
 </pre></div>
 </div>
 </section>
@@ -654,16 +658,16 @@ variable:</p>
 
 <span class="n">firstcall</span> <span class="o">=</span> <span class="mi">1</span>
 
+
 <span class="k">class</span> <span class="nc">MapdlUserService</span><span class="p">(</span><span class="n">MapdlUser_pb2_grpc</span><span class="o">.</span><span class="n">MapdlUserServiceServicer</span><span class="p">):</span>
 
-
-<span class="c1">#   ###############################################################</span>
-    <span class="k">def</span> <span class="nf">UserMat</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="c1">#   ###############################################################</span>
+    <span class="k">def</span> <span class="nf">UserMat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
 
         <span class="k">global</span> <span class="n">firstcall</span>
 
         <span class="k">if</span> <span class="n">firstcall</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;&gt;&gt; Connection to the MAPDL DB Server</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt;&gt; Connection to the MAPDL DB Server</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">db</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
             <span class="n">firstcall</span> <span class="o">=</span> <span class="mi">0</span>
 

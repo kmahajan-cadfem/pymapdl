@@ -462,7 +462,7 @@ class for batch processing. This can be used for the batch processing of a
 set of input files, convergence analysis, or other batch related
 processes.</p>
 <p>This code creates a pool:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">LocalMapdlPool</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">LocalMapdlPool</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span> <span class="o">=</span> <span class="n">LocalMapdlPool</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">&#39;MAPDL Pool with 10 active instances&#39;</span>
 </pre></div>
@@ -470,14 +470,14 @@ processes.</p>
 <p>You can supply additional keyword arguments when creating the
 pool. This code creates several instances with one CPU each running
 at the current directory within their own isolated directories:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcmd</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span> <span class="o">=</span> <span class="n">LocalMapdlPool</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">nproc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">run_location</span><span class="o">=</span><span class="n">my_path</span><span class="p">)</span>
 <span class="go">Creating Pool: 100%|########| 10/10 [00:01&lt;00:00,  1.43it/s]</span>
 </pre></div>
 </div>
 <p>You can access each individual MAPDL instance with this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">&lt;ansys.mapdl.core.mapdl.MapdlGrpc object at 0x7f66270cc8d0&gt;</span>
 </pre></div>
 </div>
@@ -490,8 +490,8 @@ creating the pool.</p>
 <p>You can use the pool to run a set of pre-generated input files using the
 <code class="xref py py-func docutils literal notranslate"><span class="pre">run_batch</span></code> method. For
 example, this code would run the first set of 20 verification files:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">examples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">examples</span><span class="o">.</span><span class="n">vmfiles</span><span class="p">[</span><span class="s1">&#39;vm</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">examples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">examples</span><span class="o">.</span><span class="n">vmfiles</span><span class="p">[</span><span class="s2">&quot;vm</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">run_batch</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
 <span class="go">20</span>
@@ -506,24 +506,30 @@ instance over a set of inputs. As in the example for the
 the following code uses a set of verification files. However, it implements
 it as a function and outputs the final routine instead of the text
 output from MAPDL.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">completed_indices</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">mapdl</span><span class="p">,</span> <span class="n">input_file</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-<span class="go">        # input_file, index = args</span>
-<span class="go">        mapdl.clear()</span>
-<span class="go">        output = mapdl.input(input_file)</span>
-<span class="go">        completed_indices.append(index)</span>
-<span class="go">        return mapdl.parameters.routine</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inputs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">examples</span><span class="o">.</span><span class="n">vmfiles</span><span class="p">[</span><span class="s1">&#39;vm</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go">[&#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;,</span>
-<span class="go"> &#39;Begin level&#39;]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">completed_indices</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">mapdl</span><span class="p">,</span> <span class="n">input_file</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="c1"># input_file, index = args</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+    <span class="n">completed_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">routine</span>
+
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">examples</span><span class="o">.</span><span class="n">vmfiles</span><span class="p">[</span><span class="s2">&quot;vm</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">[</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Begin level&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </section>

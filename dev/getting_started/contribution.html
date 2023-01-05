@@ -435,10 +435,10 @@ contribute to PyMAPDL.</p>
 <section id="cloning-the-pymapdl-repository">
 <h2>Cloning the PyMAPDL repository<a class="headerlink" href="#cloning-the-pymapdl-repository" title="Permalink to this heading">#</a></h2>
 <p>Run this code to clone and install the latest version of PyMAPDL in development mode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">pymapdl</span>
-<span class="n">cd</span> <span class="n">pymapdl</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">pip</span> <span class="o">-</span><span class="n">U</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/pyansys/pymapdl</span>
+<span class="go">cd pymapdl</span>
+<span class="go">pip install pip -U</span>
+<span class="go">pip install -e .</span>
 </pre></div>
 </div>
 </section>
@@ -468,15 +468,15 @@ This version is automatically kept up to date via GitHub actions.</p>
 <p>If you do not have MAPDL installed locally but still want to run the
 unit testing, you must set up the following environment variables.</p>
 <p>In Windows, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SET</span> <span class="n">PYMAPDL_START_INSTANCE</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">SET</span> <span class="n">PYMAPDL_PORT</span><span class="o">=&lt;</span><span class="n">MAPDL</span> <span class="n">Port</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">default</span> <span class="mi">50052</span><span class="p">)</span>
-<span class="n">SET</span> <span class="n">PYMAPDL_IP</span><span class="o">=&lt;</span><span class="n">MAPDL</span> <span class="n">IP</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">default</span> <span class="mf">127.0.0.1</span><span class="p">)</span>
+<div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="nb">SET </span><span class="n">PYMAPDL_START_INSTANCE</span><span class="p">=</span><span class="n">False</span>
+<span class="nb">SET </span><span class="n">PYMAPDL_PORT</span><span class="p">=&lt;</span><span class="n">MAPDL</span> <span class="n">Port</span><span class="p">&gt;</span> <span class="p">(</span><span class="k">default</span> <span class="n">50052</span><span class="p">)</span>
+<span class="nb">SET </span><span class="n">PYMAPDL_IP</span><span class="p">=&lt;</span><span class="n">MAPDL</span> <span class="n">IP</span><span class="p">&gt;</span> <span class="p">(</span><span class="k">default</span> <span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In Linux, use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYMAPDL_START_INSTANCE</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">export</span> <span class="n">PYMAPDL_PORT</span><span class="o">=&lt;</span><span class="n">MAPDL</span> <span class="n">Port</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">default</span> <span class="mi">50052</span><span class="p">)</span>
-<span class="n">export</span> <span class="n">PYMAPDL_IP</span><span class="o">=&lt;</span><span class="n">MAPDL</span> <span class="n">IP</span><span class="o">&gt;</span> <span class="p">(</span><span class="n">default</span> <span class="mf">127.0.0.1</span><span class="p">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYMAPDL_START_INSTANCE</span><span class="o">=</span>False
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYMAPDL_PORT</span><span class="o">=</span>&lt;MAPDL<span class="w"> </span>Port&gt;<span class="w"> </span><span class="o">(</span>default<span class="w"> </span><span class="m">50052</span><span class="o">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYMAPDL_IP</span><span class="o">=</span>&lt;MAPDL<span class="w"> </span>IP&gt;<span class="w"> </span><span class="o">(</span>default<span class="w"> </span><span class="m">127</span>.0.0.1<span class="o">)</span>
 </pre></div>
 </div>
 <p>This tells <code class="docutils literal notranslate"><span class="pre">ansys.mapdl.core</span></code> to attempt to connect to the existing

@@ -601,6 +601,7 @@ This file can be examined to help to identify any issue.</p>
 running the following commands in a Python terminal or at the beginning of your
 script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">LOG</span>
+
 <span class="n">LOG</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
 <span class="n">LOG</span><span class="o">.</span><span class="n">log_to_file</span><span class="p">(</span><span class="s2">&quot;mylog.log&quot;</span><span class="p">)</span>
 
@@ -633,7 +634,7 @@ If you believe you have found a bug, open an issue on the
 <section id="on-windows">
 <h4>On Windows<a class="headerlink" href="#on-windows" title="Permalink to this heading">#</a></h4>
 <p>Open up a command prompt and run the version-dependent command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\ANSYS Inc</span><span class="se">\v</span><span class="s2">211</span><span class="se">\a</span><span class="s2">nsys</span><span class="se">\b</span><span class="s2">in\winx64\ANSYS211.exe&quot;</span>
+<div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\ANSYS Inc\v211\ansys\bin\winx64\ANSYS211.exe&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -644,7 +645,7 @@ If you believe you have found a bug, open an issue on the
 <section id="on-linux">
 <h4>On Linux<a class="headerlink" href="#on-linux" title="Permalink to this heading">#</a></h4>
 <p>Run the version-dependent command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v211</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ansys211</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/ansys_inc/v211/ansys/bin/ansys211
 </pre></div>
 </div>
 <p>You should start MAPDL in a temporary working directory because MAPDL creates
@@ -730,8 +731,8 @@ This issue does not affect the Linux version of MAPDL.</p>
 <p>In you are using Windows in any of the versions from ANSYS 2022 R2 to ANSYS 2021 R1,
 the default compiler is Microsoft MPI when the MAPDL instance is launched by PyMAPDL.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">additional_switches</span><span class="o">=</span><span class="s1">&#39;-smp&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">additional_switches</span><span class="o">=</span><span class="s2">&quot;-smp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>While this approach has the disadvantage of using the potentially slower shared
@@ -755,22 +756,22 @@ dependencies.</p>
 <section id="centos-7">
 <span id="installing-mapdl-on-centos7"></span><h4>CentOS 7<a class="headerlink" href="#centos-7" title="Permalink to this heading">#</a></h4>
 <p>On CentOS 7, you can install missing dependencies with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">openssl</span> <span class="n">openssh</span><span class="o">-</span><span class="n">clients</span> <span class="n">mesa</span><span class="o">-</span><span class="n">libGL</span> <span class="n">mesa</span><span class="o">-</span><span class="n">libGLU</span> <span class="n">motif</span> <span class="n">libgfortran</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum<span class="w"> </span>install<span class="w"> </span>openssl<span class="w"> </span>openssh-clients<span class="w"> </span>mesa-libGL<span class="w"> </span>mesa-libGLU<span class="w"> </span>motif<span class="w"> </span>libgfortran
 </pre></div>
 </div>
 </section>
 <section id="ubuntu">
 <span id="installing-mapdl-on-ubuntu"></span><h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">#</a></h4>
 <p>On Ubuntu 22.04, use this code to install the needed dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>update
 
 <span class="c1"># Install dependencies</span>
-<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
-<span class="n">openssh</span><span class="o">-</span><span class="n">client</span> \
-<span class="n">libgl1</span> \
-<span class="n">libglu1</span> \
-<span class="n">libxm4</span> \
-<span class="n">libxi6</span>
+apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+openssh-client<span class="w"> </span><span class="se">\</span>
+libgl1<span class="w"> </span><span class="se">\</span>
+libglu1<span class="w"> </span><span class="se">\</span>
+libxm4<span class="w"> </span><span class="se">\</span>
+libxi6
 </pre></div>
 </div>
 <p>The preceding code takes care of everything except for <code class="docutils literal notranslate"><span class="pre">libxp6</span></code>, which you must install
@@ -797,14 +798,14 @@ also outdated, it must be removed. Otherwise you’ll have a broken
 package configuration. The following code downloads and modifies the
 <code class="docutils literal notranslate"><span class="pre">libxp6</span></code> package to remove the <code class="docutils literal notranslate"><span class="pre">multiarch-support</span></code> dependency and
 then installs it via the <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> package.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
-<span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">ftp</span><span class="o">.</span><span class="n">br</span><span class="o">.</span><span class="n">debian</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">debian</span><span class="o">/</span><span class="n">pool</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">libx</span><span class="o">/</span><span class="n">libxp</span><span class="o">/</span><span class="n">libxp6_1</span><span class="mf">.0.2</span><span class="o">-</span><span class="mi">2</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
-<span class="n">ar</span> <span class="n">x</span> <span class="n">libxp6_1</span><span class="mf">.0.2</span><span class="o">-</span><span class="mi">2</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
-<span class="n">sudo</span> <span class="n">tar</span> <span class="n">xzf</span> <span class="n">control</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-<span class="n">sudo</span> <span class="n">sed</span> <span class="s1">&#39;/Pre-Depends/d&#39;</span> <span class="n">control</span> <span class="o">-</span><span class="n">i</span>
-<span class="n">sudo</span> <span class="n">bash</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;tar c postinst postrm md5sums control | gzip -c &gt; control.tar.gz&quot;</span>
-<span class="n">sudo</span> <span class="n">ar</span> <span class="n">rcs</span> <span class="n">libxp6_1</span><span class="mf">.0.2</span><span class="o">-</span><span class="mi">2</span><span class="n">_amd64_mod</span><span class="o">.</span><span class="n">deb</span> <span class="n">debian</span><span class="o">-</span><span class="n">binary</span> <span class="n">control</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="n">data</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">xz</span>
-<span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="o">./</span><span class="n">libxp6_1</span><span class="mf">.0.2</span><span class="o">-</span><span class="mi">2</span><span class="n">_amd64_mod</span><span class="o">.</span><span class="n">deb</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp
+wget<span class="w"> </span>http://ftp.br.debian.org/debian/pool/main/libx/libxp/libxp6_1.0.2-2_amd64.deb
+ar<span class="w"> </span>x<span class="w"> </span>libxp6_1.0.2-2_amd64.deb
+sudo<span class="w"> </span>tar<span class="w"> </span>xzf<span class="w"> </span>control.tar.gz
+sudo<span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;/Pre-Depends/d&#39;</span><span class="w"> </span>control<span class="w"> </span>-i
+sudo<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;tar c postinst postrm md5sums control | gzip -c &gt; control.tar.gz&quot;</span>
+sudo<span class="w"> </span>ar<span class="w"> </span>rcs<span class="w"> </span>libxp6_1.0.2-2_amd64_mod.deb<span class="w"> </span>debian-binary<span class="w"> </span>control.tar.gz<span class="w"> </span>data.tar.xz
+sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>./libxp6_1.0.2-2_amd64_mod.deb
 </pre></div>
 </div>
 </section>
@@ -898,14 +899,14 @@ link <a class="reference external" href="https://ubuntu.com/server/docs/security
 your MAPDL installation. If this is the case, provide the location of MAPDL
 as the first parameter to <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.launch_mapdl.html#ansys.mapdl.core.launch_mapdl" title="ansys.mapdl.core.launch_mapdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">launch_mapdl()</span></code></a>.</p>
 <p><strong>On Windows</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exec_loc</span> <span class="o">=</span> <span class="s1">&#39;C:/Program Files/ANSYS Inc/v211/ansys/bin/winx64/ANSYS211.exe&#39;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exec_loc</span> <span class="o">=</span> <span class="s2">&quot;C:/Program Files/ANSYS Inc/v211/ansys/bin/winx64/ANSYS211.exe&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">exec_loc</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>On Linux</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exec_loc</span> <span class="o">=</span> <span class="s1">&#39;/usr/ansys_inc/v211/ansys/bin/ansys211&#39;</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">exec_loc</span> <span class="o">=</span> <span class="s2">&quot;/usr/ansys_inc/v211/ansys/bin/ansys211&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">exec_loc</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -931,7 +932,7 @@ Ansys installations are normally under:</p>
 <p>If PyMAPDL finds a valid Ansys installation, it caches its
 path in the configuration file, <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. The path for this file
 is shown in this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core.launcher</span> <span class="kn">import</span> <span class="n">CONFIG_FILE</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core.launcher</span> <span class="kn">import</span> <span class="n">CONFIG_FILE</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">CONFIG_FILE</span><span class="p">)</span>
 <span class="go">&#39;C:\\Users\\user\\AppData\\Local\\ansys_mapdl_core\\ansys_mapdl_core\\config.txt&#39;</span>
 </pre></div>
@@ -939,13 +940,13 @@ is shown in this code:</p>
 <p>In certain cases, this configuration file might become obsolete. For example, when a new
 Ansys version is installed and an earlier installation is removed.</p>
 <p>To update this configuration file with the latest path, use:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">save_ansys_path</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">save_ansys_path</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">save_ansys_path</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Program Files\ANSYS Inc\v222\ansys\bin\winx64\ansys222.exe&quot;</span><span class="p">)</span>
 <span class="go">&#39;C:\\Program Files\\ANSYS Inc\\v222\\ansys\\bin\\winx64\\ansys222.exe&#39;</span>
 </pre></div>
 </div>
 <p>If you want to see which Ansys installations PyMAPDL has detected, use:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core.launcher</span> <span class="kn">import</span> <span class="n">get_available_ansys_installations</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core.launcher</span> <span class="kn">import</span> <span class="n">get_available_ansys_installations</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_available_ansys_installations</span><span class="p">()</span>
 <span class="go">{222: &#39;C:\\Program Files\\ANSYS Inc\\v222&#39;,</span>
 <span class="go">212: &#39;C:\\Program Files\\ANSYS Inc\\v212&#39;,</span>
@@ -972,7 +973,7 @@ information, see <a class="reference internal" href="#conflicts-student-version"
 array where one or more dimensions are zero.
 This can happens in numpy arrays, where its first dimension can be
 set to zero. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">(</span><span class="mi">4</span><span class="p">,))</span>
@@ -982,32 +983,32 @@ set to zero. For example:</p>
 </div>
 <p>These types of array dimensions are always converted to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_array</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray&#39;</span><span class="p">]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray&quot;</span><span class="p">]</span>
 <span class="go">array([[1.],</span>
 <span class="go">   [2.],</span>
 <span class="go">   [3.],</span>
 <span class="go">   [4.]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4, 1)</span>
 </pre></div>
 </div>
 <p>This means that when you pass two arrays, one with the second axis equal
 to zero (for example, <code class="docutils literal notranslate"><span class="pre">my_array</span></code>) and another one with the second axis equal
 to one, have the same shape if later retrieved.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_other_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_other_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_other_array</span>
 <span class="go">array([[1],</span>
 <span class="go">   [2],</span>
 <span class="go">   [3],</span>
 <span class="go">   [4]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray_b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_other_array</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray_b&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray_b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_other_array</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray_b&quot;</span><span class="p">]</span>
 <span class="go">array([[1.],</span>
 <span class="go">   [2.],</span>
 <span class="go">   [3.],</span>
 <span class="go">   [4.]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray&#39;</span><span class="p">],</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;mapdlarray_b&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray&quot;</span><span class="p">],</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;mapdlarray_b&quot;</span><span class="p">])</span>
 <span class="go">True</span>
 </pre></div>
 </div>

@@ -563,16 +563,16 @@ Out of the 1500 MAPDL commands, about 15 start with <code class="docutils litera
 start with <code class="docutils literal notranslate"><span class="pre">star</span> <span class="pre">(*)</span></code>.</p>
 <p>MAPDL commands that normally have an empty space, such as
 <code class="docutils literal notranslate"><span class="pre">ESEL,S,TYPE,,1</span></code>, should include an empty string when called by Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Or, these commands can be called using keyword arguments:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>None of these restrictions apply to commands run with the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.run.html#ansys.mapdl.core.Mapdl.run" title="ansys.mapdl.core.Mapdl.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.run()</span></code></a> method. It might be easier to run some of
 these commands, such as <code class="docutils literal notranslate"><span class="pre">&quot;/SOLU&quot;</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;/SOLU&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;/SOLU&quot;</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -596,41 +596,58 @@ method. Here is an example:</p>
 <p>Note that macros created within PyMAPDL (rather than loaded from
 a file) do not appear to run correctly. For example, here is the macro
 <code class="docutils literal notranslate"><span class="pre">DISP</span></code> created using the <code class="docutils literal notranslate"><span class="pre">*CREATE</span></code> command within APDL:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! SELECT NODES AT Z = 10 TO APPLY DISPLACEMENT
-*CREATE,DISP
-NSEL,R,LOC,Z,10
-D,ALL,UZ,ARG1
-NSEL,ALL
-/OUT,SCRATCH
-SOLVE
-*END
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="c">! SELECT NODES AT Z = 10 TO APPLY DISPLACEMENT</span>
+<span class="o">*</span><span class="nv">CREATE</span><span class="p">,</span><span class="nv">DISP</span>
+<span class="k">NSEL</span><span class="p">,</span><span class="k">R</span><span class="p">,</span><span class="nv">LOC</span><span class="p">,</span><span class="nv">Z</span><span class="p">,</span><span class="mi">10</span>
+<span class="k">D</span><span class="p">,</span><span class="nv">ALL</span><span class="p">,</span><span class="nv">UZ</span><span class="p">,</span><span class="nv">ARG1</span>
+<span class="k">NSEL</span><span class="p">,</span><span class="nv">ALL</span>
+<span class="o">/</span><span class="nv">OUT</span><span class="p">,</span><span class="nv">SCRATCH</span>
+<span class="k">SOLVE</span>
+<span class="o">*</span><span class="nv">END</span>
 
-! Call the function
-*USE,DISP,-.032
-*USE,DISP,-.05
-*USE,DISP,-.1
+<span class="c">! Call the function</span>
+<span class="o">*</span><span class="nv">USE</span><span class="p">,</span><span class="nv">DISP</span><span class="p">,</span><span class="o">-</span><span class="mf">.032</span>
+<span class="o">*</span><span class="nv">USE</span><span class="p">,</span><span class="nv">DISP</span><span class="p">,</span><span class="o">-</span><span class="mf">.05</span>
+<span class="o">*</span><span class="nv">USE</span><span class="p">,</span><span class="nv">DISP</span><span class="p">,</span><span class="o">-</span><span class="mf">.1</span>
 </pre></div>
 </div>
 <p>It should be written as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DISP</span><span class="p">(</span><span class="n">ARG1</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG2</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG3</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG4</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG5</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG6</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-         <span class="n">ARG7</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG8</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG9</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG10</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG11</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG12</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-         <span class="n">ARG13</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG14</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG15</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG16</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG17</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ARG18</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;LOC&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">#SELECT NODES AT Z = 10 TO APPLY DISPLACEMENT</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DISP</span><span class="p">(</span>
+    <span class="n">ARG1</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG2</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG3</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG4</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG5</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG6</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG7</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG8</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG9</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG10</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG11</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG12</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG13</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG14</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG15</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG16</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG17</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">ARG18</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;LOC&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># SELECT NODES AT Z = 10 TO APPLY DISPLACEMENT</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="s2">&quot;ALL&quot;</span><span class="p">,</span> <span class="s2">&quot;UZ&quot;</span><span class="p">,</span> <span class="n">ARG1</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s2">&quot;ALL&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;/OUT,SCRATCH&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 
 
-<span class="n">DISP</span><span class="p">(</span><span class="o">-</span><span class="mf">.032</span><span class="p">)</span>
-<span class="n">DISP</span><span class="p">(</span><span class="o">-</span><span class="mf">.05</span><span class="p">)</span>
-<span class="n">DISP</span><span class="p">(</span><span class="o">-</span><span class="mf">.1</span><span class="p">)</span>
+<span class="n">DISP</span><span class="p">(</span><span class="o">-</span><span class="mf">0.032</span><span class="p">)</span>
+<span class="n">DISP</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">DISP</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you have an existing input file with a macro, you can convert it
 using the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.convert_script.html#ansys.mapdl.core.convert_script" title="ansys.mapdl.core.convert_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert_script()</span></code></a>
 method, setting``macros_as_functions=True``:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl</span> <span class="kn">import</span> <span class="n">core</span> <span class="k">as</span> <span class="n">pymapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl</span> <span class="kn">import</span> <span class="n">core</span> <span class="k">as</span> <span class="n">pymapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pymapdl</span><span class="o">.</span><span class="n">convert_script</span><span class="p">(</span><span class="n">apdl_inputfile</span><span class="p">,</span> <span class="n">pyscript</span><span class="p">,</span> <span class="n">macros_as_functions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -642,12 +659,12 @@ command. This can be especially helpful for long-running commands
 like <code class="docutils literal notranslate"><span class="pre">SOLVE</span></code>. This works for the Pythonic wrapping of all commands
 and when using the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.run.html#ansys.mapdl.core.Mapdl.run" title="ansys.mapdl.core.Mapdl.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.run()</span></code></a> method.</p>
 <p>Run a command and suppress its output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;/PREP7&#39;</span><span class="p">,</span> <span class="n">mute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;/PREP7&quot;</span><span class="p">,</span> <span class="n">mute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">(</span><span class="n">mute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Run a command and stream its output while it is being run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;SOLVE&#39;</span><span class="p">,</span> <span class="n">mute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;SOLVE&quot;</span><span class="p">,</span> <span class="n">mute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -662,23 +679,22 @@ running MAPDL in gRPC mode.</p>
 <p>You can run several MAPDL commands as a unified block using the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.input_strings.html#ansys.mapdl.core.Mapdl.input_strings" title="ansys.mapdl.core.Mapdl.input_strings"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.input_strings()</span></code></a> method.
 This is useful when using PyMAPDL with older MAPDL scripts. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;/prep7</span>
-<span class="go">! Mat</span>
-<span class="go">MP,EX,1,200000</span>
-<span class="go">MP,NUXY,1,0.3</span>
-<span class="go">MP,DENS,1,7.85e-09</span>
-<span class="go">! Elements</span>
-<span class="go">et,1,186</span>
-<span class="go">! Geometry</span>
-<span class="go">BLC4,0,0,1000,100,10</span>
-<span class="go">! Mesh</span>
-<span class="go">esize,5</span>
-<span class="go">vmesh,all</span>
-<span class="go">&#39;&#39;&#39;</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">input_strings</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;/prep7</span>
+<span class="s2">! Mat</span>
+<span class="s2">MP,EX,1,200000</span>
+<span class="s2">MP,NUXY,1,0.3</span>
+<span class="s2">MP,DENS,1,7.85e-09</span>
+<span class="s2">! Elements</span>
+<span class="s2">et,1,186</span>
+<span class="s2">! Geometry</span>
+<span class="s2">BLC4,0,0,1000,100,10</span>
+<span class="s2">! Mesh</span>
+<span class="s2">esize,5</span>
+<span class="s2">vmesh,all&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">input_strings</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span>
-
 <span class="go">You have already entered the general preprocessor (PREP7).</span>
 
 <span class="go">MATERIAL          1     EX   =   200000.0</span>
@@ -715,7 +731,7 @@ This is useful when using PyMAPDL with older MAPDL scripts. For example:</p>
 run the file using the <a class="reference internal" href="../mapdl_commands/session/_autosummary/ansys.mapdl.core.Mapdl.input.html#ansys.mapdl.core.Mapdl.input" title="ansys.mapdl.core.Mapdl.input"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.input()</span></code></a>
 method. For example, if you have a <code class="docutils literal notranslate"><span class="pre">&quot;ds.dat&quot;</span></code> file generated from Ansys
 Mechanical, you can run that with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s2">&quot;ds.dat&quot;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s2">&quot;ds.dat&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -724,21 +740,21 @@ Mechanical, you can run that with:</p>
 <p>APDL conditional statements such as <code class="docutils literal notranslate"><span class="pre">*IF</span></code> must be either implemented
 Pythonically or by using the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.non_interactive.html#ansys.mapdl.core.Mapdl.non_interactive" title="ansys.mapdl.core.Mapdl.non_interactive"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.non_interactive</span></code></a>
 attribute. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>*IF,ARG1,EQ,0,THEN
-  *GET,ARG4,NX,ARG2     ! RETRIEVE COORDINATE LOCATIONS OF BOTH NODES
-  *GET,ARG5,NY,ARG2
-  *GET,ARG6,NZ,ARG2
-  *GET,ARG7,NX,ARG3
-  *GET,ARG8,NY,ARG3
-  *GET,ARG9,NZ,ARG3
-*ELSE
-  *GET,ARG4,KX,ARG2     ! RETRIEVE COORDINATE LOCATIONS OF BOTH KEYPOINTS
-  *GET,ARG5,KY,ARG2
-  *GET,ARG6,KZ,ARG2
-  *GET,ARG7,KX,ARG3
-  *GET,ARG8,KY,ARG3
-  *GET,ARG9,KZ,ARG3
-*ENDIF
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="o">*</span><span class="nv">IF</span><span class="p">,</span><span class="nv">ARG1</span><span class="p">,</span><span class="nv">EQ</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nv">THEN</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG4</span><span class="p">,</span><span class="nv">NX</span><span class="p">,</span><span class="nv">ARG2</span><span class="w">     </span><span class="c">! RETRIEVE COORDINATE LOCATIONS OF BOTH NODES</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG5</span><span class="p">,</span><span class="nv">NY</span><span class="p">,</span><span class="nv">ARG2</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG6</span><span class="p">,</span><span class="nv">NZ</span><span class="p">,</span><span class="nv">ARG2</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG7</span><span class="p">,</span><span class="nv">NX</span><span class="p">,</span><span class="nv">ARG3</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG8</span><span class="p">,</span><span class="nv">NY</span><span class="p">,</span><span class="nv">ARG3</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG9</span><span class="p">,</span><span class="nv">NZ</span><span class="p">,</span><span class="nv">ARG3</span>
+<span class="o">*</span><span class="nv">ELSE</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG4</span><span class="p">,</span><span class="nv">KX</span><span class="p">,</span><span class="nv">ARG2</span><span class="w">     </span><span class="c">! RETRIEVE COORDINATE LOCATIONS OF BOTH KEYPOINTS</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG5</span><span class="p">,</span><span class="nv">KY</span><span class="p">,</span><span class="nv">ARG2</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG6</span><span class="p">,</span><span class="nv">KZ</span><span class="p">,</span><span class="nv">ARG2</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG7</span><span class="p">,</span><span class="nv">KX</span><span class="p">,</span><span class="nv">ARG3</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG8</span><span class="p">,</span><span class="nv">KY</span><span class="p">,</span><span class="nv">ARG3</span>
+<span class="w">  </span><span class="o">*</span><span class="nv">GET</span><span class="p">,</span><span class="nv">ARG9</span><span class="p">,</span><span class="nv">KZ</span><span class="p">,</span><span class="nv">ARG3</span>
+<span class="o">*</span><span class="nv">ENDIF</span>
 </pre></div>
 </div>
 <p>This should be implemented as follows:</p>
@@ -751,7 +767,9 @@ attribute. For example:</p>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG8,NY,ARG3&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG9,NZ,ARG3&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*ELSE&quot;</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG4,KX,ARG2     &quot;</span><span class="p">)</span>  <span class="c1"># RETRIEVE COORDINATE LOCATIONS OF BOTH KEYPOINTS</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="s2">&quot;*GET,ARG4,KX,ARG2     &quot;</span>
+    <span class="p">)</span>  <span class="c1"># RETRIEVE COORDINATE LOCATIONS OF BOTH KEYPOINTS</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG5,KY,ARG2&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG6,KZ,ARG2&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG7,KX,ARG3&quot;</span><span class="p">)</span>
@@ -770,7 +788,9 @@ attribute. For example:</p>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG8,NY,ARG3&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG9,NZ,ARG3&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG4,KX,ARG2     &quot;</span><span class="p">)</span>  <span class="c1"># RETRIEVE COORDINATE LOCATIONS OF BOTH KEYPOINTS</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="s2">&quot;*GET,ARG4,KX,ARG2     &quot;</span>
+    <span class="p">)</span>  <span class="c1"># RETRIEVE COORDINATE LOCATIONS OF BOTH KEYPOINTS</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG5,KY,ARG2&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG6,KZ,ARG2&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;*GET,ARG7,KX,ARG3&quot;</span><span class="p">)</span>
@@ -789,13 +809,14 @@ attribute or implemented Pythonically.</p>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="c1"># do something else with MAPDL</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 <p>Commands that are ignored within MAPDL are flagged as errors. This is
 different than MAPDL’s default behavior where commands that are
 ignored are treated as warnings. For example, in <code class="docutils literal notranslate"><span class="pre">ansys-mapdl-core</span></code>
 running a command in the wrong session raises an error:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">()</span>
 
 <span class="go">Exception:</span>
@@ -810,7 +831,7 @@ running a command in the wrong session raises an error:</p>
 warnings and not raised as exceptions by using the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.ignore_errors.html#ansys.mapdl.core.Mapdl.ignore_errors" title="ansys.mapdl.core.Mapdl.ignore_errors"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.ignore_errors()</span></code></a> function. For
 example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ignore_errors</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ignore_errors</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">()</span>  <span class="c1"># warning silently ignored</span>
 </pre></div>
 </div>
@@ -833,22 +854,22 @@ Enabling this parameter causes the
 command run into a log file named <code class="docutils literal notranslate"><span class="pre">&quot;apdl.log&quot;</span></code> in the active
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.directory.html#ansys.mapdl.core.Mapdl.directory" title="ansys.mapdl.core.Mapdl.directory"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.directory</span></code></a>.
 For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 
-<span class="n">ansys</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">log_apdl</span><span class="o">=</span><span class="s1">&#39;apdl.log&#39;</span><span class="p">)</span>
-<span class="n">ansys</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
-<span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ansys</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">log_apdl</span><span class="o">=</span><span class="s2">&quot;apdl.log&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ansys</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ansys</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This code writes the following to the <code class="docutils literal notranslate"><span class="pre">&quot;apdl.log&quot;</span></code> file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">PREP7</span><span class="p">,</span>
-<span class="n">K</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
-<span class="n">K</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
-<span class="n">K</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span>
-<span class="n">K</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/PREP7,
+K,1,0,0,0
+K,2,1,0,0
+K,3,1,1,0
+K,4,0,1,0
 </pre></div>
 </div>
 <p>This allows for the translation of a Python script to an APDL script
@@ -867,12 +888,12 @@ MAPDL GUI. The <a class="reference internal" href="../api/mapdl.html#ansys.mapdl
 has the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.open_gui.html#ansys.mapdl.core.Mapdl.open_gui" title="ansys.mapdl.core.Mapdl.open_gui"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.open_gui()</span></code></a> method, which
 allows you to seamlessly open up the GUI without losing work or
 having to restart your session. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
-
-<span class="go">Create a square area using keypoints</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Create a square area using keypoints</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -882,15 +903,15 @@ having to restart your session. For example:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">l</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">al</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="go">Open up the gui</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">open_gui</span><span class="p">()</span>
-
-<span class="go">Resume where you left off</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;MESH200&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Open up the GUI</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">open_gui</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Resume where you left off</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;MESH200&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">eplot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -910,8 +931,9 @@ with torsional loading.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 
+
 <span class="k">def</span> <span class="nf">cylinder_batch</span><span class="p">(</span><span class="n">elemsize</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Report the maximum von Mises stress of a Cantilever supported cylinder&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Report the maximum von Mises stress of a Cantilever supported cylinder&quot;&quot;&quot;</span>
 
     <span class="c1"># clear</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
@@ -921,8 +943,8 @@ with torsional loading.</p>
     <span class="n">radius</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">h_tip</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">height</span> <span class="o">=</span> <span class="mi">20</span>
-    <span class="n">force</span> <span class="o">=</span> <span class="mi">100</span><span class="o">/</span><span class="n">radius</span>
-    <span class="n">pressure</span> <span class="o">=</span> <span class="n">force</span><span class="o">/</span><span class="p">(</span><span class="n">h_tip</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
+    <span class="n">force</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">radius</span>
+    <span class="n">pressure</span> <span class="o">=</span> <span class="n">force</span> <span class="o">/</span> <span class="p">(</span><span class="n">h_tip</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="p">)</span>
 
     <span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">186</span><span class="p">)</span>
@@ -931,34 +953,34 @@ with torsional loading.</p>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="c1"># Aluminum properties (or something)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;ex&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">10e6</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;nuxy&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;dens&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">/</span><span class="mf">386.1</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;dens&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;ex&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">10e6</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;nuxy&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;dens&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">/</span> <span class="mf">386.1</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;dens&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># Simple cylinder</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="n">mapdl</span><span class="o">.</span><span class="n">cylind</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">90</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">mapdl</span><span class="o">.</span><span class="n">cylind</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">90</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">90</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
 
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">nummrg</span><span class="p">(</span><span class="s1">&#39;kp&#39;</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">nummrg</span><span class="p">(</span><span class="s2">&quot;kp&quot;</span><span class="p">)</span>
 
     <span class="c1"># mesh cylinder</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span><span class="p">)</span>
     <span class="c1"># mapdl.lesize(&#39;all&#39;, elemsize*2)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">mshape</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">mshkey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">esize</span><span class="p">(</span><span class="n">elemsize</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">vsweep</span><span class="p">(</span><span class="s1">&#39;ALL&#39;</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">vsweep</span><span class="p">(</span><span class="s2">&quot;ALL&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">local</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">aatt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
@@ -967,21 +989,21 @@ with torsional loading.</p>
 
     <span class="c1"># new solution</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">slashsolu</span><span class="p">()</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">antype</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">eqslv</span><span class="p">(</span><span class="s1">&#39;pcg&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">antype</span><span class="p">(</span><span class="s2">&quot;static&quot;</span><span class="p">,</span> <span class="s2">&quot;new&quot;</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">eqslv</span><span class="p">(</span><span class="s2">&quot;pcg&quot;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">)</span>
 
     <span class="c1"># Apply tangential pressure</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">sfe</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;pres&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">sfe</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;pres&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
 
     <span class="c1"># Constrain bottom of cylinder/rod</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">nsla</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">nsla</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">()</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">psf</span><span class="p">(</span><span class="s1">&#39;pres&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">pbc</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">psf</span><span class="p">(</span><span class="s2">&quot;pres&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">pbc</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
 
@@ -1006,7 +1028,7 @@ with torsional loading.</p>
 
 
 <span class="c1"># initialize MAPDL</span>
-<span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">override</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loglevel</span><span class="o">=</span><span class="s1">&#39;ERROR&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">(</span><span class="n">override</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">loglevel</span><span class="o">=</span><span class="s2">&quot;ERROR&quot;</span><span class="p">)</span>
 
 <span class="c1"># call MAPDL to solve repeatedly</span>
 <span class="n">result_summ</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1014,29 +1036,31 @@ with torsional loading.</p>
     <span class="c1"># run the batch and report the results</span>
     <span class="n">nnode</span><span class="p">,</span> <span class="n">maxstress</span> <span class="o">=</span> <span class="n">cylinder_batch</span><span class="p">(</span><span class="n">elemsize</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">result_summ</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">nnode</span><span class="p">,</span> <span class="n">maxstress</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Element size </span><span class="si">%f</span><span class="s1">: </span><span class="si">%6d</span><span class="s1"> nodes and maximum vom Mises stress </span><span class="si">%f</span><span class="s1">&#39;</span>
-          <span class="o">%</span> <span class="p">(</span><span class="n">elemsize</span><span class="p">,</span> <span class="n">nnode</span><span class="p">,</span> <span class="n">maxstress</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Element size </span><span class="si">%f</span><span class="s2">: </span><span class="si">%6d</span><span class="s2"> nodes and maximum vom Mises stress </span><span class="si">%f</span><span class="s2">&quot;</span>
+        <span class="o">%</span> <span class="p">(</span><span class="n">elemsize</span><span class="p">,</span> <span class="n">nnode</span><span class="p">,</span> <span class="n">maxstress</span><span class="p">)</span>
+    <span class="p">)</span>
 
 <span class="c1"># Exit MAPDL</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Here is the output from the script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Element</span> <span class="n">size</span> <span class="mf">0.600000</span><span class="p">:</span>   <span class="mi">9657</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.623505</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.567857</span><span class="p">:</span>  <span class="mi">10213</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.697800</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.535714</span><span class="p">:</span>  <span class="mi">10769</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.766510</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.503571</span><span class="p">:</span>  <span class="mi">14177</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.585388</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.471429</span><span class="p">:</span>  <span class="mi">18371</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.825684</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.439286</span><span class="p">:</span>  <span class="mi">19724</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.841202</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.407143</span><span class="p">:</span>  <span class="mi">21412</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.945984</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.375000</span><span class="p">:</span>  <span class="mi">33502</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">142.913437</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.342857</span><span class="p">:</span>  <span class="mi">37877</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">143.033401</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.310714</span><span class="p">:</span>  <span class="mi">59432</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">143.328842</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.278571</span><span class="p">:</span>  <span class="mi">69106</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">143.176086</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.246429</span><span class="p">:</span> <span class="mi">110547</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">143.499329</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.214286</span><span class="p">:</span> <span class="mi">142496</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">143.559128</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.182143</span><span class="p">:</span> <span class="mi">211966</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">143.953430</span>
-<span class="n">Element</span> <span class="n">size</span> <span class="mf">0.150000</span><span class="p">:</span> <span class="mi">412324</span> <span class="n">nodes</span> <span class="ow">and</span> <span class="n">maximum</span> <span class="n">vom</span> <span class="n">Mises</span> <span class="n">stress</span> <span class="mf">144.275406</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">Element size 0.600000:   9657 nodes and maximum vom Mises stress 142.623505</span>
+<span class="go">Element size 0.567857:  10213 nodes and maximum vom Mises stress 142.697800</span>
+<span class="go">Element size 0.535714:  10769 nodes and maximum vom Mises stress 142.766510</span>
+<span class="go">Element size 0.503571:  14177 nodes and maximum vom Mises stress 142.585388</span>
+<span class="go">Element size 0.471429:  18371 nodes and maximum vom Mises stress 142.825684</span>
+<span class="go">Element size 0.439286:  19724 nodes and maximum vom Mises stress 142.841202</span>
+<span class="go">Element size 0.407143:  21412 nodes and maximum vom Mises stress 142.945984</span>
+<span class="go">Element size 0.375000:  33502 nodes and maximum vom Mises stress 142.913437</span>
+<span class="go">Element size 0.342857:  37877 nodes and maximum vom Mises stress 143.033401</span>
+<span class="go">Element size 0.310714:  59432 nodes and maximum vom Mises stress 143.328842</span>
+<span class="go">Element size 0.278571:  69106 nodes and maximum vom Mises stress 143.176086</span>
+<span class="go">Element size 0.246429: 110547 nodes and maximum vom Mises stress 143.499329</span>
+<span class="go">Element size 0.214286: 142496 nodes and maximum vom Mises stress 143.559128</span>
+<span class="go">Element size 0.182143: 211966 nodes and maximum vom Mises stress 143.953430</span>
+<span class="go">Element size 0.150000: 412324 nodes and maximum vom Mises stress 144.275406</span>
 </pre></div>
 </div>
 </section>
@@ -1084,15 +1108,16 @@ This is far more efficient than individually sending parameters to
 MAPDL through Python with the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.run.html#ansys.mapdl.core.Mapdl.run" title="ansys.mapdl.core.Mapdl.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.run()</span></code></a> method because it uses the <code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.vread()</span></code> method behind the scenes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
 <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;MYARR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;MYARR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
 </pre></div>
 </div>
 <p>Verify that the data has been properly loaded to MAPDL by indexing the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.parameters.html#ansys.mapdl.core.Mapdl.parameters" title="ansys.mapdl.core.Mapdl.parameters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.Parameters</span></code></a> attribute as if it
 was a Python dictionary:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">array_from_mapdl</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;MYARR&#39;</span><span class="p">]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">array_from_mapdl</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;MYARR&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">array_from_mapdl</span>
 <span class="go">array([[0.65516567, 0.96977939, 0.3224993 ],</span>
 <span class="go">       [0.58634927, 0.84392263, 0.18152529],</span>
@@ -1110,10 +1135,10 @@ function. For example, the following code lists the remote files and downloads o
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">remote_files</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">list_files</span><span class="p">()</span>
 
 <span class="c1"># ensure the result file is one of the remote files</span>
-<span class="k">assert</span> <span class="s1">&#39;file.rst&#39;</span> <span class="ow">in</span> <span class="n">remote_files</span>
+<span class="k">assert</span> <span class="s2">&quot;file.rst&quot;</span> <span class="ow">in</span> <span class="n">remote_files</span>
 
 <span class="c1"># download the remote result file</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;file.rst&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;file.rst&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1124,10 +1149,10 @@ function. For example, the following code lists the remote files and downloads o
 or a list of file names in the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.mapdl_grpc.MapdlGrpc.download.html#ansys.mapdl.core.mapdl_grpc.MapdlGrpc.download" title="ansys.mapdl.core.mapdl_grpc.MapdlGrpc.download"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.download()</span></code></a>
 method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using a list of file names</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="s1">&#39;file0.log&#39;</span><span class="p">,</span> <span class="s1">&#39;file1.out&#39;</span><span class="p">])</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="s2">&quot;file0.log&quot;</span><span class="p">,</span> <span class="s2">&quot;file1.out&quot;</span><span class="p">])</span>
 
 <span class="c1"># Using glob pattern to match the list_files</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;file*&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;file*&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can also download all files in the MAPDL working directory
@@ -1137,7 +1162,9 @@ this function:</p>
 </pre></div>
 </div>
 <p>Or, filter by extensions as shown in this example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">download_project</span><span class="p">([</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;out&#39;</span><span class="p">],</span> <span class="n">target_dir</span><span class="o">=</span><span class="s1">&#39;myfiles&#39;</span><span class="p">)</span>  <span class="c1"># Download the files to &#39;myfiles&#39; directory</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">download_project</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="s2">&quot;out&quot;</span><span class="p">],</span> <span class="n">target_dir</span><span class="o">=</span><span class="s2">&quot;myfiles&quot;</span>
+<span class="p">)</span>  <span class="c1"># Download the files to &#39;myfiles&#39; directory</span>
 </pre></div>
 </div>
 </section>
@@ -1146,11 +1173,11 @@ this function:</p>
 <p>You can upload a local MAPDL file as the remote MAPDL instance with the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.mapdl_grpc.MapdlGrpc.upload.html#ansys.mapdl.core.mapdl_grpc.MapdlGrpc.upload" title="ansys.mapdl.core.mapdl_grpc.MapdlGrpc.upload"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.upload()</span></code></a> method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># upload a local file</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="s1">&#39;sample.db&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="s2">&quot;sample.db&quot;</span><span class="p">)</span>
 
 <span class="c1"># ensure the uploaded file is one of the remote files</span>
 <span class="n">remote_files</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">list_files</span><span class="p">()</span>
-<span class="k">assert</span> <span class="s1">&#39;sample.db&#39;</span> <span class="ow">in</span> <span class="n">remote_files</span>
+<span class="k">assert</span> <span class="s2">&quot;sample.db&quot;</span> <span class="ow">in</span> <span class="n">remote_files</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1182,9 +1209,9 @@ and <code class="docutils literal notranslate"><span class="pre">ERASE</span></c
 use them. For example, the <code class="docutils literal notranslate"><span class="pre">/BATCH</span></code> command can be run using the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.run.html#ansys.mapdl.core.Mapdl.run" title="ansys.mapdl.core.Mapdl.run"><code class="xref py py-func docutils literal notranslate"><span class="pre">mapdl.run(&quot;/BATCH&quot;)</span></code></a> method,
 which returns the following warning:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">***</span> <span class="n">WARNING</span> <span class="o">***</span>                         <span class="n">CP</span> <span class="o">=</span>       <span class="mf">0.519</span>   <span class="n">TIME</span><span class="o">=</span> <span class="mi">12</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">16</span>
-<span class="n">The</span> <span class="o">/</span><span class="n">BATCH</span> <span class="n">command</span> <span class="n">must</span> <span class="n">be</span> <span class="n">the</span> <span class="n">first</span> <span class="n">line</span> <span class="n">of</span> <span class="nb">input</span><span class="o">.</span>  <span class="n">The</span> <span class="o">/</span><span class="n">BATCH</span> <span class="n">command</span>
-<span class="ow">is</span> <span class="n">ignored</span><span class="o">.</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">*** WARNING ***                         CP =       0.519   TIME= 12:04:16</span>
+<span class="go">The /BATCH command must be the first line of input.  The /BATCH command</span>
+<span class="go">is ignored.</span>
 </pre></div>
 </div>
 <p><a class="reference internal" href="#table-1">Table-1</a> Comprehensive information on commands that are unavailable</p>

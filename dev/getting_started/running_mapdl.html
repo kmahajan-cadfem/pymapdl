@@ -456,7 +456,7 @@ example, there is a limit on the number of nodes and elements.</p>
 <h3>Launch MAPDL locally<a class="headerlink" href="#launch-mapdl-locally" title="Permalink to this heading">#</a></h3>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">launch_mapdl</span></code> method to have Python start MAPDL and
 automatically connect to it:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mapdl</span><span class="p">)</span>
 
@@ -472,28 +472,28 @@ But you need to have an ANSYS license server installed locally.</p>
 <span id="launch-grpc-madpl-session"></span><h3>Launch a gRPC MAPDL session<a class="headerlink" href="#launch-a-grpc-mapdl-session" title="Permalink to this heading">#</a></h3>
 <p>You can start MAPDL from the command line and then connect to it.</p>
 <p>To launch MAPDL on Windows (assuming a <code class="docutils literal notranslate"><span class="pre">C:/Program</span> <span class="pre">Files/ANSYS</span> <span class="pre">Inc/v211</span></code> installation), use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Program</span> <span class="n">Files</span><span class="o">/</span><span class="n">ANSYS</span> <span class="n">Inc</span><span class="o">/</span><span class="n">v211</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">winx64</span><span class="o">/</span><span class="n">ANSYS211</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">grpc</span>
+<div class="highlight-pwsh notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:/</span><span class="n">Program</span> <span class="n">Files</span><span class="p">/</span><span class="n">ANSYS</span> <span class="n">Inc</span><span class="p">/</span><span class="n">v211</span><span class="p">/</span><span class="n">ansys</span><span class="p">/</span><span class="n">bin</span><span class="p">/</span><span class="n">winx64</span><span class="p">/</span><span class="n">ANSYS211</span><span class="p">.</span><span class="n">exe</span> <span class="n">-grpc</span>
 </pre></div>
 </div>
 <p>To launch MAPDL on Linux (assuming a <code class="docutils literal notranslate"><span class="pre">/usr/ansys_inc</span></code> installation), use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v211</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ansys211</span> <span class="o">-</span><span class="n">grpc</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/ansys_inc/v211/ansys/bin/ansys211<span class="w"> </span>-grpc
 </pre></div>
 </div>
 <p>This starts up MAPDL in gRPC mode, and MAPDL should output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Start</span> <span class="n">GRPC</span> <span class="n">Server</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">Start GRPC Server</span>
 
-<span class="c1">##############################</span>
-<span class="c1">### START GRPC SERVER      ###</span>
-<span class="c1">##############################</span>
+<span class="go">##############################</span>
+<span class="go">### START GRPC SERVER      ###</span>
+<span class="go">##############################</span>
 
-<span class="n">Server</span> <span class="n">Executable</span>   <span class="p">:</span> <span class="n">MapdlGrpc</span> <span class="n">Server</span>
-<span class="n">Server</span> <span class="n">listening</span> <span class="n">on</span> <span class="p">:</span> <span class="mf">0.0.0.0</span><span class="p">:</span><span class="mi">50052</span>
+<span class="go">Server Executable   : MapdlGrpc Server</span>
+<span class="go">Server listening on : 0.0.0.0:50052</span>
 </pre></div>
 </div>
 <p>You can configure the port that MAPDL starts on with the <code class="docutils literal notranslate"><span class="pre">-port</span></code> argument.
 For example, you can start the server to listen for connections at
 port 50005 with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">ansys_inc</span><span class="o">/</span><span class="n">v211</span><span class="o">/</span><span class="n">ansys</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ansys211</span> <span class="o">-</span><span class="n">port</span> <span class="mi">50005</span> <span class="o">-</span><span class="n">grpc</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/ansys_inc/v211/ansys/bin/ansys211<span class="w"> </span>-port<span class="w"> </span><span class="m">50005</span><span class="w"> </span>-grpc
 </pre></div>
 </div>
 </section>
@@ -503,7 +503,7 @@ port 50005 with:</p>
 <p>A MAPDL gRPC server can be connected to from either the same host or an
 external host. For example, you can connect to a MAPDL service
 running <strong>locally</strong> with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">Mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">Mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">Mapdl</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -513,11 +513,11 @@ running <strong>locally</strong> with:</p>
 address of that instance, you can connect to it.
 For example, if on your local network at IP address <code class="docutils literal notranslate"><span class="pre">192.168.0.1</span></code> there is a
 computer running MAPDL on the port 50052, you can connect to it with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">Mapdl</span><span class="p">(</span><span class="s1">&#39;192.168.0.1&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">50052</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">Mapdl</span><span class="p">(</span><span class="s2">&quot;192.168.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">50052</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Alternatively you can use a hostname:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">Mapdl</span><span class="p">(</span><span class="s1">&#39;myremotemachine&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">50052</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">Mapdl</span><span class="p">(</span><span class="s2">&quot;myremotemachine&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">50052</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that you must have started MAPDL in gRPC mode on the computer with

@@ -473,10 +473,10 @@ ANSYS APDL script to a Python PyMAPDL script. You could also simply
 use the built-in <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.convert_script.html#ansys.mapdl.core.convert_script" title="ansys.mapdl.core.convert_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert_script()</span></code></a> function within
 <a class="reference external" href="https://mapdl.docs.pyansys.com/">ansys-mapdl-core</a> to convert an existing
 input file.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl</span> <span class="kn">import</span> <span class="n">core</span> <span class="k">as</span> <span class="n">pymapdl</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">inputfile</span> <span class="o">=</span> <span class="s1">&#39;ansys_inputfile.inp&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pyscript</span> <span class="o">=</span> <span class="s1">&#39;pyscript.py&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pymapdl</span><span class="o">.</span><span class="n">convert_script</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">pyscript</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">convert_script</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inputfile</span> <span class="o">=</span> <span class="s2">&quot;ansys_inputfile.inp&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyscript</span> <span class="o">=</span> <span class="s2">&quot;pyscript.py&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convert_script</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">pyscript</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="torsional-load-on-a-bar-using-surf154-elements">
@@ -486,18 +486,18 @@ SURF154 elements. This is a static analysis example.</p>
 <section id="script-initialization">
 <h3>Script initialization<a class="headerlink" href="#script-initialization" title="Permalink to this heading">#</a></h3>
 <p>Here is the beginning of the MAPDL script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!----------------------------------------
-! Input torque applied (moment)
-! Input radius, height, element size...
-!----------------------------------------
-TORQUE = 100
-RADIUS = 2
-H_TIP = 2
-HEIGHT = 20
-ELEMSIZE = 1
-PI = acos(-1)
-FORCE = 100/RADIUS
-PRESSURE = FORCE/(H_TIP*2*PI*RADIUS)
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="c">!----------------------------------------</span>
+<span class="c">! Input torque applied (moment)</span>
+<span class="c">! Input radius, height, element size...</span>
+<span class="c">!----------------------------------------</span>
+<span class="nv">TORQUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="nv">RADIUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="nv">H_TIP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="nv">HEIGHT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
+<span class="nv">ELEMSIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">acos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">FORCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="o">/</span><span class="nv">RADIUS</span>
+<span class="nv">PRESSURE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">FORCE</span><span class="o">/</span><span class="p">(</span><span class="nv">H_TIP</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nv">PI</span><span class="o">*</span><span class="nv">RADIUS</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Here is the corresponding PyMAPDL script, including the initialization of an
@@ -516,60 +516,60 @@ instance of the <a class="reference internal" href="../api/mapdl.html#ansys.mapd
 <span class="n">height</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">elemsize</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">pi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">force</span> <span class="o">=</span> <span class="mi">100</span><span class="o">/</span><span class="n">radius</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="n">force</span><span class="o">/</span><span class="p">(</span><span class="n">h_tip</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
+<span class="n">force</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">radius</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="n">force</span> <span class="o">/</span> <span class="p">(</span><span class="n">h_tip</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="model-creation">
 <h3>Model creation<a class="headerlink" href="#model-creation" title="Permalink to this heading">#</a></h3>
 <p>Here is an APDL script for creating the model:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!----------------------------------------
-! Define higher-order SOLID186
-! Define surface effect elements SURF154
-! which is used to apply torque
-! as a tangential pressure
-!----------------------------------------
-/prep7
-et, 1, 186
-et, 2, 154
-r,1,
-r,2,
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="c">!----------------------------------------</span>
+<span class="c">! Define higher-order SOLID186</span>
+<span class="c">! Define surface effect elements SURF154</span>
+<span class="c">! which is used to apply torque</span>
+<span class="c">! as a tangential pressure</span>
+<span class="c">!----------------------------------------</span>
+<span class="o">/</span><span class="nv">prep7</span>
+<span class="k">et</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">186</span>
+<span class="k">et</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">154</span>
+<span class="k">r</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
+<span class="k">r</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span>
 
-!----------------------------------------
-! Aluminum properties (or something)
-!----------------------------------------
-mp,ex,1,10e6
-mp,nuxy,1,.3
-mp,dens,1,.1/386.1
-mp,dens,2,0
+<span class="c">!----------------------------------------</span>
+<span class="c">! Aluminum properties (or something)</span>
+<span class="c">!----------------------------------------</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">ex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="mf">0e6</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">nuxy</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">.3</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">dens</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">.1</span><span class="o">/</span><span class="mi">38</span><span class="mf">6.1</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">dens</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span>
 
-!----------------------------------------
-! Simple cylinder
-!----------------------------------------
-*do, ICOUNT, 1, 4
-cylind,RADIUS,,HEIGHTH_TIP,HEIGHT,90*(ICOUNT-1),90*ICOUNT
-*enddo
+<span class="c">!----------------------------------------</span>
+<span class="c">! Simple cylinder</span>
+<span class="c">!----------------------------------------</span>
+<span class="o">*</span><span class="nv">do</span><span class="p">,</span><span class="w"> </span><span class="nv">ICOUNT</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="k">cylind</span><span class="p">,</span><span class="nv">RADIUS</span><span class="p">,,</span><span class="nv">HEIGHTH_TIP</span><span class="p">,</span><span class="nv">HEIGHT</span><span class="p">,</span><span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="nv">ICOUNT</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="mi">90</span><span class="o">*</span><span class="nv">ICOUNT</span>
+<span class="o">*</span><span class="nv">enddo</span>
 
-nummrg,kp
-lsel,s,loc,x,0
+<span class="k">nummrg</span><span class="p">,</span><span class="nv">kp</span>
+<span class="k">lsel</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="nv">loc</span><span class="p">,</span><span class="nv">x</span><span class="p">,</span><span class="mi">0</span>
 
-lsel,r,loc,y,0
-lsel,r,loc,z,0,HEIGHT-H_TIP
-lesize,all,ELEMSIZE*2
-mshape,0
-mshkey,1
-esize,ELEMSIZE
-allsel,all
-VSWEEP, ALL
-csys,1
-asel,s,loc,z,HEIGHT-H_TIP+0.0001,HEIGHT0.0001
-asel,r,loc,x,RADIUS
-local,11,1
-csys,0
-aatt,2,2,2,11
-amesh,all
-finish
+<span class="k">lsel</span><span class="p">,</span><span class="k">r</span><span class="p">,</span><span class="nv">loc</span><span class="p">,</span><span class="nv">y</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">lsel</span><span class="p">,</span><span class="k">r</span><span class="p">,</span><span class="nv">loc</span><span class="p">,</span><span class="nv">z</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nv">HEIGHT</span><span class="o">-</span><span class="nv">H_TIP</span>
+<span class="k">lesize</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">ELEMSIZE</span><span class="o">*</span><span class="mi">2</span>
+<span class="k">mshape</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">mshkey</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">esize</span><span class="p">,</span><span class="nv">ELEMSIZE</span>
+<span class="k">allsel</span><span class="p">,</span><span class="nv">all</span>
+<span class="k">VSWEEP</span><span class="p">,</span><span class="w"> </span><span class="nv">ALL</span>
+<span class="k">csys</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">asel</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="nv">loc</span><span class="p">,</span><span class="nv">z</span><span class="p">,</span><span class="nv">HEIGHT</span><span class="o">-</span><span class="nv">H_TIP</span><span class="o">+</span><span class="mf">0.0001</span><span class="p">,</span><span class="nv">HEIGHT0</span><span class="mf">.0001</span>
+<span class="k">asel</span><span class="p">,</span><span class="k">r</span><span class="p">,</span><span class="nv">loc</span><span class="p">,</span><span class="nv">x</span><span class="p">,</span><span class="nv">RADIUS</span>
+<span class="k">local</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">csys</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">aatt</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">11</span>
+<span class="k">amesh</span><span class="p">,</span><span class="nv">all</span>
+<span class="k">finish</span>
 </pre></div>
 </div>
 <p>Here is the corresponding PyMAPDL script:</p>
@@ -583,37 +583,37 @@ finish
 <span class="n">mapdl</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Aluminum properties (or something)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;ex&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">10e6</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;nuxy&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;dens&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">/</span><span class="mf">386.1</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;dens&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;ex&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">10e6</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;nuxy&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;dens&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">/</span> <span class="mf">386.1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;dens&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Simple cylinder</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">mapdl</span><span class="o">.</span><span class="n">cylind</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">90</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">mapdl</span><span class="o">.</span><span class="n">cylind</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">90</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">90</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
 
-<span class="n">mapdl</span><span class="o">.</span><span class="n">nummrg</span><span class="p">(</span><span class="s1">&#39;kp&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">nummrg</span><span class="p">(</span><span class="s2">&quot;kp&quot;</span><span class="p">)</span>
 
 <span class="c1"># interactive volume plot (optional)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">vplot</span><span class="p">()</span>
 
 <span class="c1"># mesh cylinder</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">lesize</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">elemsize</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lesize</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">elemsize</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">mshape</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">mshkey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">esize</span><span class="p">(</span><span class="n">elemsize</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">vsweep</span><span class="p">(</span><span class="s1">&#39;ALL&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">vsweep</span><span class="p">(</span><span class="s2">&quot;ALL&quot;</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">height</span> <span class="o">-</span> <span class="n">h_tip</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">local</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">aatt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
 
 <span class="c1"># plot elements</span>
@@ -624,54 +624,54 @@ finish
 <section id="solution">
 <h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <p>Here is the APDL script for the solution:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/solu
-antype,static,new
-eqslv,pcg,1e-8
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="k">solu</span>
+<span class="k">antype</span><span class="p">,</span><span class="nv">static</span><span class="p">,</span><span class="nv">new</span>
+<span class="k">eqslv</span><span class="p">,</span><span class="nv">pcg</span><span class="p">,</span><span class="mf">1e-8</span>
 
-!----------------------------------------
-! Apply tangential pressure
-!----------------------------------------
-esel,s,type,,2
-sfe,all,2,pres,,PRESSURE
+<span class="c">!----------------------------------------</span>
+<span class="c">! Apply tangential pressure</span>
+<span class="c">!----------------------------------------</span>
+<span class="k">esel</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="k">type</span><span class="p">,,</span><span class="mi">2</span>
+<span class="k">sfe</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nv">pres</span><span class="p">,,</span><span class="nv">PRESSURE</span>
 
-!----------------------------------------
-! Constrain bottom of cylinder/rod
-!----------------------------------------
-asel,s,loc,z,0
-nsla,s,1
-d,all,all
-allsel,all
-/psf,pres,,2
-/pbc,u,1
-/title, Simple torsional example
-solve
-finish
-/post1
-set,last
-fsum
-esel,u,type,,2
-SAVE
+<span class="c">!----------------------------------------</span>
+<span class="c">! Constrain bottom of cylinder/rod</span>
+<span class="c">!----------------------------------------</span>
+<span class="k">asel</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="nv">loc</span><span class="p">,</span><span class="nv">z</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">nsla</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">d</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">all</span>
+<span class="k">allsel</span><span class="p">,</span><span class="nv">all</span>
+<span class="o">/</span><span class="nv">psf</span><span class="p">,</span><span class="nv">pres</span><span class="p">,,</span><span class="mi">2</span>
+<span class="o">/</span><span class="nv">pbc</span><span class="p">,</span><span class="nv">u</span><span class="p">,</span><span class="mi">1</span>
+<span class="o">/</span><span class="nv">title</span><span class="p">,</span><span class="w"> </span><span class="nv">Simple</span><span class="w"> </span><span class="nv">torsional</span><span class="w"> </span><span class="nv">example</span>
+<span class="k">solve</span>
+<span class="k">finish</span>
+<span class="o">/</span><span class="nv">post1</span>
+<span class="k">set</span><span class="p">,</span><span class="nv">last</span>
+<span class="k">fsum</span>
+<span class="k">esel</span><span class="p">,</span><span class="nv">u</span><span class="p">,</span><span class="k">type</span><span class="p">,,</span><span class="mi">2</span>
+<span class="k">SAVE</span>
 </pre></div>
 </div>
 <p>Here is the corresponding PyMAPDL script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># new solution</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">slashsolu</span><span class="p">()</span>  <span class="c1"># Using Slash instead of / due to duplicate SOLU command</span>
 <span class="c1"># ansys(&#39;/solu&#39;)  # could also use this line</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">antype</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">eqslv</span><span class="p">(</span><span class="s1">&#39;pcg&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">antype</span><span class="p">(</span><span class="s2">&quot;static&quot;</span><span class="p">,</span> <span class="s2">&quot;new&quot;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">eqslv</span><span class="p">(</span><span class="s2">&quot;pcg&quot;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">)</span>
 
 <span class="c1"># Apply tangential pressure</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">sfe</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;pres&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">sfe</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;pres&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
 
 <span class="c1"># Constrain bottom of cylinder/rod</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">nsla</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">nsla</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">mapdl</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">d</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">()</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">psf</span><span class="p">(</span><span class="s1">&#39;pres&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">pbc</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">psf</span><span class="p">(</span><span class="s2">&quot;pres&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">pbc</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -690,18 +690,20 @@ SAVE
 <span class="n">nodenum</span><span class="p">,</span> <span class="n">stress</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># plot interactively</span>
-<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_solution</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sx&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">)</span>
-<span class="n">result</span><span class="o">.</span><span class="n">plot_principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;SEQV&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_solution</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Sx&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">plot_principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;SEQV&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">)</span>
 
 <span class="c1"># plot and save non-interactively</span>
 <span class="c1"># (cpos was output from ``cpos = result.plot()`` and setting up</span>
 <span class="c1"># the correct camera angle)</span>
-<span class="n">cpos</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">20.992831318277517</span><span class="p">,</span> <span class="mf">9.78629316586435</span><span class="p">,</span> <span class="mf">31.905115108541928</span><span class="p">),</span>
-        <span class="p">(</span><span class="mf">0.35955395443745797</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4198191001571547</span><span class="p">,</span> <span class="mf">10.346158032932495</span><span class="p">),</span>
-        <span class="p">(</span><span class="o">-</span><span class="mf">0.10547549888485548</span><span class="p">,</span> <span class="mf">0.9200673323892437</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.377294345312956</span><span class="p">)]</span>
+<span class="n">cpos</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">20.992831318277517</span><span class="p">,</span> <span class="mf">9.78629316586435</span><span class="p">,</span> <span class="mf">31.905115108541928</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">0.35955395443745797</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4198191001571547</span><span class="p">,</span> <span class="mf">10.346158032932495</span><span class="p">),</span>
+    <span class="p">(</span><span class="o">-</span><span class="mf">0.10547549888485548</span><span class="p">,</span> <span class="mf">0.9200673323892437</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.377294345312956</span><span class="p">),</span>
+<span class="p">]</span>
 
-<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_displacement</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="s1">&#39;cylinder_disp.png&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_displacement</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span> <span class="n">savefig</span><span class="o">=</span><span class="s2">&quot;cylinder_disp.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="id1">
@@ -710,8 +712,7 @@ SAVE
 <p><span class="caption-text">Non-interactive Screenshot of Displacement from PyMAPDL</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sx&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span>
-                         <span class="n">screenshot</span><span class="o">=</span><span class="s1">&#39;cylinder_sx.png&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Sx&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">=</span><span class="s2">&quot;cylinder_sx.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="id2">
@@ -720,8 +721,9 @@ SAVE
 <p><span class="caption-text">Non-interactive Screenshot of X Stress from PyMAPDL</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">plot_principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;SEQV&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span>
-                                   <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">=</span><span class="s1">&#39;cylinder_vonmises.png&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">plot_principal_nodal_stress</span><span class="p">(</span>
+    <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;SEQV&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bwr&quot;</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span> <span class="n">screenshot</span><span class="o">=</span><span class="s2">&quot;cylinder_vonmises.png&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="id3">
@@ -735,7 +737,7 @@ using the <code class="xref py py-attr docutils literal notranslate"><span class
 attribute:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">plot_nodal_displacement</span><span class="p">()</span>
-<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_component_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sx&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_component_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Sx&quot;</span><span class="p">)</span>
 <span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_eqv_stress</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -746,154 +748,154 @@ attribute:</p>
 <p>This MAPDL example demonstrates how to model spot welding on three
 thin sheets of metal. Here, the full input file is simply run using
 the PyMAPDL interface.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!----------------------------------------
-! Example problem for demonstrating
-! Spotweld technology
-!----------------------------------------
-!
-!----------------------------------------
-! Originated in 9.0 JJDoyle 2004/09/01
-!----------------------------------------
-/prep7
-/num,0
-/pnum,area,1
+<div class="highlight-apdl notranslate"><div class="highlight"><pre><span></span><span class="c">!----------------------------------------</span>
+<span class="c">! Example problem for demonstrating</span>
+<span class="c">! Spotweld technology</span>
+<span class="c">!----------------------------------------</span>
+<span class="c">!</span>
+<span class="c">!----------------------------------------</span>
+<span class="c">! Originated in 9.0 JJDoyle 2004/09/01</span>
+<span class="c">!----------------------------------------</span>
+<span class="o">/</span><span class="nv">prep7</span>
+<span class="o">/</span><span class="nv">num</span><span class="p">,</span><span class="mi">0</span>
+<span class="o">/</span><span class="nv">pnum</span><span class="p">,</span><span class="nv">area</span><span class="p">,</span><span class="mi">1</span>
 
-k,1,2,10,
-k,2,10,10
-k,3,10,0.15
-k,4,14,0.15
-!
-l,1,2
-l,2,3
-l,3,4
-lfillt,1,2,3
-lfillt,2,3,2
-!
-k,9,,
-k,10,11,
-k,11,15,
-l,9,10
-l,10,11
+<span class="k">k</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span>
+<span class="k">k</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span>
+<span class="k">k</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.15</span>
+<span class="k">k</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mf">0.15</span>
+<span class="c">!</span>
+<span class="k">l</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
+<span class="k">l</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+<span class="k">l</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span>
+<span class="k">lfillt</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+<span class="k">lfillt</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span>
+<span class="c">!</span>
+<span class="k">k</span><span class="p">,</span><span class="mi">9</span><span class="p">,,</span>
+<span class="k">k</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span>
+<span class="k">k</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span>
+<span class="k">l</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span>
+<span class="k">l</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span>
 
-k,12,,10
-lsel,s,,,6,7
-AROTAT,all,,,,,,9,12,12,1,
+<span class="k">k</span><span class="p">,</span><span class="mi">12</span><span class="p">,,</span><span class="mi">10</span>
+<span class="k">lsel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span>
+<span class="k">AROTAT</span><span class="p">,</span><span class="nv">all</span><span class="p">,,,,,,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
 
-lsel,s,,,1,5
-AROTAT,all,,,,,,9,12,12,1,
-areverse,1
-areverse,2
+<span class="k">lsel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span>
+<span class="k">AROTAT</span><span class="p">,</span><span class="nv">all</span><span class="p">,,,,,,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
+<span class="k">areverse</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">areverse</span><span class="p">,</span><span class="mi">2</span>
 
-asel,s,,,3,7
-ARSYM,Y,all, , , ,0,0
-allsel
+<span class="k">asel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span>
+<span class="k">ARSYM</span><span class="p">,</span><span class="nv">Y</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">allsel</span>
 
-!********
-!define weld location with hardpoint
-!********
-HPTCREATE,AREA,7,0,COORD,12.9,0.15,-1.36,
+<span class="c">!********</span>
+<span class="c">!define weld location with hardpoint</span>
+<span class="c">!********</span>
+<span class="k">HPTCREATE</span><span class="p">,</span><span class="nv">AREA</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nv">COORD</span><span class="p">,</span><span class="mi">1</span><span class="mf">2.9</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="o">-</span><span class="mf">1.36</span><span class="p">,</span>
 
-/view,1,1,1,1
-gplo
-!
-et,1,181
-r,1,0.15
-r,2,0.1
-!
-mp,ex,1,30e6
-mp,prxy,1,0.3
-!
-esize,0.25
-real,1
-amesh,1
-amesh,2
-real,2
-asel,s,,,3,12
-amesh,all
-!
-lsel,s,,,1,9
-lsel,a,,,12,17
-lsel,a,,,26,38,3
-lsel,a,,,24,36,3
-nsll,s,1
-wpstyle,0.05,0.1,-1,1,0.003,0,0,,5
-WPSTYLE,,,,,,,,1
-wpro,,-90.000000,
-CSWPLA,11,1,1,1,
-csys,11
-nrotat,all
-d,all,uy
-d,all,rotx
+<span class="o">/</span><span class="nv">view</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+<span class="nv">gplo</span>
+<span class="c">!</span>
+<span class="k">et</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">181</span>
+<span class="k">r</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.15</span>
+<span class="k">r</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.1</span>
+<span class="c">!</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">ex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="mf">0e6</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">prxy</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.3</span>
+<span class="c">!</span>
+<span class="k">esize</span><span class="p">,</span><span class="mf">0.25</span>
+<span class="k">real</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">amesh</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">amesh</span><span class="p">,</span><span class="mi">2</span>
+<span class="k">real</span><span class="p">,</span><span class="mi">2</span>
+<span class="k">asel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">3</span><span class="p">,</span><span class="mi">12</span>
+<span class="k">amesh</span><span class="p">,</span><span class="nv">all</span>
+<span class="c">!</span>
+<span class="k">lsel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span>
+<span class="k">lsel</span><span class="p">,</span><span class="k">a</span><span class="p">,,,</span><span class="mi">12</span><span class="p">,</span><span class="mi">17</span>
+<span class="k">lsel</span><span class="p">,</span><span class="k">a</span><span class="p">,,,</span><span class="mi">26</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">3</span>
+<span class="k">lsel</span><span class="p">,</span><span class="k">a</span><span class="p">,,,</span><span class="mi">24</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">3</span>
+<span class="k">nsll</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="mi">1</span>
+<span class="nv">wpstyle</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.003</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,,</span><span class="mi">5</span>
+<span class="nv">WPSTYLE</span><span class="p">,,,,,,,,</span><span class="mi">1</span>
+<span class="nv">wpro</span><span class="p">,,</span><span class="o">-</span><span class="mi">9</span><span class="mf">0.000000</span><span class="p">,</span>
+<span class="k">CSWPLA</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span>
+<span class="k">csys</span><span class="p">,</span><span class="mi">11</span>
+<span class="k">nrotat</span><span class="p">,</span><span class="nv">all</span>
+<span class="k">d</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">uy</span>
+<span class="k">d</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">rotx</span>
 
-csys,0
+<span class="k">csys</span><span class="p">,</span><span class="mi">0</span>
 
-lsel,s,,,23
-nsll,s,1
-d,all,uz
+<span class="k">lsel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">23</span>
+<span class="k">nsll</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">d</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">uz</span>
 
-lsel,s,,,17
-nsll,s,1
-d,all,uz,4
+<span class="k">lsel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">17</span>
+<span class="k">nsll</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">d</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">uz</span><span class="p">,</span><span class="mi">4</span>
 
-ALLSEL
-/view,1,1,1,1
-/eshape,1
-ksel,s,,,33
-nslk,s,1
-*get,sw_node,node,,num,max
+<span class="k">ALLSEL</span>
+<span class="o">/</span><span class="nv">view</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span>
+<span class="o">/</span><span class="nv">eshape</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">ksel</span><span class="p">,</span><span class="nv">s</span><span class="p">,,,</span><span class="mi">33</span>
+<span class="k">nslk</span><span class="p">,</span><span class="nv">s</span><span class="p">,</span><span class="mi">1</span>
+<span class="o">*</span><span class="nv">get</span><span class="p">,</span><span class="nv">sw_node</span><span class="p">,</span><span class="nv">node</span><span class="p">,,</span><span class="nv">num</span><span class="p">,</span><span class="nv">max</span>
 
-/solu
-allsel
-nlgeom,on
-time,4
-nsubst,10,25,5
-outres,all,all
-fini
+<span class="o">/</span><span class="k">solu</span>
+<span class="k">allsel</span>
+<span class="k">nlgeom</span><span class="p">,</span><span class="nv">on</span>
+<span class="k">time</span><span class="p">,</span><span class="mi">4</span>
+<span class="k">nsubst</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">5</span>
+<span class="k">outres</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">all</span>
+<span class="nv">fini</span>
 
-!------------------------------------
-!build flex spotweld with BEAM188, run the solution,
-!and post process results
-!------------------------------------
-fini
-allsel
-/prep7
-mp,ex,2,28e6
-mp,prxy,2,0.3
-!
-SECTYPE,2,beam,csolid
-SECDATA,0.25
-!
-et,2,188
-type,2
-mat,2
-secnum,2
+<span class="c">!------------------------------------</span>
+<span class="c">!build flex spotweld with BEAM188, run the solution,</span>
+<span class="c">!and post process results</span>
+<span class="c">!------------------------------------</span>
+<span class="nv">fini</span>
+<span class="k">allsel</span>
+<span class="o">/</span><span class="nv">prep7</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">ex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="mf">8e6</span>
+<span class="k">mp</span><span class="p">,</span><span class="nv">prxy</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.3</span>
+<span class="c">!</span>
+<span class="k">SECTYPE</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nv">beam</span><span class="p">,</span><span class="nv">csolid</span>
+<span class="k">SECDATA</span><span class="p">,</span><span class="mf">0.25</span>
+<span class="c">!</span>
+<span class="k">et</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">188</span>
+<span class="k">type</span><span class="p">,</span><span class="mi">2</span>
+<span class="k">mat</span><span class="p">,</span><span class="mi">2</span>
+<span class="k">secnum</span><span class="p">,</span><span class="mi">2</span>
 
-SWGEN,sweld1,0.50,7,2,sw_node,,
-SWADD,sweld1,,12
+<span class="k">SWGEN</span><span class="p">,</span><span class="nv">sweld1</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="nv">sw_node</span><span class="p">,,</span>
+<span class="k">SWADD</span><span class="p">,</span><span class="nv">sweld1</span><span class="p">,,</span><span class="mi">12</span>
 
-/solu
-allsel
-nlgeom,on
-time,4
-nsubst,10,25,5
-outres,all,all
-solve
-FINISH
+<span class="o">/</span><span class="k">solu</span>
+<span class="k">allsel</span>
+<span class="k">nlgeom</span><span class="p">,</span><span class="nv">on</span>
+<span class="k">time</span><span class="p">,</span><span class="mi">4</span>
+<span class="k">nsubst</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">5</span>
+<span class="k">outres</span><span class="p">,</span><span class="nv">all</span><span class="p">,</span><span class="nv">all</span>
+<span class="k">solve</span>
+<span class="k">FINISH</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s1">&#39;spot_weld.inp&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="s2">&quot;spot_weld.inp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Here is the Python script using
 <a class="reference external" href="https://reader.docs.pyansys.com/">ansys-mapdl-reader</a> package to access the results
 after running the MAPDL analysis.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl</span> <span class="kn">import</span> <span class="n">reader</span> <span class="k">as</span> <span class="n">pymapdl_reader</span>
-
-<span class="go">Open the result file and plot the displacement of time step 3</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">resultfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="s1">&#39;file.rst&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl</span> <span class="kn">import</span> <span class="n">reader</span> <span class="k">as</span> <span class="n">pymapdl_reader</span>
+</pre></div>
+</div>
+<p>Open the result file and plot the displacement of time step 3</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resultfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">directory</span><span class="p">,</span> <span class="s2">&quot;file.rst&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">pymapdl_reader</span><span class="o">.</span><span class="n">read_binary</span><span class="p">(</span><span class="n">resultfile</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_solution</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -906,13 +908,13 @@ after running the MAPDL analysis.</p>
 </figure>
 <p>Get the nodal and element component stress at time step 0. Plot the
 stress in the Z direction.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nodenum</span><span class="p">,</span> <span class="n">stress</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nodenum</span><span class="p">,</span> <span class="n">stress</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">element_stress</span><span class="p">,</span> <span class="n">elemnum</span><span class="p">,</span> <span class="n">enode</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">element_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="go">Plot the Z direction stress:</span>
 <span class="go">The stress at the contact element simulating the spot weld</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">plot_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Sz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="id5">
@@ -921,10 +923,9 @@ stress in the Z direction.</p>
 <p><span class="caption-text">Spot weld: Z stress</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Get</span> <span class="n">the</span> <span class="n">principal</span> <span class="n">nodal</span> <span class="n">stress</span> <span class="ow">and</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">von</span> <span class="n">Mises</span> <span class="n">stress</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">nnum</span><span class="p">,</span> <span class="n">pstress</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">result</span><span class="o">.</span><span class="n">plot_principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;SEQV&#39;</span><span class="p">)</span>
+<p>Get the principal nodal stress and plot the von Mises stress</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nnum</span><span class="p">,</span> <span class="n">pstress</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">plot_principal_nodal_stress</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;SEQV&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="id6">

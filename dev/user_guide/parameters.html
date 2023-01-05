@@ -466,22 +466,22 @@ function checkPageExistsAndRedirect(event) {
 <p>APDL parameters can be retrieved from and instance of <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a> using the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.parameters.html#ansys.mapdl.core.Mapdl.parameters" title="ansys.mapdl.core.Mapdl.parameters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.parameters</span></code></a>.  For example, if you want to use
 MAPDL’s <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.get.html#ansys.mapdl.core.Mapdl.get" title="ansys.mapdl.core.Mapdl.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.get()</span></code></a> method to
 populate a parameter, you can then access the parameter with code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEF_Y&#39;</span><span class="p">,</span> <span class="s1">&#39;NODE&#39;</span> <span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span> <span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;DEF_Y&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DEF_Y&quot;</span><span class="p">,</span> <span class="s2">&quot;NODE&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;DEF_Y&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>You can also set both scalar and array parameters from Python objects
 using <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.parameters.html#ansys.mapdl.core.Mapdl.parameters" title="ansys.mapdl.core.Mapdl.parameters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.parameters</span></code></a>
 with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;MY_ARRAY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;MY_ARRAY&#39;</span><span class="p">]</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;MY_ARRAY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;MY_ARRAY&quot;</span><span class="p">]</span>
 <span class="go">array([0.00000e+00, 1.00000e+00, 2.00000e+00, ..., 9.99997e+05,</span>
 <span class="go">       9.99998e+05, 9.99999e+05])</span>
 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;MY_STRING&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;helloworld&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;MY_STRING&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;MY_STRING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;helloworld&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;MY_STRING&quot;</span><span class="p">]</span>
 <span class="go">&quot;helloworld&quot;</span>
 </pre></div>
 </div>
@@ -489,7 +489,7 @@ with:</p>
 the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.get.html#ansys.mapdl.core.Mapdl.get" title="ansys.mapdl.core.Mapdl.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.get()</span></code></a> method. For example,
 instead of getting the current routine with <code class="docutils literal notranslate"><span class="pre">\*GET,</span> <span class="pre">ACTIVE,</span> <span class="pre">0,</span>
 <span class="pre">ROUT</span></code>, you can access it with this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">routine</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">routine</span>
 <span class="go">&#39;Begin level&#39;</span>
 </pre></div>
 </div>
@@ -506,7 +506,7 @@ you cannot set them directly.</p>
 <p>If you need to set one of these parameters, you can use the
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl._run</span></code>
 attribute to avoid PyMAPDL parameter name checks:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="s1">&#39;_parameter=123&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="s2">&quot;_parameter=123&quot;</span><span class="p">)</span>
 <span class="go">&#39;PARAMETER _PARAMETER =     123.00000000&#39;</span>
 </pre></div>
 </div>
@@ -515,7 +515,7 @@ attribute to avoid PyMAPDL parameter name checks:</p>
 However, you can change this by setting the
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.parameters.show_leading_underscore_parameters</span></code>
 to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">show_leading_underscore_parameters</span><span class="o">=</span><span class="kc">True</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">show_leading_underscore_parameters</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span>
 <span class="go">MAPDL Parameters</span>
 <span class="go">----------------</span>
@@ -534,11 +534,11 @@ they cannot be seen in the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.Mapdl.parameters.html#ansys.mapdl.core.Mapdl.parameters" title="ansys.mapdl.core.Mapdl.parameters"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.parameters</span></code></a> attribute unless
 the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Mapdl.parameters.show_trailing_underscore_parameters</span></code> attribute
 is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;param_&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;param_&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span>
 <span class="go">MAPDL Parameters</span>
 <span class="go">----------------</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">show_trailing_underscore_parameters</span><span class="o">=</span><span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">show_trailing_underscore_parameters</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span>
 <span class="go">MAPDL Parameters</span>
 <span class="go">----------------</span>
@@ -553,11 +553,11 @@ is set to <code class="docutils literal notranslate"><span class="pre">True</spa
 under any circumstances. Their use is not recommended.</p>
 <p>You can still retrieve these special parameters using any of the normal methods
 for retrieving parameters. However, you must know the parameter name:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;_param_&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;_param_&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span>
 <span class="go">MAPDL Parameters</span>
 <span class="go">----------------</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;_param_&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;_param_&quot;</span><span class="p">])</span>
 <span class="go">1.0</span>
 </pre></div>
 </div>

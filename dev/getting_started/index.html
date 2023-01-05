@@ -442,18 +442,18 @@ available to you.</p>
 Python 3.10 on Windows, Mac OS, and Linux.</p>
 <p>Install the latest release from
 <a class="reference external" href="https://pypi.org/project/ansys-mapdl-core/">PyPi</a> with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ansys</span><span class="o">-</span><span class="n">mapdl</span><span class="o">-</span><span class="n">core</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install ansys-mapdl-core</span>
 </pre></div>
 </div>
 <p>Alternatively, install the latest from
 <a class="reference external" href="https://github.com/pyansys/pymapdl/issues">PyMAPDL GitHub</a> via:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">pymapdl</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install git+https://github.com/pyansys/pymapdl.git</span>
 </pre></div>
 </div>
 <p>For a local <em>development</em> version, install with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">pymapdl</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">pymapdl</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/pyansys/pymapdl.git</span>
+<span class="go">cd pymapdl</span>
+<span class="go">pip install -e .</span>
 </pre></div>
 </div>
 <p>This allows you to install the <code class="docutils literal notranslate"><span class="pre">ansys-mapdl-core</span></code> module
@@ -470,8 +470,8 @@ machine architecture.</p>
 PyMAPDL from scratch on Windows and Linux for Python 3.7 and 3.9. You can install
 this on an isolated system with a fresh Python or on a virtual environment.</p>
 <p>For example, on Linux with Python 3.7, unzip it and install it with the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unzip</span> <span class="n">PyMAPDL</span><span class="o">-</span><span class="n">v0</span><span class="mf">.62</span><span class="o">.</span><span class="n">dev1</span><span class="o">-</span><span class="n">wheelhouse</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="mf">3.7</span><span class="o">.</span><span class="n">zip</span> <span class="n">wheelhouse</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">ansys</span><span class="o">-</span><span class="n">mapdl</span><span class="o">-</span><span class="n">core</span> <span class="o">-</span><span class="n">f</span> <span class="n">wheelhouse</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">index</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">installed</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">unzip PyMAPDL-v0.62.dev1-wheelhouse-Linux-3.7.zip wheelhouse</span>
+<span class="go">pip install ansys-mapdl-core -f wheelhouse --no-index --upgrade --ignore-installed</span>
 </pre></div>
 </div>
 <p>If you’re on Windows with Python 3.9, unzip to a <code class="docutils literal notranslate"><span class="pre">wheelhouse</span></code> directory and
@@ -494,7 +494,7 @@ on earlier Ansys versions.</p>
 <section id="verify-your-installation">
 <h3>Verify your installation<a class="headerlink" href="#verify-your-installation" title="Permalink to this heading">#</a></h3>
 <p>Check that you can start MAPDL from Python by running:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mapdl</span><span class="p">)</span>
 

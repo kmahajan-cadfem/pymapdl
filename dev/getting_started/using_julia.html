@@ -437,31 +437,31 @@ function checkPageExistsAndRedirect(event) {
 To install it, run Julia and switch to the package manager by pressing the <code class="docutils literal notranslate"><span class="pre">&quot;]&quot;</span></code> key.</p>
 <p>If you need to work with different package versions or applications, it is beneficial to create a virtual environment in Julia.
 To create a virtual environment, use the <code class="docutils literal notranslate"><span class="pre">activate</span></code> command with the name of the new environment that you want to create or activate.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(@1.7) pkg&gt; activate julia_test
-  Activating project at `C:/Users/USER/julia_test`
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="go">pkg&gt; activate julia_test</span>
+<span class="go">  Activating project at `C:/Users/USER/julia_test`</span>
 </pre></div>
 </div>
 <p>A message should appear, indicating that the new package (<code class="docutils literal notranslate"><span class="pre">julia_test</span></code>) has been activated. This environment name now precedes the command line.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">julia_test</span><span class="p">)</span><span class="w"> </span><span class="n">pkg</span><span class="o">&gt;</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="go">(julia_test) pkg&gt;</span>
 </pre></div>
 </div>
 <p>Next install the PyCall package by typing:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">julia_test</span><span class="p">)</span><span class="w"> </span><span class="n">pkg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">PyCall</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="go">(julia_test) pkg&gt; add PyCall</span>
 </pre></div>
 </div>
 <p>To use PyCall, press the backspace key to go to the Julia command line.
 The command line is then preceded by the name <code class="docutils literal notranslate"><span class="pre">Julia</span></code>.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span>
 </pre></div>
 </div>
 <p>Next use the PyCall package with:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">PyCall</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">PyCall</span>
 </pre></div>
 </div>
 <p>This should be enough to use packages included in a basic Python distribution.</p>
 <p>For example:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">math</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;math&quot;</span><span class="p">)</span>
-<span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="nb">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c"># returns ≈ 1/√2 = 0.70710678..</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span><span class="w"> </span><span class="n">math</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;math&quot;</span><span class="p">)</span>
+<span class="go">math.sin(math.pi/4) # returns ≈ 1/√2 = 0.70710678..</span>
 </pre></div>
 </div>
 </section>
@@ -471,13 +471,13 @@ The command line is then preceded by the name <code class="docutils literal notr
 This environment, currently based on Python 3.9.7, includes the standard basic Python libraries.
 However, because it is a fully working Python environment, you can still use it from outside the Julia command line and install Python packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <p>To install PyMAPDL, first locate the Python executable with:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PyCall</span><span class="o">.</span><span class="n">python</span>
-<span class="s">&quot;C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">USER</span><span class="se">\\</span><span class="s">.julia</span><span class="se">\\</span><span class="s">conda</span><span class="se">\\</span><span class="s">3</span><span class="se">\\</span><span class="s">python.exe&quot;</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span><span class="w"> </span><span class="n">PyCall</span><span class="o">.</span><span class="n">python</span>
+<span class="go">&quot;C:\\Users\\USER\\.julia\\conda\\3\\python.exe&quot;</span>
 </pre></div>
 </div>
 <p>In Linux, the preceding code prints the following, where <code class="docutils literal notranslate"><span class="pre">python3</span></code> is the default Python3 installation for the operating system.</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PyCall</span><span class="o">.</span><span class="n">python</span>
-<span class="s">&quot;python3&quot;</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span><span class="w"> </span><span class="n">PyCall</span><span class="o">.</span><span class="n">python</span>
+<span class="go">&quot;python3&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -496,20 +496,20 @@ For example, if you uncompress the source files in <code class="docutils literal
 </pre></div>
 </div>
 <p>Finally, after restarting Julia, you can import PyMAPDL using the same procedure as described earlier:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span> <span class="n">using</span> <span class="n">PyCall</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">pymapdl</span> <span class="o">=</span> <span class="n">pyimport</span><span class="p">(</span><span class="s2">&quot;ansys.mapdl.core&quot;</span><span class="p">)</span>
-<span class="n">PyObject</span> <span class="o">&lt;</span><span class="n">module</span> <span class="s1">&#39;ansys.mapdl.core&#39;</span> <span class="kn">from</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">USER</span><span class="se">\\</span><span class="s1">.julia</span><span class="se">\\</span><span class="s1">conda</span><span class="se">\\</span><span class="s1">3</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages</span><span class="se">\\</span><span class="s1">ansys</span><span class="se">\\</span><span class="s1">mapdl</span><span class="se">\\</span><span class="s1">core</span><span class="se">\\</span><span class="s1">__init__.py&#39;</span><span class="o">&gt;</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="n">mapdl</span> <span class="o">=</span> <span class="n">pymapdl</span><span class="o">.</span><span class="n">launch_mapdl</span><span class="p">()</span>
-<span class="n">julia</span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
-<span class="n">Product</span><span class="p">:</span>             <span class="n">Ansys</span> <span class="n">Mechanical</span> <span class="n">Enterprise</span>
-<span class="n">MAPDL</span> <span class="n">Version</span><span class="p">:</span>       <span class="mf">21.2</span>
-<span class="n">ansys</span><span class="o">.</span><span class="n">mapdl</span> <span class="n">Version</span><span class="p">:</span> <span class="mf">0.60.6</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="gp">julia&gt;</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">PyCall</span>
+<span class="gp">julia&gt;</span><span class="w"> </span><span class="n">pymapdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;ansys.mapdl.core&quot;</span><span class="p">)</span>
+<span class="go">PyObject &lt;module &#39;ansys.mapdl.core&#39; from &#39;C:\\Users\\USER\\.julia\\conda\\3\\lib\\site-packages\\ansys\\mapdl\\core\\__init__.py&#39;&gt;</span>
+<span class="gp">julia&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pymapdl</span><span class="o">.</span><span class="n">launch_mapdl</span><span class="p">()</span>
+<span class="gp">julia&gt;</span><span class="w"> </span><span class="n">print</span><span class="p">(</span><span class="n">mapdl</span><span class="o">.</span><span class="n">__str__</span><span class="p">())</span>
+<span class="go">Product:             Ansys Mechanical Enterprise</span>
+<span class="go">MAPDL Version:       21.2</span>
+<span class="go">ansys.mapdl Version: 0.60.6</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you experience errors when using PyCall, you can try to rebuild the package by pressing <code class="docutils literal notranslate"><span class="pre">&quot;]&quot;</span></code> to go to the package manager and typing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">build</span> <span class="n">PyCall</span>
+<div class="highlight-jlcon notranslate"><div class="highlight"><pre><span></span><span class="go">pkg&gt; build PyCall</span>
 </pre></div>
 </div>
 </div>
@@ -517,59 +517,59 @@ For example, if you uncompress the source files in <code class="docutils literal
 <section id="use-pymapdl-in-julia">
 <h2>Use PyMAPDL in Julia<a class="headerlink" href="#use-pymapdl-in-julia" title="Permalink to this heading">#</a></h2>
 <p>Here is a simple example of how you use PyMAPDL in Julia:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">PyCall</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pymapdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;ansys.mapdl.core&quot;</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pymapdl</span><span class="o">.</span><span class="n">launch_mapdl</span><span class="p">()</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;numpy&quot;</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># define cylinder and mesh parameters</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">torque</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">h_tip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">elemsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="nb">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="o">/</span><span class="n">radius</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pressure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">force</span><span class="o">/</span><span class="p">(</span><span class="n">h_tip</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="nb">pi</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># Define higher-order SOLID186</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># Define surface effect elements SURF154 to apply torque</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># as a tangential pressure</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">186</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">154</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># Aluminum properties (or something)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;ex&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10e6</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;nuxy&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;dens&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="o">/</span><span class="mf">386.1</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;dens&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># Simple cylinder</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
-<span class="w">            </span><span class="n">mapdl</span><span class="o">.</span><span class="n">cylind</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">90</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="k">end</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">nummrg</span><span class="p">(</span><span class="s">&quot;kp&quot;</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># interactive volume plot (optional)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">vplot</span><span class="p">()</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># mesh cylinder</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">h_tip</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">lesize</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">elemsize</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mshape</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">mshkey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">esize</span><span class="p">(</span><span class="n">elemsize</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">vsweep</span><span class="p">(</span><span class="s">&quot;ALL&quot;</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">h_tip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0001</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="k">local</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">aatt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="c"># plot elements</span>
-<span class="n">julia</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mapdl</span><span class="o">.</span><span class="n">eplot</span><span class="p">()</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">PyCall</span>
+<span class="n">pymapdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;ansys.mapdl.core&quot;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pymapdl</span><span class="o">.</span><span class="n">launch_mapdl</span><span class="p">()</span>
+<span class="n">np</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyimport</span><span class="p">(</span><span class="s">&quot;numpy&quot;</span><span class="p">)</span>
+<span class="c"># define cylinder and mesh parameters</span>
+<span class="n">torque</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
+<span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="n">h_tip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
+<span class="n">elemsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="nb">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="o">/</span><span class="n">radius</span>
+<span class="n">pressure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">force</span><span class="o">/</span><span class="p">(</span><span class="n">h_tip</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="nb">pi</span><span class="o">*</span><span class="n">radius</span><span class="p">)</span>
+<span class="c"># Define higher-order SOLID186</span>
+<span class="c"># Define surface effect elements SURF154 to apply torque</span>
+<span class="c"># as a tangential pressure</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">186</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">154</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">r</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Aluminum properties (or something)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;ex&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">10e6</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;nuxy&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;dens&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="o">/</span><span class="mf">386.1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s">&quot;dens&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="c"># Simple cylinder</span>
+<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
+<span class="w">    </span><span class="n">mapdl</span><span class="o">.</span><span class="n">cylind</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mi">90</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">nummrg</span><span class="p">(</span><span class="s">&quot;kp&quot;</span><span class="p">)</span>
+<span class="c"># interactive volume plot (optional)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">vplot</span><span class="p">()</span>
+<span class="c"># mesh cylinder</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lsel</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">h_tip</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">lesize</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">elemsize</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mshape</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mshkey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">esize</span><span class="p">(</span><span class="n">elemsize</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">allsel</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">vsweep</span><span class="p">(</span><span class="s">&quot;ALL&quot;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">h_tip</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.0001</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">asel</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;loc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="k">local</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">csys</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">aatt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">amesh</span><span class="p">(</span><span class="s">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+<span class="c"># plot elements</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">eplot</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">

@@ -422,7 +422,7 @@ same MapdlTheme when plotting as it's compatible with the grid plotter.
 This grid can be also saved to disk in the compact cross-platform VTK
 format and loaded again with ``pyvista`` or ParaView.
 
-..code::
+..code:: pycon
 
     >>> grid.save('my_mesh.vtk')
     >>> import pyvista
@@ -447,7 +447,7 @@ stop mapdl
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.842 seconds)
+   **Total running time of the script:** ( 0 minutes  9.404 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_00-mapdl-examples_geometry.py:

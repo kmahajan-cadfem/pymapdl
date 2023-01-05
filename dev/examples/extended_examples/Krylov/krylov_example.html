@@ -803,14 +803,14 @@ This code plots the frequency response function for a node along 0.2 in the X di
 </div>
 <p>Get the response of the system for the selected node
 over a range of frequencies, such as 0 to 1000 Hz.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_freq</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start_freq</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">end_freq</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">num_steps</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">step_val</span> <span class="o">=</span> <span class="p">(</span><span class="n">end_freq</span> <span class="o">-</span> <span class="n">start_freq</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_steps</span>
 <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">for</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">num_steps</span><span class="p">):</span>
-    <span class="n">pressure</span> <span class="o">=</span> <span class="n">get_pressure_at</span><span class="p">(</span><span class="n">node_number</span><span class="p">,</span> <span class="n">freq</span><span class="p">)[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">freq</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_steps</span><span class="p">):</span>
+    <span class="n">pressure</span> <span class="o">=</span> <span class="n">get_pressure_at</span><span class="p">(</span><span class="n">node_number</span><span class="p">,</span> <span class="n">freq</span><span class="p">)[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
     <span class="n">abs_pressure</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
 
     <span class="n">dic</span><span class="p">[</span><span class="n">start_freq</span><span class="p">]</span> <span class="o">=</span> <span class="n">abs_pressure</span>
@@ -818,17 +818,19 @@ over a range of frequencies, such as 0 to 1000 Hz.</p>
 </pre></div>
 </div>
 <p>Sort the results.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">frf_List</span> <span class="o">=</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frf_List</span> <span class="o">=</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 <span class="n">frf_List</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">frf_List</span><span class="p">)</span>
 <span class="n">frf_x</span><span class="p">,</span> <span class="n">frf_y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">frf_List</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Plot the frequency response function for the selected node.</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frf_x</span><span class="p">,</span> <span class="n">frf_y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frf_x</span><span class="p">,</span> <span class="n">frf_y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plot the natural frequency as vertical lines on the FRF graph</span>
-<span class="k">for</span> <span class="n">itr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">eigenvalues</span><span class="p">[</span><span class="n">itr</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">ymax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">itr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">eigenvalues</span><span class="p">[</span><span class="n">itr</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dotted&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
 
 <span class="c1"># Name the graph and the x-axis and y-axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Frequency Response Function&quot;</span><span class="p">)</span>

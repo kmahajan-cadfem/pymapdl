@@ -502,6 +502,7 @@ advanced plots using <a class="reference external" href="https://docs.pyvista.or
 <p>Closing and reopening Python clears the solution within Python. To clear all previous
 data such as the mesh, you can use this code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
 <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -524,7 +525,7 @@ However, PyMAPDL connects to an MAPDL instance running in batch mode, which by d
 uses the <code class="docutils literal notranslate"><span class="pre">Full</span> <span class="pre">Graphics</span></code> configuration. This difference in the graphics configuration can
 affect averaging as well.</p>
 <p>You can change the graphics configuration in PyMAPDL using this command:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">graphics</span><span class="p">(</span><span class="s1">&#39;POWER&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mapdl</span><span class="o">.</span><span class="n">graphics</span><span class="p">(</span><span class="s2">&quot;POWER&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Or, you can change the graphics configuration in the MAPDL GUI using the

@@ -527,9 +527,9 @@ this library:</p>
 <p><strong>My awesome library</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_report_colors</span><span class="p">(</span><span class="n">theme</span><span class="p">):</span>
 
-    <span class="k">if</span> <span class="n">theme</span> <span class="o">==</span> <span class="s1">&#39;weather&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">theme</span> <span class="o">==</span> <span class="s2">&quot;weather&quot;</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="s1">&#39;traffic&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">theme</span> <span class="o">==</span> <span class="s2">&quot;traffic&quot;</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
@@ -541,23 +541,25 @@ this library:</p>
 <p>You can opt to run the tests with this configuration:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_get_report_colors</span><span class="p">():</span>
 
-     <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s1">&#39;weather&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
-     <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s1">&#39;traffic&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
-     <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s2">&quot;weather&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s2">&quot;traffic&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Or, if a method is a bit more complex, you can split the case in different tests:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_get_report_colors_weather</span><span class="p">():</span>
 
-    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s1">&#39;weather&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s2">&quot;weather&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;lightblue&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">]</span>
+
 
 <span class="k">def</span> <span class="nf">test_get_report_colors_traffic</span><span class="p">():</span>
 
-    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s1">&#39;traffic&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s2">&quot;traffic&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">]</span>
+
 
 <span class="k">def</span> <span class="nf">test_get_report_colors_other</span><span class="p">():</span>
 
-    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">get_report_colors</span><span class="p">(</span><span class="s2">&quot;other&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>While the code coverage in either case is 100% for the function, the second case is
@@ -601,7 +603,7 @@ It will be executed upstream of each test and not within all tests.</p>
     <span class="n">mapdl</span><span class="o">.</span><span class="n">prep7</span><span class="p">()</span>
     <span class="c1"># .... more code</span>
 
-    <span class="k">return</span> <span class="kc">True</span> <span class="c1"># if everything goes ok until here</span>
+    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># if everything goes ok until here</span>
 </pre></div>
 </div>
 </section>
@@ -613,15 +615,18 @@ tests that you can find in the <a class="reference external" href="https://githu
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">ansys.mapdl.core.math</span> <span class="k">as</span> <span class="nn">apdl_math</span>
 
+
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">&quot;module&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">mm</span><span class="p">(</span><span class="n">mapdl</span><span class="p">):</span>  <span class="c1"># pass the &#39;mapdl&#39; fixture as an argument.</span>
 
     <span class="k">return</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">math</span>
 
+
 <span class="k">def</span> <span class="nf">test_rand</span><span class="p">(</span><span class="n">mm</span><span class="p">):</span>  <span class="c1"># pass the &#39;mm&#39; fixture as an argument.</span>
 
     <span class="n">w</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">w</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">10</span>  <span class="c1"># if it is False, AssertionError is raised</span>
+
 
 <span class="k">def</span> <span class="nf">test_matrix_addition</span><span class="p">(</span><span class="n">mm</span><span class="p">):</span>
 
@@ -629,7 +634,7 @@ tests that you can find in the <a class="reference external" href="https://githu
     <span class="n">m2</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
     <span class="n">m3</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span>
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m1</span><span class="o">.</span><span class="n">asarray</span><span class="p">()</span> <span class="o">+</span> <span class="n">m2</span><span class="o">.</span><span class="n">asarray</span><span class="p">(),</span> <span class="n">m3</span><span class="o">.</span><span class="n">asarray</span><span class="p">())</span>
-                        <span class="c1"># if it is False, AssertionError is raised</span>
+    <span class="c1"># if it is False, AssertionError is raised</span>
 </pre></div>
 </div>
 <p>For further explanations, see the <a class="reference external" href="https://docs.pytest.org/en/7.2.x/">pytest documentation</a>.</p>

@@ -510,6 +510,7 @@ in MAPDL.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+
 <span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
 
 <span class="c1"># setup the full file</span>
@@ -517,25 +518,25 @@ in MAPDL.</p>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">et</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">186</span><span class="p">)</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">esize</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">vmesh</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">vmesh</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
 
 <span class="c1"># Define a material (nominal steel in SI)</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;EX&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">210E9</span><span class="p">)</span>  <span class="c1"># Elastic moduli in Pa (kg/(m*s**2))</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;DENS&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7800</span><span class="p">)</span>  <span class="c1"># Density in kg/m3</span>
-<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s1">&#39;NUXY&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># Poisson&#39;s Ratio</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;EX&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">210e9</span><span class="p">)</span>  <span class="c1"># Elastic moduli in Pa (kg/(m*s**2))</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;DENS&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7800</span><span class="p">)</span>  <span class="c1"># Density in kg/m3</span>
+<span class="n">mapdl</span><span class="o">.</span><span class="n">mp</span><span class="p">(</span><span class="s2">&quot;NUXY&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># Poisson&#39;s Ratio</span>
 
 <span class="c1"># solve first 10 non-trivial modes</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">modal_analysis</span><span class="p">(</span><span class="n">nmode</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">freqb</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># store the first 10 natural frequencies</span>
 <span class="n">mapdl</span><span class="o">.</span><span class="n">post1</span><span class="p">()</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;LIST&#39;</span><span class="p">)</span>
-<span class="n">w_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s\d*\.\d\s&#39;</span><span class="p">,</span> <span class="n">resp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;LIST&quot;</span><span class="p">)</span>
+<span class="n">w_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s\d*\.\d\s&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">w_n</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You now have solved for the first 10 modes of the cube:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">1475.1</span> <span class="mf">1475.1</span> <span class="mf">2018.8</span> <span class="mf">2018.8</span> <span class="mf">2018.8</span> <span class="mf">2024.8</span> <span class="mf">2024.8</span> <span class="mf">2024.8</span> <span class="mf">2242.2</span> <span class="mf">2274.8</span><span class="p">]</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">[1475.1 1475.1 2018.8 2018.8 2018.8 2024.8 2024.8 2024.8 2242.2 2274.8]</span>
 </pre></div>
 </div>
 <p>Next, load the mass and stiffness matrices that are stored by default
@@ -555,13 +556,13 @@ in the <code class="docutils literal notranslate"><span class="pre">&lt;jobname&
 </div>
 <p>After running the <a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.clear.html#ansys.mapdl.core.Mapdl.clear" title="ansys.mapdl.core.Mapdl.clear"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.clear()</span></code></a> method,
 these matrices are stored solely within Python.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>      <span class="mf">37019230769.223404</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>      <span class="mf">10283119658.117708</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>      <span class="mf">10283119658.117706</span>
-<span class="p">:</span>   <span class="p">:</span>
-<span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">241</span><span class="p">)</span>  <span class="mf">11217948717.943113</span>
-<span class="p">(</span><span class="mi">241</span><span class="p">,</span> <span class="mi">241</span><span class="p">)</span>  <span class="mf">50854700854.68495</span>
-<span class="p">(</span><span class="mi">242</span><span class="p">,</span> <span class="mi">242</span><span class="p">)</span>  <span class="mf">95726495726.47179</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">(0, 0)      37019230769.223404</span>
+<span class="go">(0, 1)      10283119658.117708</span>
+<span class="go">(0, 2)      10283119658.117706</span>
+<span class="go">:   :</span>
+<span class="go">(240, 241)  11217948717.943113</span>
+<span class="go">(241, 241)  50854700854.68495</span>
+<span class="go">(242, 242)  95726495726.47179</span>
 </pre></div>
 </div>
 <p>The final step is to send these matrices back to MAPDL to be solved.
@@ -581,16 +582,16 @@ transferred the matrices to a different MAPDL session to be solved:</p>
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.math.MapdlMath.eigs.html#ansys.mapdl.core.math.MapdlMath.eigs" title="ansys.mapdl.core.math.MapdlMath.eigs"><code class="xref py py-func docutils literal notranslate"><span class="pre">MapdlMath.eigs()</span></code></a> method is
 identical to the result from the <a class="reference internal" href="../mapdl_commands/solution/_autosummary/ansys.mapdl.core.Mapdl.solve.html#ansys.mapdl.core.Mapdl.solve" title="ansys.mapdl.core.Mapdl.solve"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.solve()</span></code></a>
 method within MAPDL.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">1475.1333421</span>  <span class="mf">1475.1333426</span>  <span class="mf">2018.83737064</span> <span class="mf">2018.83737109</span> <span class="mf">2018.83737237</span>
- <span class="mf">2024.78684466</span> <span class="mf">2024.78684561</span> <span class="mf">2024.7868466</span>  <span class="mf">2242.21532585</span> <span class="mf">2274.82997741</span><span class="p">]</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">[1475.1333421  1475.1333426  2018.83737064 2018.83737109 2018.83737237</span>
+<span class="go"> 2024.78684466 2024.78684561 2024.7868466  2242.21532585 2274.82997741]</span>
 </pre></div>
 </div>
 <p>If you want to obtain the eigenvectors as well as the eigenvalues,
 initialize a matrix <code class="docutils literal notranslate"><span class="pre">eigvec</span></code> and send that to the
 <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.math.MapdlMath.eigs.html#ansys.mapdl.core.math.MapdlMath.eigs" title="ansys.mapdl.core.math.MapdlMath.eigs"><code class="xref py py-func docutils literal notranslate"><span class="pre">MapdlMath.eigs()</span></code></a> method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmode</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">eigvec</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">my_stiff</span><span class="o">.</span><span class="n">nrow</span><span class="p">,</span> <span class="n">nmode</span><span class="p">)</span>  <span class="c1"># for eigenvectors</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">eigs</span><span class="p">(</span><span class="n">nmode</span><span class="p">,</span> <span class="n">my_stiff</span><span class="p">,</span> <span class="n">my_mass</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nmode</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eigvec</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">my_stiff</span><span class="o">.</span><span class="n">nrow</span><span class="p">,</span> <span class="n">nmode</span><span class="p">)</span>  <span class="c1"># for eigenvectors</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">val</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">eigs</span><span class="p">(</span><span class="n">nmode</span><span class="p">,</span> <span class="n">my_stiff</span><span class="p">,</span> <span class="n">my_mass</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The MAPDL Math matrix <code class="docutils literal notranslate"><span class="pre">eigvec</span></code> now contains the eigenvectors for the

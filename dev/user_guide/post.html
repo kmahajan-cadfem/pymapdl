@@ -558,18 +558,18 @@ These commands are listed in <a class="reference internal" href="#table-1">Table
 </tbody>
 </table>
 <p>Here’s a simple example that demonstrates usage:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">launch_mapdl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ansys.mapdl.core</span> <span class="kn">import</span> <span class="n">examples</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">vmfiles</span><span class="p">[</span><span class="s1">&#39;vm10&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">vmfiles</span><span class="p">[</span><span class="s2">&quot;vm10&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">slashsolu</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">post1</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">prnsol</span><span class="p">(</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cmd</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">prnsol</span><span class="p">(</span><span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span>
 
 <span class="go"># Output as a list.</span>
 
@@ -595,41 +595,41 @@ These commands are listed in <a class="reference internal" href="#table-1">Table
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
 <p>You would typically request nodal results from MAPDL using the
 <code class="docutils literal notranslate"><span class="pre">PRNSOL</span></code> command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST1</span><span class="p">:</span>
-<span class="n">PRNSOL</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">X</span>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">POST1:</span>
+<span class="go">PRNSOL, U, X</span>
 
-<span class="n">PRINT</span> <span class="n">U</span>    <span class="n">NODAL</span> <span class="n">SOLUTION</span> <span class="n">PER</span> <span class="n">NODE</span>
+<span class="go">PRINT U    NODAL SOLUTION PER NODE</span>
 
- <span class="o">*****</span> <span class="n">POST1</span> <span class="n">NODAL</span> <span class="n">DEGREE</span> <span class="n">OF</span> <span class="n">FREEDOM</span> <span class="n">LISTING</span> <span class="o">*****</span>
+<span class="go"> ***** POST1 NODAL DEGREE OF FREEDOM LISTING *****</span>
 
- <span class="n">LOAD</span> <span class="n">STEP</span><span class="o">=</span>     <span class="mi">1</span>  <span class="n">SUBSTEP</span><span class="o">=</span>     <span class="mi">1</span>
-  <span class="n">TIME</span><span class="o">=</span>    <span class="mf">1.0000</span>      <span class="n">LOAD</span> <span class="n">CASE</span><span class="o">=</span>   <span class="mi">0</span>
+<span class="go"> LOAD STEP=     1  SUBSTEP=     1</span>
+<span class="go">  TIME=    1.0000      LOAD CASE=   0</span>
 
- <span class="n">THE</span> <span class="n">FOLLOWING</span> <span class="n">DEGREE</span> <span class="n">OF</span> <span class="n">FREEDOM</span> <span class="n">RESULTS</span> <span class="n">ARE</span> <span class="n">IN</span> <span class="n">THE</span> <span class="n">GLOBAL</span> <span class="n">COORDINATE</span> <span class="n">SYSTEM</span>
+<span class="go"> THE FOLLOWING DEGREE OF FREEDOM RESULTS ARE IN THE GLOBAL COORDINATE SYSTEM</span>
 
-   <span class="n">NODE</span>       <span class="n">UX</span>
-      <span class="mi">1</span>  <span class="mf">0.10751E-003</span>
-      <span class="mi">2</span>  <span class="mf">0.85914E-004</span>
-      <span class="mi">3</span>  <span class="mf">0.57069E-004</span>
-      <span class="mi">4</span>  <span class="mf">0.13913E-003</span>
-      <span class="mi">5</span>  <span class="mf">0.35621E-004</span>
-      <span class="mi">6</span>  <span class="mf">0.52186E-004</span>
-      <span class="mi">7</span>  <span class="mf">0.30417E-004</span>
-      <span class="mi">8</span>  <span class="mf">0.36139E-004</span>
-      <span class="mi">9</span>  <span class="mf">0.15001E-003</span>
-<span class="n">MORE</span> <span class="p">(</span><span class="n">YES</span><span class="p">,</span><span class="n">NO</span> <span class="n">OR</span> <span class="n">CONTINUOUS</span><span class="p">)</span><span class="o">=</span>
+<span class="go">   NODE       UX</span>
+<span class="go">      1  0.10751E-003</span>
+<span class="go">      2  0.85914E-004</span>
+<span class="go">      3  0.57069E-004</span>
+<span class="go">      4  0.13913E-003</span>
+<span class="go">      5  0.35621E-004</span>
+<span class="go">      6  0.52186E-004</span>
+<span class="go">      7  0.30417E-004</span>
+<span class="go">      8  0.36139E-004</span>
+<span class="go">      9  0.15001E-003</span>
+<span class="go">MORE (YES,NO OR CONTINUOUS)=</span>
 </pre></div>
 </div>
 <p>However, using an instance of the <a class="reference internal" href="../api/mapdl.html#ansys.mapdl.core.mapdl._MapdlCore" title="ansys.mapdl.core.mapdl._MapdlCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mapdl</span></code></a>
 class, you can instead request the nodal displacement:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">disp_x</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">nodal_displacement</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">disp_x</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">nodal_displacement</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
 <span class="go">array([1.07512979e-04, 8.59137773e-05, 5.70690047e-05, ...,</span>
 <span class="go">       5.70333124e-05, 8.58600402e-05, 1.07445726e-04])</span>
 </pre></div>
 </div>
 <p>You could also plot the nodal displacement with this code:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">plot_nodal_displacement</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">plot_nodal_displacement</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="id1">
@@ -650,12 +650,12 @@ class, you can instead request the nodal displacement:</p>
 <li><p><a class="reference internal" href="../mapdl_commands/database/_autosummary/ansys.mapdl.core.Mapdl.vsel.html#ansys.mapdl.core.Mapdl.vsel" title="ansys.mapdl.core.Mapdl.vsel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Mapdl.vsel()</span></code></a></p></li>
 </ul>
 <p>These methods returns the ids of the selected entities. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">selected_nodes</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;NODE&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">selected_nodes</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;NODE&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">selected_nodes</span><span class="p">)</span>
 <span class="go">array([   1    2    3 ... 1998 1999 2000])</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ksel</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">ksel</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
 <span class="go">array([1, 2, 3, ..., 1998, 1999, 2000])</span>
 </pre></div>
 </div>
@@ -669,8 +669,8 @@ and want to also limit the result of a certain output
 (<a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.nodal_displacement.html#ansys.mapdl.core.post.PostProcessing.nodal_displacement" title="ansys.mapdl.core.post.PostProcessing.nodal_displacement"><code class="xref py py-func docutils literal notranslate"><span class="pre">nodal_displacement()</span></code></a>),
 use the <a class="reference internal" href="../api/_autosummary/ansys.mapdl.core.post.PostProcessing.selected_nodes.html#ansys.mapdl.core.post.PostProcessing.selected_nodes" title="ansys.mapdl.core.post.PostProcessing.selected_nodes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">selected_nodes</span></code></a> attribute to get
 a mask of the currently selected nodes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;NODE&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;ELEM&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">nsel</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;NODE&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">esel</span><span class="p">(</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;ELEM&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mask</span> <span class="o">=</span> <span class="n">mapdl</span><span class="o">.</span><span class="n">post_processing</span><span class="o">.</span><span class="n">selected_nodes</span>
 </pre></div>
 </div>
