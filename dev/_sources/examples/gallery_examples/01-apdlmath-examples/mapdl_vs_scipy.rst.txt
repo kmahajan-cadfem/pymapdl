@@ -263,7 +263,7 @@ Solve the eigenproblem using PyMapdl with APDLMath.
  .. code-block:: none
 
 
-    Elapsed time to solve this problem :  0.6200807094573975
+    Elapsed time to solve this problem :  0.8583245277404785
 
 
 
@@ -307,16 +307,16 @@ Accuracy : :math:`\frac{||(K-\lambda.M).\phi||_2}{||K.\phi||_2}`
 
  .. code-block:: none
 
-    [0] : Freq =   352.39 Hz         Residual = 1.7923e-08
-    [1] : Freq =   385.16 Hz         Residual = 5.5633e-09
-    [2] : Freq =   656.78 Hz         Residual = 1.0513e-08
-    [3] : Freq =   764.72 Hz         Residual = 6.3881e-09
-    [4] : Freq =   825.33 Hz         Residual = 7.6773e-09
-    [5] : Freq =  1039.21 Hz         Residual = 7.1577e-09
-    [6] : Freq =  1143.66 Hz         Residual = 1.4146e-08
-    [7] : Freq =  1258.00 Hz         Residual = 5.0859e-08
-    [8] : Freq =  1334.23 Hz         Residual = 5.3598e-08
-    [9] : Freq =  1352.06 Hz         Residual = 3.8644e-08
+    [0] : Freq =   352.39 Hz         Residual = 3.4723e-08
+    [1] : Freq =   385.16 Hz         Residual = 8.1511e-09
+    [2] : Freq =   656.78 Hz         Residual = 1.303e-08
+    [3] : Freq =   764.72 Hz         Residual = 1.3847e-08
+    [4] : Freq =   825.33 Hz         Residual = 1.1408e-08
+    [5] : Freq =  1039.21 Hz         Residual = 4.2396e-09
+    [6] : Freq =  1143.66 Hz         Residual = 1.1628e-08
+    [7] : Freq =  1258.00 Hz         Residual = 5.3364e-08
+    [8] : Freq =  1334.23 Hz         Residual = 5.1172e-08
+    [9] : Freq =  1352.06 Hz         Residual = 3.7675e-08
 
 
 
@@ -440,7 +440,7 @@ Solve the eigenproblem
  .. code-block:: none
 
 
-    Elapsed time to solve this problem :  3.5615575313568115
+    Elapsed time to solve this problem :  4.497646808624268
 
 
 
@@ -510,7 +510,7 @@ Compute the residual error for SciPy.
     [5] : Freq =  1039.21 Hz         Residual = 0.00057628
     [6] : Freq =  1143.66 Hz         Residual = 0.0025916
     [7] : Freq =  1258.00 Hz         Residual = 0.00033872
-    [8] : Freq =  1334.22 Hz         Residual = 0.00046633
+    [8] : Freq =  1334.23 Hz         Residual = 0.00046633
     [9] : Freq =  1352.06 Hz         Residual = 0.0011262
 
 
@@ -569,7 +569,7 @@ MAPDL is faster than SciPy.
 
  .. code-block:: none
 
-    Mapdl is 5.74 times faster
+    Mapdl is 5.24 times faster
 
 
 
@@ -593,7 +593,7 @@ stop mapdl
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.075 seconds)
+   **Total running time of the script:** ( 0 minutes  8.495 seconds)
 
 
 .. _sphx_glr_download_examples_gallery_examples_01-apdlmath-examples_mapdl_vs_scipy.py:
